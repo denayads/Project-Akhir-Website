@@ -1,0 +1,26 @@
+1. Identifikasi Use Case
+-Beranda
+Menampilkan game populer, promosi, dan penawaran khusus.
+Memungkinkan pengguna mencari game berdasarkan judul, genre, atau platform.
+
+-Halaman Game
+Menyediakan detail lengkap tentang setiap game, termasuk deskripsi, ulasan, harga, dan spesifikasi sistem.
+Menampilkan video trailer dan tangkapan layar game.
+
+-Genre
+Memungkinkan pengguna menelusuri game berdasarkan genre seperti aksi, petualangan, RPG, simulasi, dll.
+
+-Platform
+Menyediakan opsi untuk memilih game berdasarkan platform seperti PC, PlayStation, Xbox, Nintendo, dll.
+
+-Keranjang Belanja
+Memungkinkan pengguna menambahkan game ke keranjang belanja dan melanjutkan ke pembayaran.
+
+-Checkout
+Menyediakan proses checkout yang mudah dan aman untuk pembelian game.
+
+-Akun Pengguna
+Memungkinkan pengguna mendaftar, login, melihat riwayat pembelian, dan mengelola profil mereka.
+
+-Hubungi Kami
+Menyediakan formulir kontak untuk pertanyaan dan dukungan pelanggan.
