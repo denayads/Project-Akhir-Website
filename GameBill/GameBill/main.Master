@@ -60,20 +60,20 @@
             <div class="container topbar bg-primary d-none d-lg-block">
                 <div class="d-flex justify-content-between">
                     <div class="top-info ps-2">
-                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i><a href="#" class="text-white">123 Street, New York</a></small>
-                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a></small>
+                        <small class="me-3"><a href="#" class="text-white">Welcome to GameBill, The Game Store For You</a></small>
                     </div>
                     <div class="top-link pe-2">
-                        <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                        <a class="btn btn-outline-secondary me-2 btn-sm-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-sm-square rounded-circle" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-sm-square rounded-circle" href=""><i class="fab fa-tiktok"></i></a>
+                        <a class="btn btn-outline-secondary btn-sm-square rounded-circle" href=""><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
             <div class="container px-0">
                 <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand">
-                        <h1 class="text-primary display-6">Fruitables</h1>
+                    <a href="<%=ResolveUrl("~/pages/main/index.aspx")%>" class="navbar-brand">
+                        <h1 class="text-primary display-6">GameBill</h1>
                     </a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-primary"></span>
@@ -83,15 +83,6 @@
                             <a href="index.html" class="nav-item nav-link active">Home</a>
                             <a href="shop.html" class="nav-item nav-link">Shop</a>
                             <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                    <a href="cart.html" class="dropdown-item">Cart</a>
-                                    <a href="chackout.html" class="dropdown-item">Chackout</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="404.html" class="dropdown-item">404 Page</a>
-                                </div>
-                            </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="d-flex m-3 me-0">
@@ -192,8 +183,8 @@
                     <div class="row g-4">
                         <div class="col-lg-3">
                             <a href="#">
-                                <h1 class="text-primary mb-0">Fruitables</h1>
-                                <p class="text-secondary mb-0">Fresh products</p>
+                                <h1 class="text-primary mb-0">GameBill</h1>
+                                <p class="text-secondary mb-0">The Game Store For You</p>
                             </a>
                         </div>
                         <div class="col-lg-6">
@@ -204,26 +195,16 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="d-flex justify-content-end pt-3">
-                                <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
-                                <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-outline-secondary me-2 btn-sm-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
+                                <a class="btn btn-outline-secondary me-2 btn-sm-square rounded-circle" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-outline-secondary me-2 btn-sm-square rounded-circle" href=""><i class="fab fa-tiktok"></i></a>
+                                <a class="btn btn-outline-secondary btn-sm-square rounded-circle" href=""><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-light mb-3">Why People Like us!</h4>
-                            <p class="mb-4">
-                                typesetting, remaining essentially unchanged. It was 
-                                popularised in the 1960s with the like Aldus PageMaker including of Lorem Ipsum.
-                            </p>
-                            <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="d-flex flex-column text-start footer-item">
                             <h4 class="text-light mb-3">Shop Info</h4>
                             <a class="btn-link" href="">About Us</a>
@@ -234,18 +215,7 @@
                             <a class="btn-link" href="">FAQs & Help</a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Account</h4>
-                            <a class="btn-link" href="">My Account</a>
-                            <a class="btn-link" href="">Shop details</a>
-                            <a class="btn-link" href="">Shopping Cart</a>
-                            <a class="btn-link" href="">Wishlist</a>
-                            <a class="btn-link" href="">Order History</a>
-                            <a class="btn-link" href="">International Orders</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="footer-item">
                             <h4 class="text-light mb-3">Contact</h4>
                             <p>Address: 1429 Netus Rd, NY 48247</p>
