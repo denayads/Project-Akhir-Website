@@ -90,16 +90,25 @@
     <Content Include="assets\lib\owlcarousel\owl.carousel.js" />
     <Content Include="assets\lib\owlcarousel\owl.carousel.min.js" />
     <Content Include="assets\lib\waypoints\waypoints.min.js" />
+    <Content Include="pages\auth\login.aspx" />
     <Content Include="pages\main\index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="helper\Encryptor.cs" />
     <Compile Include="main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="main.Master.designer.cs">
       <DependentUpon>main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\auth\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\auth\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\main\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
