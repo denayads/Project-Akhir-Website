@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-3 mt-3 mx-auto">
                             <div class="d-grid">
-                                <asp:HyperLink ID="HyperLinkLogin" runat="server" CssClass="btn btn-light" NavigateUrl="~/pages/auth/login.aspx"><i class="bi bi-box-arrow-in-right me-2"></i> Login</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLinkLogin" runat="server" CssClass="btn btn-secondary" NavigateUrl="~/pages/auth/login.aspx"><i class="bi bi-box-arrow-in-right me-2"></i> Login</asp:HyperLink>
                             </div>
                         </div>
                     </div>

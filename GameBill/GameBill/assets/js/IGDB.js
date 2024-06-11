@@ -1,17 +1,30 @@
-﻿fetch(
-    "https://api.igdb.com/v4/games",
-    {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Client-ID': 'll6d4123uogojg5jgxgv16awmer0m2',
-            'Authorization': 'Bearer lhm9j5ph1943raqsr219qv808106zi',
-        },
-        body: "fields age_ratings,aggregated_rating,aggregated_rating_count,alternative_names,artworks,bundles,category,checksum,collection,collections,cover,created_at,dlcs,expanded_games,expansions,external_games,first_release_date,follows,forks,franchise,franchises,game_engines,game_localizations,game_modes,genres,hypes,involved_companies,keywords,language_supports,multiplayer_modes,name,parent_game,platforms,player_perspectives,ports,rating,rating_count,release_dates,remakes,remasters,screenshots,similar_games,slug,standalone_expansions,status,storyline,summary,tags,themes,total_rating,total_rating_count,updated_at,url,version_parent,version_title,videos,websites;"
-    })
-    .then(response => {
-        console.log(response.json());
-    })
-    .catch(err => {
+﻿let jsoncpphero = document.getElementById("JsonCPHHero");
+async function getGame() {
+    try {
+        const response = await fetch(
+            "https://api.igdb.com/v4/game_videos",
+            {
+                method: 'POST',
+                mode: "no-cors",
+                headers: {
+                    'Accept': 'application/json',
+                    'Client-ID': 'll6d4123uogojg5jgxgv16awmer0m2',
+                    'Authorization': 'Bearer lhm9j5ph1943raqsr219qv808106zi',
+                },
+                body: "fields checksum,game,name,video_id;"
+            })
+        const data = await response.json();
+        console.log(data);
+        //jsoncpphero.innerHTML += `
+        //    <a href="#">${data.name}, ${data.sys.country}</a></br>
+        //    <img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png">
+        //    <a href="#">${data.main.temp} &deg;C</a></br>
+        //    <a href="#">feels like ${data.main.feels_like} &deg;C, ${data.weather[0].main}, ${data.weather[0].description}</a></br>
+        //    <a href="#">Wind degree ${data.wind.deg}, Pressure ${data.main.pressure}</a></br>
+        //    <a href="#">Wind speed ${data.wind.speed}, Humidity ${data.main.humidity}</a>
+        //`;
+    } catch (err) {
         console.error(err);
-    });
+    }
+}
+getGame()
