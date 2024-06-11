@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="hero" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="features" runat="server">
     <div class="container-fluid page-header py-5">
         <h1 class="text-center text-white display-6">Login</h1>
         <ol class="breadcrumb justify-content-center mb-0">
@@ -16,11 +16,11 @@
         </ol>
     </div>
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="featuressection" runat="server">
+<asp:Content ID="Content5" ContentPlaceHolderID="mainpostsection" runat="server">
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="gameshop" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="banner" runat="server">
 </asp:Content>
-<asp:Content ID="Content7" ContentPlaceHolderID="features" runat="server">
+<asp:Content ID="Content7" ContentPlaceHolderID="latestnews" runat="server">
     <div class="container-fluid contact py-5">
         <div class="container py-5">
             <div class="p-5 bg-light rounded">
@@ -62,13 +62,5 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="Content8" ContentPlaceHolderID="anothergameshop" runat="server">
-</asp:Content>
-<asp:Content ID="Content9" ContentPlaceHolderID="bannersection" runat="server">
-</asp:Content>
-<asp:Content ID="Content10" ContentPlaceHolderID="bestseller" runat="server">
-</asp:Content>
-<asp:Content ID="Content11" ContentPlaceHolderID="fact" runat="server">
-</asp:Content>
-<asp:Content ID="Content12" ContentPlaceHolderID="testimonial" runat="server">
+<asp:Content ID="Content8" ContentPlaceHolderID="mostpopulernews" runat="server">
 </asp:Content>

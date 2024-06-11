@@ -8,7 +8,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script src="<%=ResolveUrl("~/assets/js/IGDB.js")%>"></script>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="hero" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="features" runat="server">
     <div class="container-fluid py-5 mb-5 hero-header">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
@@ -36,19 +36,11 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="featuressection" runat="server">
+<asp:Content ID="Content5" ContentPlaceHolderID="mainpostsection" runat="server">
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="gameshop" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="banner" runat="server">
 </asp:Content>
-<asp:Content ID="Content7" ContentPlaceHolderID="features" runat="server">
+<asp:Content ID="Content7" ContentPlaceHolderID="latestnews" runat="server">
 </asp:Content>
-<asp:Content ID="Content8" ContentPlaceHolderID="anothergameshop" runat="server">
-</asp:Content>
-<asp:Content ID="Content9" ContentPlaceHolderID="bannersection" runat="server">
-</asp:Content>
-<asp:Content ID="Content10" ContentPlaceHolderID="bestseller" runat="server">
-</asp:Content>
-<asp:Content ID="Content11" ContentPlaceHolderID="fact" runat="server">
-</asp:Content>
-<asp:Content ID="Content12" ContentPlaceHolderID="testimonial" runat="server">
+<asp:Content ID="Content8" ContentPlaceHolderID="mostpopulernews" runat="server">
 </asp:Content>

@@ -51,33 +51,6 @@ namespace GameBill
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// hero control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder hero;
-
-        /// <summary>
-        /// featuressection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder featuressection;
-
-        /// <summary>
-        /// gameshop control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder gameshop;
-
-        /// <summary>
         /// features control.
         /// </summary>
         /// <remarks>
@@ -87,48 +60,39 @@ namespace GameBill
         protected global::System.Web.UI.WebControls.ContentPlaceHolder features;
 
         /// <summary>
-        /// anothergameshop control.
+        /// mainpostsection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder anothergameshop;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder mainpostsection;
 
         /// <summary>
-        /// bannersection control.
+        /// banner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder bannersection;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder banner;
 
         /// <summary>
-        /// bestseller control.
+        /// latestnews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder bestseller;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder latestnews;
 
         /// <summary>
-        /// fact control.
+        /// mostpopulernews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder fact;
-
-        /// <summary>
-        /// testimonial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder testimonial;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder mostpopulernews;
     }
 }
