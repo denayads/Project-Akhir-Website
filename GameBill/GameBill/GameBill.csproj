@@ -69,16 +69,11 @@
   <ItemGroup>
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\style.css" />
-    <Content Include="assets\js\IGDB.js" />
     <Content Include="assets\js\main.js" />
+    <Content Include="assets\lib\animate\animate.css" />
+    <Content Include="assets\lib\animate\animate.min.css" />
     <Content Include="assets\lib\easing\easing.js" />
     <Content Include="assets\lib\easing\easing.min.js" />
-    <Content Include="assets\lib\lightbox\css\lightbox.min.css" />
-    <Content Include="assets\lib\lightbox\images\close.png" />
-    <Content Include="assets\lib\lightbox\images\loading.gif" />
-    <Content Include="assets\lib\lightbox\images\next.png" />
-    <Content Include="assets\lib\lightbox\images\prev.png" />
-    <Content Include="assets\lib\lightbox\js\lightbox.min.js" />
     <Content Include="assets\lib\owlcarousel\assets\ajax-loader.gif" />
     <Content Include="assets\lib\owlcarousel\assets\owl.carousel.css" />
     <Content Include="assets\lib\owlcarousel\assets\owl.carousel.min.css" />
@@ -93,6 +88,7 @@
     <Content Include="pages\auth\login.aspx" />
     <Content Include="pages\auth\register.aspx" />
     <Content Include="pages\main\index.aspx" />
+    <Content Include="pages\member\index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +121,17 @@
     <Compile Include="pages\main\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\member\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\member\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="main.Master" />
     <Content Include="assets\lib\owlcarousel\LICENSE" />
     <Content Include="assets\lib\waypoints\links.php" />
     <Content Include="assets\scss\bootstrap.scss" />
@@ -212,7 +216,6 @@
     <Content Include="assets\scss\bootstrap\scss\_type.scss" />
     <Content Include="assets\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="assets\scss\bootstrap\scss\_variables.scss" />
-    <Content Include="main.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -224,7 +227,6 @@
   <ItemGroup>
     <Folder Include="assets\img\" />
     <Folder Include="pages\admin\" />
-    <Folder Include="pages\member\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\Project-Akhir-Website\\GameBill\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|d:\\project-akhir-website\\gamebill\\gamebill\\pages\\auth\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\pages\\auth\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|d:\\project-akhir-website\\gamebill\\gamebill\\pages\\auth\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\pages\\auth\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|d:\\project-akhir-website\\gamebill\\gamebill\\pages\\main\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\pages\\main\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|d:\\project-akhir-website\\gamebill\\gamebill\\member.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\member.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "register.aspx",
-              "DocumentMoniker": "D:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\auth\\register.aspx",
-              "RelativeDocumentMoniker": "GameBill\\pages\\auth\\register.aspx",
-              "ToolTip": "D:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\auth\\register.aspx",
-              "RelativeToolTip": "GameBill\\pages\\auth\\register.aspx",
+              "Title": "member.Master",
+              "DocumentMoniker": "D:\\Project-Akhir-Website\\GameBill\\GameBill\\member.Master",
+              "RelativeDocumentMoniker": "GameBill\\member.Master",
+              "ToolTip": "D:\\Project-Akhir-Website\\GameBill\\GameBill\\member.Master",
+              "RelativeToolTip": "GameBill\\member.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-11T11:42:15.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "login.aspx",
-              "DocumentMoniker": "D:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\auth\\login.aspx",
-              "RelativeDocumentMoniker": "GameBill\\pages\\auth\\login.aspx",
-              "ToolTip": "D:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\auth\\login.aspx",
-              "RelativeToolTip": "GameBill\\pages\\auth\\login.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-11T11:35:15.502Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "index.aspx",
-              "DocumentMoniker": "D:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\main\\index.aspx",
-              "RelativeDocumentMoniker": "GameBill\\pages\\main\\index.aspx",
-              "ToolTip": "D:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\main\\index.aspx",
-              "RelativeToolTip": "GameBill\\pages\\main\\index.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-11T11:42:30.943Z",
+              "WhenOpened": "2024-06-11T13:37:57.374Z",
               "EditorCaption": ""
             },
             {
