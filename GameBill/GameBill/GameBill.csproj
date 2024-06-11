@@ -91,6 +91,7 @@
     <Content Include="assets\lib\owlcarousel\owl.carousel.min.js" />
     <Content Include="assets\lib\waypoints\waypoints.min.js" />
     <Content Include="pages\auth\login.aspx" />
+    <Content Include="pages\auth\register.aspx" />
     <Content Include="pages\main\index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -109,6 +110,13 @@
     </Compile>
     <Compile Include="pages\auth\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\auth\register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\auth\register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\main\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
