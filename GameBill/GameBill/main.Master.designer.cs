@@ -51,24 +51,6 @@ namespace GameBill
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// features control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder features;
-
-        /// <summary>
-        /// mainpostsection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder mainpostsection;
-
-        /// <summary>
         /// banner control.
         /// </summary>
         /// <remarks>
@@ -78,21 +60,30 @@ namespace GameBill
         protected global::System.Web.UI.WebControls.ContentPlaceHolder banner;
 
         /// <summary>
-        /// latestnews control.
+        /// features control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder latestnews;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder features;
 
         /// <summary>
-        /// mostpopulernews control.
+        /// gamessection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder mostpopulernews;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder gamessection;
+
+        /// <summary>
+        /// anothersection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder anothersection;
     }
 }

@@ -200,34 +200,28 @@
         <!-- Modal Search End -->
 
 
-        <!-- Features Start -->
-        <asp:ContentPlaceHolder ID="features" runat="server">
-        </asp:ContentPlaceHolder>
-        <!-- Features End -->
-
-
-        <!-- Main Post Section Start -->
-        <asp:ContentPlaceHolder ID="mainpostsection" runat="server">
-        </asp:ContentPlaceHolder>
-        <!-- Main Post Section End -->
-
-
         <!-- Banner Start-->
         <asp:ContentPlaceHolder ID="banner" runat="server">
         </asp:ContentPlaceHolder>
         <!-- Banner End-->
 
 
-        <!-- Latest News Start -->
-        <asp:ContentPlaceHolder ID="latestnews" runat="server">
+        <!-- Features Start -->
+        <asp:ContentPlaceHolder ID="features" runat="server">
         </asp:ContentPlaceHolder>
-        <!-- Latest News End -->
+        <!-- Features End -->
 
 
-        <!-- Most Populer News Start-->
-        <asp:ContentPlaceHolder ID="mostpopulernews" runat="server">
+        <!-- Games Section Start -->
+        <asp:ContentPlaceHolder ID="gamessection" runat="server">
         </asp:ContentPlaceHolder>
-        <!-- Most Populer News End -->
+        <!-- Games Section End -->
+
+
+        <!-- Another Section Start -->
+        <asp:ContentPlaceHolder ID="anothersection" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Another Section End -->
 
 
         <!-- Footer Start -->
