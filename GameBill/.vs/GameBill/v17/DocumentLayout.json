@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "G:\\Project-Akhir-Website\\GameBill\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|g:\\project-akhir-website\\gamebill\\gamebill\\admin.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\admin.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|g:\\project-akhir-website\\gamebill\\gamebill\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|g:\\project-akhir-website\\gamebill\\gamebill\\member.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\member.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|g:\\project-akhir-website\\gamebill\\gamebill\\pages\\auth\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\pages\\auth\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|g:\\project-akhir-website\\gamebill\\gamebill\\admin.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\admin.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,20 +34,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "member.Master",
-              "DocumentMoniker": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\member.Master",
-              "RelativeDocumentMoniker": "GameBill\\member.Master",
-              "ToolTip": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\member.Master",
-              "RelativeToolTip": "GameBill\\member.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-18T11:58:30.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "admin.Master",
               "DocumentMoniker": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\admin.Master",
               "RelativeDocumentMoniker": "GameBill\\admin.Master",
@@ -63,12 +42,12 @@
               "RelativeToolTip": "GameBill\\admin.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-18T11:58:29.335Z",
+              "WhenOpened": "2024-06-18T12:16:14.55Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "main.Master",
               "DocumentMoniker": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\main.Master",
               "RelativeDocumentMoniker": "GameBill\\main.Master",
@@ -76,20 +55,7 @@
               "RelativeToolTip": "GameBill\\main.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-18T11:56:37.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "login.aspx.cs",
-              "DocumentMoniker": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\auth\\login.aspx.cs",
-              "RelativeDocumentMoniker": "GameBill\\pages\\auth\\login.aspx.cs",
-              "ToolTip": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\auth\\login.aspx.cs",
-              "RelativeToolTip": "GameBill\\pages\\auth\\login.aspx.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAowAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T11:59:18.6Z",
+              "WhenOpened": "2024-06-18T12:09:03.251Z",
               "EditorCaption": ""
             }
           ]
