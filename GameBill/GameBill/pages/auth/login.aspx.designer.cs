@@ -33,13 +33,13 @@ namespace GameBill.pages.auth
         protected global::System.Web.UI.WebControls.Label message;
 
         /// <summary>
-        /// ButtonClose control.
+        /// ButtonX control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonClose;
+        protected global::System.Web.UI.WebControls.Button ButtonX;
 
         /// <summary>
         /// TextBoxUserName control.

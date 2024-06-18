@@ -23,11 +23,11 @@
 <asp:Content ID="Content7" ContentPlaceHolderID="anothersection" runat="server">
     <div class="container-fluid contact py-5">
         <div class="container py-5">
-            <div class="p-5 bg-light rounded">
+            <div class="bg-light rounded p-5">
                 <div class="row g-4">
                     <div id="notif" runat="server" visible="false" class="col-6 mt-3 mb-3 mx-auto" role="alert">
                         <asp:Label ID="message" runat="server" Text=""></asp:Label>
-                        <asp:Button ID="ButtonClose" runat="server" CssClass="btn-close" data-bs-dismiss="alert" aria-label="Close" />
+                        <asp:Button ID="ButtonX" runat="server" CssClass="btn-close" data-bs-dismiss="alert" aria-label="Close" />
                     </div>
                     <div class="col-12">
                         <div class="text-center mx-auto" style="max-width: 700px;">
