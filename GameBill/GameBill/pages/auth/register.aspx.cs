@@ -20,23 +20,23 @@ namespace GameBill.pages.auth
 
         protected void LinkButtonRegister_Click(object sender, EventArgs e)
         {
-            string nama = TextBoxName.Text.Trim();
+            string user_name = TextBoxUserName.Text.Trim();
             string email = TextBoxEmail.Text.Trim();
             string password = TextBoxPassword.Text.Trim();
-            string confirmPass = TextBoxConfirmPassword.Text.Trim();
+            string confirmPassword = TextBoxConfirmPassword.Text.Trim();
 
-            if (password.Equals(confirmPass))
+            if (password.Equals(confirmPassword))
             {
-                string con_str = ConfigurationManager.ConnectionStrings["blogspaceCS"].ConnectionString;
+                string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
                 Encryptor encryptor = new Encryptor();
 
                 using (SqlConnection con = new SqlConnection(con_str))
                 {
-                    using (SqlCommand cmd = new SqlCommand("insert into pengguna (nama, email, pass) values (@nama, @email, @pass)", con))
+                    using (SqlCommand cmd = new SqlCommand("insert into users (user_name, email, password) values (@user_name, @email, @password)", con))
                     {
-                        cmd.Parameters.Add("@nama", SqlDbType.NVarChar).Value = nama;
+                        cmd.Parameters.Add("@user_name", SqlDbType.NVarChar).Value = user_name;
                         cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
-                        cmd.Parameters.Add("@pass", SqlDbType.NVarChar).Value = encryptor.Hash(password);
+                        cmd.Parameters.Add("@password", SqlDbType.NVarChar).Value = encryptor.Hash(password);
                         try
                         {
                             con.Open();
@@ -44,13 +44,13 @@ namespace GameBill.pages.auth
                             {
                                 notif.Visible = true;
                                 notif.Attributes.Add("class", "alert alert-primary alert-dismissible fade show");
-                                message.Text = "Register berhasil, silahkan login!";
+                                message.Text = "Register success, please login!";
                             }
                             else
                             {
                                 notif.Visible = true;
                                 notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                                message.Text = "Register gagal!";
+                                message.Text = "Register failed!";
                             }
                         }
                         catch (Exception ex)
@@ -66,7 +66,7 @@ namespace GameBill.pages.auth
             {
                 notif.Visible = true;
                 notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                message.Text = "Password dan Confirm Password tidak sama!";
+                message.Text = "Password and Confirm Password not same!";
             }
         }
     }

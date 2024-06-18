@@ -9,10 +9,10 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="banner" runat="server">
     <div class="container-fluid page-header py-5">
-        <h1 class="text-center text-white display-6">Login</h1>
+        <h1 class="text-center display-6">Login</h1>
         <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="<%=ResolveUrl("~/pages/main/index.aspx")%>">Home</a></li>
-            <li class="breadcrumb-item active text-white">Login</li>
+            <li class="breadcrumb-item">Login</li>
         </ol>
     </div>
 </asp:Content>
@@ -36,8 +36,8 @@
                     </div>
                     <div class="col-12">
                         <div class="form-floating col-5 mt-3 mb-3 mx-auto">
-                            <asp:TextBox ID="TextBoxEmail" runat="server" TextMode="Email" CssClass="form-control" placeholder="Email" required></asp:TextBox>
-                            <label for="LabelEmail" runat="server">Email</label>
+                            <asp:TextBox ID="TextBoxUserName" runat="server" CssClass="form-control" placeholder="User Name" required></asp:TextBox>
+                            <label for="LabelUserName" runat="server">User Name</label>
                         </div>
                         <div class="form-floating col-5 mt-3 mb-5 mx-auto">
                             <asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password" required></asp:TextBox>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-3 mt-5 mb-3 mx-auto">
                             <div class="d-grid">
-                                <asp:LinkButton ID="LinkButtonLogin" runat="server" CssClass="btn btn-primary"><i class="bi bi-box-arrow-in-right me-2"></i> Login</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonLogin" runat="server" CssClass="btn btn-primary" OnClick="LinkButtonLogin_Click"><i class="bi bi-box-arrow-in-right me-2"></i> Login</asp:LinkButton>
                             </div>
                         </div>
                         <div class="col-3 mt-3 mb-3 mx-auto">
