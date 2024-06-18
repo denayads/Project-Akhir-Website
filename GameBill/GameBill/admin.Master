@@ -76,10 +76,10 @@
                             </div>
                             <div class="ps-2 ms-2 border-start border-white d-flex icon">
                                 <p class="mb-0 text-white me-2">Follow Us:</p>
-                                <a href="" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-tiktok text-body link-hover"></i></a>
-                                <a href="" class=""><i class="fab fa-whatsapp text-body link-hover"></i></a>
+                                <a href="#" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
+                                <a href="#" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
+                                <a href="#" class="me-2"><i class="fab fa-tiktok text-body link-hover"></i></a>
+                                <a href="#" class=""><i class="fab fa-whatsapp text-body link-hover"></i></a>
                             </div>
                         </div>
                         <div class="top-link flex-lg-wrap">
@@ -128,10 +128,10 @@
                                             <i class="bi bi-gear me-2"></i>
                                             Change Password
                                         </a>
-                                        <a class="dropdown-item">
+                                        <asp:LinkButton ID="LinkButtonLogOut" runat="server" CssClass="dropdown-item" OnClick="LinkButtonLogOut_Click">
                                             <i class="bi bi-power me-2"></i>
                                             Log Out
-                                        </a>
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <%  } %>

@@ -76,10 +76,10 @@
                             </div>
                             <div class="ps-2 ms-2 border-start border-white d-flex icon">
                                 <p class="mb-0 text-white me-2">Follow Us:</p>
-                                <a href="" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-tiktok text-body link-hover"></i></a>
-                                <a href="" class=""><i class="fab fa-whatsapp text-body link-hover"></i></a>
+                                <a href="#" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
+                                <a href="#" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
+                                <a href="#" class="me-2"><i class="fab fa-tiktok text-body link-hover"></i></a>
+                                <a href="#" class=""><i class="fab fa-whatsapp text-body link-hover"></i></a>
                             </div>
                         </div>
                         <div class="top-link flex-lg-wrap">
@@ -109,7 +109,7 @@
                                     <i class="fa fa-shopping-bag fa-2x"></i>
                                     <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
                                 </a>
-                                <% if (Session["user_name"] != null)
+                                <% if (Convert.ToInt32(Session["admin"]) == 1)
                                     { %>
                                 <div class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle my-auto" data-bs-toggle="dropdown">
@@ -118,9 +118,7 @@
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                         <a href="<%=ResolveUrl("~/pages/admin/index.aspx")%>" class="dropdown-item">
                                             <i class="bi bi-house-door-fill me-2"></i>
-                                            My Dashboard
-                                        </a>
-                                        <a href="<%=ResolveUrl("~/pages/admin/article/index.aspx")%>" class="dropdown-item">Blog Admin
+                                            Admin Dashboard
                                         </a>
                                         <a href="<%=ResolveUrl("~/pages/admin/profile/edit.aspx")%>" class="dropdown-item">
                                             <i class="bi bi-gear me-2"></i>
@@ -130,10 +128,36 @@
                                             <i class="bi bi-gear me-2"></i>
                                             Change Password
                                         </a>
-                                        <a class="dropdown-item">
+                                        <asp:LinkButton ID="LinkButtonLogOut" runat="server" CssClass="dropdown-item" OnClick="LinkButtonLogOut_Click">
                                             <i class="bi bi-power me-2"></i>
                                             Log Out
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+                                <%  } %>
+                                <% else if (Convert.ToInt32(Session["admin"]) != 1)
+                                    { %>
+                                <div class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle my-auto" data-bs-toggle="dropdown">
+                                        <%= Session["user_name"].ToString() %>
+                                    </a>
+                                    <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                        <a href="<%=ResolveUrl("~/pages/member/index.aspx")%>" class="dropdown-item">
+                                            <i class="bi bi-house-door-fill me-2"></i>
+                                            My Dashboard
                                         </a>
+                                        <a href="<%=ResolveUrl("~/pages/member/profile/edit.aspx")%>" class="dropdown-item">
+                                            <i class="bi bi-gear me-2"></i>
+                                            Change Name
+                                        </a>
+                                        <a href="<%=ResolveUrl("~/pages/member/profile/changepassword.aspx")%>" class="dropdown-item">
+                                            <i class="bi bi-gear me-2"></i>
+                                            Change Password
+                                        </a>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="dropdown-item" OnClick="LinkButtonLogOut_Click">
+                                            <i class="bi bi-power me-2"></i>
+                                            Log Out
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <%  } %>

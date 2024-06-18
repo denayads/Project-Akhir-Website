@@ -13,5 +13,11 @@ namespace GameBill
         {
 
         }
+
+        protected void LinkButtonLogOut_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("~/pages/auth/login.aspx");
+        }
     }
 }
