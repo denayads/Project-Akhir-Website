@@ -1,0 +1,236 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="GameBill.admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <asp:ContentPlaceHolder ID="title" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="<%=ResolveUrl("https://fonts.googleapis.com")%>">
+    <link rel="preconnect" href="<%=ResolveUrl("https://fonts.gstatic.com")%>" crossorigin="">
+    <link href="<%=ResolveUrl("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@100;600;800&display=swap")%>" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="<%=ResolveUrl("https://use.fontawesome.com/releases/v5.15.4/css/all.css")%>" />
+    <link href="<%=ResolveUrl("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css")%>" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="<%=ResolveUrl("~/assets/lib/animate/animate.min.css")%>" rel="stylesheet">
+    <link href="<%=ResolveUrl("~/assets/lib/owlcarousel/assets/owl.carousel.min.css")%>" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="<%=ResolveUrl("~/assets/css/bootstrap.min.css")%>" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="<%=ResolveUrl("~/assets/css/style.css")%>" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="style" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- JavaScript Libraries -->
+    <script src="<%=ResolveUrl("https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js")%>"></script>
+    <script src="<%=ResolveUrl("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/assets/lib/easing/easing.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/assets/lib/waypoints/waypoints.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/assets/lib/owlcarousel/owl.carousel.min.js")%>"></script>
+
+    <!-- Template Javascript -->
+    <script src="<%=ResolveUrl("~/assets/js/main.js")%>"></script>
+    <asp:ContentPlaceHolder ID="script" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar start -->
+        <div class="container-fluid sticky-top px-0">
+            <div class="container-fluid topbar bg-dark d-none d-lg-block">
+                <div class="container px-0">
+                    <div class="topbar-top d-flex justify-content-between flex-lg-wrap">
+                        <div class="top-info flex-grow-0">
+                            <span class="rounded-circle btn-sm-square bg-primary me-2">
+                                <i class="fas fa-exclamation text-white"></i>
+                            </span>
+                            <div class="pe-2 me-3 border-end border-white d-flex align-items-center">
+                                <p class="mb-0 text-white fs-6 fw-normal">Information</p>
+                            </div>
+                            <div class="overflow-hidden" style="width: 735px;">
+                                <div id="note" class="ps-2">
+                                    <img src="img/features-fashion.jpg" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
+                                    <a href="#">
+                                        <p class="text-white mb-0 link-hover">Welcome to GameBill, The Game Store For You.</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ps-2 ms-2 border-start border-white d-flex icon">
+                                <p class="mb-0 text-white me-2">Follow Us:</p>
+                                <a href="" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
+                                <a href="" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
+                                <a href="" class="me-2"><i class="fab fa-tiktok text-body link-hover"></i></a>
+                                <a href="" class=""><i class="fab fa-whatsapp text-body link-hover"></i></a>
+                            </div>
+                        </div>
+                        <div class="top-link flex-lg-wrap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid bg-light">
+                <div class="container px-0">
+                    <nav class="navbar navbar-light navbar-expand-xl">
+                        <a href="<%=ResolveUrl("~/pages/main/index.aspx")%>" class="navbar-brand">
+                            <h1 class="text-primary display-6">GameBill</h1>
+                        </a>
+                        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <span class="fa fa-bars text-primary"></span>
+                        </button>
+                        <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
+                            <div class="navbar-nav mx-auto border-top">
+                                <a href="<%=ResolveUrl("~/pages/main/index.aspx")%>" class="nav-item nav-link active">Home</a>
+                                <a href="" class="nav-item nav-link">Game Detail</a>
+                                <a href="" class="nav-item nav-link">Shop</a>
+                                <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                            </div>
+                            <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0">
+                                <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                                <a href="#" class="position-relative me-4 my-auto">
+                                    <i class="fa fa-shopping-bag fa-2x"></i>
+                                    <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                                </a>
+                                <a href="<%=ResolveUrl("~/pages/auth/login.aspx")%>" class="my-auto">
+                                    <i class="fas fa-user fa-2x"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+
+        <!-- Banner Start-->
+        <asp:ContentPlaceHolder ID="banner" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Banner End-->
+
+
+        <!-- Features Start -->
+        <asp:ContentPlaceHolder ID="features" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Features End -->
+
+
+        <!-- Games Section Start -->
+        <asp:ContentPlaceHolder ID="gamessection" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Games Section End -->
+
+
+        <!-- Another Section Start -->
+        <asp:ContentPlaceHolder ID="anothersection" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Another Section End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark footer py-5">
+            <div class="container py-5">
+                <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                    <div class="row g-4">
+                        <div class="col-lg-3">
+                            <a href="#" class="d-flex flex-column flex-wrap">
+                                <p class="text-white mb-0 display-6">GameBill</p>
+                                <small class="text-light" style="letter-spacing: 1px; line-height: 0;">The Game Store For You</small>
+                            </a>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="d-flex position-relative rounded-pill overflow-hidden">
+                                <input class="form-control border-0 w-100 py-3 rounded-pill" type="email" placeholder="example@gmail.com">
+                                <button type="submit" class="btn btn-primary border-0 py-3 px-5 rounded-pill text-white position-absolute" style="top: 0; right: 0;">Subscribe Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="footer-item-1">
+                            <h4 class="mb-4 text-white">Get In Touch</h4>
+                            <p class="text-secondary line-h">Address: <span class="text-white">Antapani, Bandung</span></p>
+                            <p class="text-secondary line-h">Email: <span class="text-white">gamebill@gmail.com</span></p>
+                            <p class="text-secondary line-h">Phone: <span class="text-white">+6222 0123 456</span></p>
+                            <div class="d-flex line-h">
+                                <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube text-dark"></i></a>
+                                <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-instagram text-dark"></i></a>
+                                <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-tiktok text-dark"></i></a>
+                                <a class="btn btn-light btn-md-square rounded-circle" href=""><i class="fab fa-whatsapp text-dark"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="d-flex flex-column text-start footer-item-3">
+                            <h4 class="mb-4 text-white">Links</h4>
+                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>About Us</a>
+                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>Contact Us</a>
+                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>Privacy Policy</a>
+                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>Terms & Condition</a>
+                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>Return Policy</a>
+                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>FAQs & Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright bg-dark py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>GameBill</a>, All right reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary border-2 border-white rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+    </form>
+</body>
+</html>
