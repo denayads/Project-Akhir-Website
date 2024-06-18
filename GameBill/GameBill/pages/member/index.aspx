@@ -18,7 +18,7 @@
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                 <h5 class="section-title px-3">Our Blogspace</h5>
-                <h1 class="mb-4">Admin Dashboard</h1>
+                <h1 class="mb-4">My Dashboard</h1>
                 <p class="mb-0">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti deserunt tenetur sapiente atque. Magni non explicabo beatae sit, vel reiciendis consectetur numquam id similique sunt error obcaecati ducimus officia maiores.
                 </p>
