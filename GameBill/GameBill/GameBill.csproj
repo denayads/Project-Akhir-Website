@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\js\IGDB.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\lib\animate\animate.css" />
     <Content Include="assets\lib\animate\animate.min.css" />

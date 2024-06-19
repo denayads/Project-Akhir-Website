@@ -32,9 +32,15 @@
                     <LayoutTemplate>
                         <table class="table">
                             <tr>
-                                <th>Judul</th>
-                                <th>Isi</th>
-                                <th>Tanggal</th>
+                                <th>Nama Game</th>
+                                <th>Deskripsi</th>
+                                <th>Tanggal Rilis</th>
+                                <th>Developer</th>
+                                <th>Publisher</th>
+                                <th>Mode Game</th>
+                                <th>Tema</th>
+                                <th>Franchises</th>
+                                <th>Perspektif Pemain</th>
                                 <th>Aksi</th>
                             </tr>
                             <tr id="ItemPlaceHolder" runat="server">
@@ -55,13 +61,31 @@
                     <ItemTemplate>
                         <tr class="TableData">
                             <td>
-                                <asp:Label ID="LabelJudul" runat="server" Text='<%#Eval("judul") %>'></asp:Label>
+                                <asp:Label ID="LabelNamaGame" runat="server" Text='<%#Eval("game_name") %>'></asp:Label>
                             </td>
                             <td>
-                                <%#Regex.Replace(Eval("isi").ToString(), "<[a-zA-Z/].*?>", String.Empty).PadRight(140).Substring(0,120).TrimEnd() %>
+                                <%#Regex.Replace(Eval("description").ToString(), "<[a-zA-Z/].*?>", String.Empty).PadRight(150).Substring(0,130).TrimEnd() %>
                             </td>
                             <td>
-                                <asp:Label ID="LabelTanggal" runat="server" Text='<%#String.Format("{0:dd-MMM-yyy}", Eval("tanggal")) %>'></asp:Label>
+                                <asp:Label ID="LabelTanggalRilis" runat="server" Text='<%#String.Format("{0:dd-MMM-yyy}", Eval("release_dates")) %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="LabelDeveloper" runat="server" Text='<%#Eval("developers") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="LabelPublisher" runat="server" Text='<%#Eval("publishers") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="LabelModeGame" runat="server" Text='<%#Eval("game_modes") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="LabelTema" runat="server" Text='<%#Eval("themes") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="LabelFranchises" runat="server" Text='<%#Eval("franchises") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="LabelPerspektifPemain" runat="server" Text='<%#Eval("player_perspectives") %>'></asp:Label>
                             </td>
                             <td>
                                 <asp:HyperLink ID="HyperLinkEdit" runat="server" CssClass="text-secondary" NavigateUrl='<%#Eval ("id", "~/pages/member/article/edit.aspx?id={0}") %>'><i class="bi bi-pencil me-2"></i></asp:HyperLink>

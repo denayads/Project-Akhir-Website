@@ -87,14 +87,14 @@ namespace GameBill.pages.admin
                                 fileInfo.Delete();
                                 notif.Visible = true;
                                 notif.Attributes.Add("class", "alert alert-primary alert-dismissible fade show");
-                                message.Text = "Artikel berhasil didelete";
+                                message.Text = "Games delete success!";
                                 BindData();
                             }
                             else
                             {
                                 notif.Visible = true;
                                 notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                                message.Text = "Artikel gagal didelete";
+                                message.Text = "Games delete failed!";
                             }
                         }
                     }
