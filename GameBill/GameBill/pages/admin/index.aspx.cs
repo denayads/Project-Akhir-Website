@@ -55,58 +55,90 @@ namespace GameBill.pages.admin
             }
         }
 
-        protected void ListViewGames_ItemCommand(object sender, ListViewCommandEventArgs e)
+        protected void LinkButtonEdit_Click(object sender, EventArgs e)
         {
-            if (e.CommandName == "delete")
-            {
-                long id = Convert.ToInt64(e.CommandArgument);
-                string path_name = "";
-                string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            LinkButton lbtn = (LinkButton)sender;
+            long id = Convert.ToInt64(lbtn.CommandArgument);
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querry = "select * from games where id=@id";
+            string querry2 = "select * from genre where id=@id";
+            string querry3 = "select * from games_platforms where id_games=@id";
 
-                using (SqlConnection con = new SqlConnection(con_str))
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
                 {
-                    try
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
                     {
-                        con.Open();
-                        using (SqlCommand cmd = new SqlCommand("select * from games where id=@id", con))
+                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = Convert.ToInt64(Request.QueryString["id"]);
-                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            if (reader.Read())
                             {
-                                if (reader.Read())
-                                    path_name = reader["fitur_img"].ToString();
+                                TextBoxNamaGame.Text = reader["game_name"].ToString();
                             }
                         }
-
-                        using (SqlCommand cmd2 = new SqlCommand("delete from games where id=@id", con))
+                        TextBoxIsi.Text = "";
+                        using (SqlCommand cmd2 = new SqlCommand(querry2, con))
                         {
                             cmd2.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
-                            if (cmd2.ExecuteNonQuery() > 0)
+                            using (SqlDataReader reader = cmd2.ExecuteReader())
                             {
-                                FileInfo fileInfo = new FileInfo(Server.MapPath("~/" + path_name));
-                                fileInfo.Delete();
-                                notif.Visible = true;
-                                notif.Attributes.Add("class", "alert alert-primary alert-dismissible fade show");
-                                message.Text = "Games delete success!";
-                                BindData();
-                            }
-                            else
-                            {
-                                notif.Visible = true;
-                                notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                                message.Text = "Games delete failed!";
+                                while (reader.Read())
+                                {
+                                    TextBoxIsi.Text += reader["genre_name"].ToString() + ";\n";
+                                }
                             }
                         }
+                        ButtonUpdate.CommandArgument = id.ToString();
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
-                    catch (Exception ex)
-                    {
-                        notif.Visible = true;
-                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                        message.Text = ex.Message;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
                 }
             }
         }
+
+        //protected void LinkButtonDelete_Click(object sender, EventArgs e)
+        //{
+        //    LinkButton lbtn = (LinkButton)sender;
+        //    long id = Convert.ToInt64(lbtn.CommandArgument);
+        //    string con_str = ConfigurationManager.ConnectionStrings["blogspaceCS"].ConnectionString;
+        //    string querry = "delete from todo where id=@id";
+
+        //    using (SqlConnection con = new SqlConnection(con_str))
+        //    {
+        //        try
+        //        {
+        //            con.Open();
+        //            using (SqlCommand cmd = new SqlCommand(querry, con))
+        //            {
+        //                cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+        //                if (cmd.ExecuteNonQuery() > 0)
+        //                {
+        //                    Response.Redirect("~/pages/member/todo/index.aspx");
+        //                }
+        //                else
+        //                {
+        //                    notif.Visible = true;
+        //                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+        //                    message.Text = "Delete To Do Gagal";
+        //                }
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            notif.Visible = true;
+        //            notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+        //            message.Text = ex.Message;
+        //        }
+        //    }
+        //}
 
         protected void ListViewGames_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         {

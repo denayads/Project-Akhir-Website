@@ -6,6 +6,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="style" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script>
+        function openModal() {
+            const myModal = new bootstrap.Modal('#ModalShow', {});
+            myModal.show();
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="banner" runat="server">
     <div class="container-fluid page-header py-5">
@@ -28,7 +34,7 @@
                     <asp:Label ID="message" runat="server" Text=""></asp:Label>
                     <asp:Button ID="ButtonX" runat="server" CssClass="btn-close" data-bs-dismiss="alert" aria-label="Close" />
                 </div>
-                <asp:ListView ID="ListViewGames" runat="server" OnPagePropertiesChanging="ListViewGames_PagePropertiesChanging" OnItemCommand="ListViewGames_ItemCommand" OnItemDeleting="ListViewGames_ItemDeleting">
+                <asp:ListView ID="ListViewGames" runat="server" OnPagePropertiesChanging="ListViewGames_PagePropertiesChanging" OnItemDeleting="ListViewGames_ItemDeleting">
                     <LayoutTemplate>
                         <table class="table">
                             <tr>
@@ -38,7 +44,6 @@
                                 <th>Developer</th>
                                 <th>Publisher</th>
                                 <th>Mode Game</th>
-                                <th>Tema</th>
                                 <th>Franchises</th>
                                 <th>Perspektif Pemain</th>
                                 <th>Aksi</th>
@@ -46,7 +51,7 @@
                             <tr id="ItemPlaceHolder" runat="server">
                             </tr>
                             <tr id="Tr2" runat="server">
-                                <td id="pager" runat="server" colspan="5" class="text-center">
+                                <td id="pager" runat="server" colspan="12" class="text-center">
                                     <asp:DataPager ID="DataPagerGames" runat="server" PageSize="10" class="btn-group btn-group-sm">
                                         <Fields>
                                             <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="|<" ShowPreviousPageButton="true" ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
@@ -61,7 +66,7 @@
                     <ItemTemplate>
                         <tr class="TableData">
                             <td>
-                                <asp:Label ID="LabelNamaGame" runat="server" Text='<%#Eval("game_name") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("game_name") %>'></asp:Label>
                             </td>
                             <td>
                                 <%#Regex.Replace(Eval("description").ToString(), "<[a-zA-Z/].*?>", String.Empty).PadRight(150).Substring(0,130).TrimEnd() %>
@@ -79,17 +84,14 @@
                                 <asp:Label ID="LabelModeGame" runat="server" Text='<%#Eval("game_modes") %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="LabelTema" runat="server" Text='<%#Eval("themes") %>'></asp:Label>
-                            </td>
-                            <td>
                                 <asp:Label ID="LabelFranchises" runat="server" Text='<%#Eval("franchises") %>'></asp:Label>
                             </td>
                             <td>
                                 <asp:Label ID="LabelPerspektifPemain" runat="server" Text='<%#Eval("player_perspectives") %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:HyperLink ID="HyperLinkEdit" runat="server" CssClass="text-secondary" NavigateUrl='<%#Eval ("id", "~/pages/member/article/edit.aspx?id={0}") %>'><i class="bi bi-pencil me-2"></i></asp:HyperLink>
-                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandName="delete" CommandArgument='<%#Eval("id") %>' OnClientClick="return confirm('Are you sure?')"><i class="bi bi-trash me-2"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%#Eval("id") %>' OnClick="LinkButtonEdit_Click"><i class="bi bi-pencil me-2"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandName="delete" OnClientClick="return confirm('Are you sure?')"><i class="bi bi-trash me-2"></i></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -97,4 +99,31 @@
             </div>
         </div>
     </div>
+
+    <%--Modal Show Start--%>
+    <div class="modal fade" id="ModalShow" runat="server" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ModalLabel2">To Do List</h1>
+                    <asp:Button ID="ButtonIconClose" runat="server" Text="" CssClass="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxNamaGame" runat="server" CssClass="form-control" placeholder="Nama Game"></asp:TextBox>
+                        <label for="LabelNamaGame" runat="server">Nama Game</label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxIsi" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Isi" ValidateRequestMode="Disabled"></asp:TextBox>
+                        <label for="LabelIsi" runat="server">Isi</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="ButtonClose" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />
+                    <asp:Button ID="ButtonUpdate" runat="server" Text="Save changes" CssClass="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <%--Modal Show End--%>
 </asp:Content>
