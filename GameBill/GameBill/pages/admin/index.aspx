@@ -100,41 +100,41 @@
                 <div class="modal-body">
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxNamaGameCreate" runat="server" CssClass="form-control" placeholder="Nama Game"></asp:TextBox>
-                        <label for="LabelNamaGameCreate" runat="server">Nama Game</label>
+                        <label for="TextBoxNamaGameCreate" runat="server">Nama Game</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxDeskripsiCreate" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Deskripsi"></asp:TextBox>
-                        <label for="LabelDeskripsiCreate" runat="server">Deskripsi</label>
+                        <label for="TextBoxDeskripsiCreate" runat="server">Deskripsi</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxTanggalRilisCreate" runat="server" TextMode="Date" CssClass="form-control" placeholder="Tanggal Rilis"></asp:TextBox>
-                        <label for="LabelTanggalRilisCreate" runat="server">Tanggal Rilis</label>
+                        <label for="TextBoxTanggalRilisCreate" runat="server">Tanggal Rilis</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxDeveloperCreate" runat="server" CssClass="form-control" placeholder="Developer"></asp:TextBox>
-                        <label for="LabelDeveloperCreate" runat="server">Developer</label>
+                        <label for="TextBoxDeveloperCreate" runat="server">Developer</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxPublisherCreate" runat="server" CssClass="form-control" placeholder="Publisher"></asp:TextBox>
-                        <label for="LabelPublisherCreate" runat="server">Publisher</label>
+                        <label for="TextBoxPublisherCreate" runat="server">Publisher</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxModeGameCreate" runat="server" CssClass="form-control" placeholder="Mode Game"></asp:TextBox>
-                        <label for="LabelModeGameCreate" runat="server">Mode Game</label>
+                        <label for="TextBoxModeGameCreate" runat="server">Mode Game</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxFranchisesCreate" runat="server" CssClass="form-control" placeholder="Franchises"></asp:TextBox>
-                        <label for="LabelFranchisesCreate" runat="server">Franchises</label>
+                        <label for="TextBoxFranchisesCreate" runat="server">Franchises</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxPerspektifPemainCreate" runat="server" CssClass="form-control" placeholder="Perspektif Pemain"></asp:TextBox>
-                        <label for="LabelPerspektifPemainCreate" runat="server">Perspektif Pemain</label>
+                        <label for="TextBoxPerspektifPemainCreate" runat="server">Perspektif Pemain</label>
                     </div>
                     <div class="form-check form-switch mt-3 mb-3">
-                        <%--<asp:TextBox ID="TextBoxNamaGenreCreate" runat="server" CssClass="form-check-input" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
-                        <label for="LabelNamaGenreCreate" runat="server">Nama Genre</label>--%>
+                        <asp:TextBox ID="TextBoxNamaGenreCreate" runat="server" CssClass="form-check-input" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
+                        <label for="TextBoxNamaGenreCreate" runat="server" CssClass="form-check-label">Nama Genre</label>
                         <input class="form-check-input" runat="server" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Nama Genre</label>
+                        <label class="form-check-label" runat="server" for="flexSwitchCheckDefault">Nama Genre</label>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -157,39 +157,39 @@
                 <div class="modal-body">
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxNamaGameShow" runat="server" CssClass="form-control" placeholder="Nama Game"></asp:TextBox>
-                        <label for="LabelNamaGameShow" runat="server">Nama Game</label>
+                        <label for="TextBoxNamaGameShow" runat="server">Nama Game</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxDeskripsiShow" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Deskripsi"></asp:TextBox>
-                        <label for="LabelDeskripsiShow" runat="server">Deskripsi</label>
+                        <label for="TextBoxDeskripsiShow" runat="server">Deskripsi</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxTanggalRilisShow" runat="server" TextMode="Date" CssClass="form-control" placeholder="Tanggal Rilis"></asp:TextBox>
-                        <label for="LabelTanggalRilisShow" runat="server">Tanggal Rilis</label>
+                        <label for="TextBoxTanggalRilisShow" runat="server">Tanggal Rilis</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxDeveloperShow" runat="server" CssClass="form-control" placeholder="Developer"></asp:TextBox>
-                        <label for="LabelDeveloperShow" runat="server">Developer</label>
+                        <label for="TextBoxDeveloperShow" runat="server">Developer</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxPublisherShow" runat="server" CssClass="form-control" placeholder="Publisher"></asp:TextBox>
-                        <label for="LabelPublisherShow" runat="server">Publisher</label>
+                        <label for="TextBoxPublisherShow" runat="server">Publisher</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxModeGameShow" runat="server" CssClass="form-control" placeholder="Mode Game"></asp:TextBox>
-                        <label for="LabelModeGameShow" runat="server">Mode Game</label>
+                        <label for="TextBoxModeGameShow" runat="server">Mode Game</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxFranchisesShow" runat="server" CssClass="form-control" placeholder="Franchises"></asp:TextBox>
-                        <label for="LabelFranchisesShow" runat="server">Franchises</label>
+                        <label for="TextBoxFranchisesShow" runat="server">Franchises</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxPerspektifPemainShow" runat="server" CssClass="form-control" placeholder="Perspektif Pemain"></asp:TextBox>
-                        <label for="LabelPerspektifPemainShow" runat="server">Perspektif Pemain</label>
+                        <label for="TextBoxPerspektifPemainShow" runat="server">Perspektif Pemain</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxNamaGenreShow" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
-                        <label for="LabelNamaGenreShow" runat="server">Nama Genre</label>
+                        <label for="TextBoxNamaGenreShow" runat="server">Nama Genre</label>
                     </div>
                 </div>
                 <div class="modal-footer">
