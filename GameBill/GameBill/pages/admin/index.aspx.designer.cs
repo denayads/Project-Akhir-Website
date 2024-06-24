@@ -15,6 +15,15 @@ namespace GameBill.pages.admin
     {
 
         /// <summary>
+        /// HyperLinkText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkText;
+
+        /// <summary>
         /// notif control.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,123 @@ namespace GameBill.pages.admin
         protected global::System.Web.UI.WebControls.ListView ListViewGames;
 
         /// <summary>
+        /// ModalCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalCreate;
+
+        /// <summary>
+        /// ButtonIconCloseCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonIconCloseCreate;
+
+        /// <summary>
+        /// TextBoxNamaGameCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNamaGameCreate;
+
+        /// <summary>
+        /// TextBoxDeskripsiCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDeskripsiCreate;
+
+        /// <summary>
+        /// TextBoxTanggalRilisCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxTanggalRilisCreate;
+
+        /// <summary>
+        /// TextBoxDeveloperCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDeveloperCreate;
+
+        /// <summary>
+        /// TextBoxPublisherCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPublisherCreate;
+
+        /// <summary>
+        /// TextBoxModeGameCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxModeGameCreate;
+
+        /// <summary>
+        /// TextBoxFranchisesCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxFranchisesCreate;
+
+        /// <summary>
+        /// TextBoxPerspektifPemainCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPerspektifPemainCreate;
+
+        /// <summary>
+        /// flexSwitchCheckDefault control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox flexSwitchCheckDefault;
+
+        /// <summary>
+        /// ButtonCloseCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCloseCreate;
+
+        /// <summary>
+        /// ButtonCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCreate;
+
+        /// <summary>
         /// ModalShow control.
         /// </summary>
         /// <remarks>
@@ -60,111 +186,111 @@ namespace GameBill.pages.admin
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalShow;
 
         /// <summary>
-        /// ButtonIconClose control.
+        /// ButtonIconCloseShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonIconClose;
+        protected global::System.Web.UI.WebControls.Button ButtonIconCloseShow;
 
         /// <summary>
-        /// TextBoxNamaGame control.
+        /// TextBoxNamaGameShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxNamaGame;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNamaGameShow;
 
         /// <summary>
-        /// TextBoxDeskripsi control.
+        /// TextBoxDeskripsiShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxDeskripsi;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDeskripsiShow;
 
         /// <summary>
-        /// TextBoxTanggalRilis control.
+        /// TextBoxTanggalRilisShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxTanggalRilis;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxTanggalRilisShow;
 
         /// <summary>
-        /// TextBoxDeveloper control.
+        /// TextBoxDeveloperShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxDeveloper;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDeveloperShow;
 
         /// <summary>
-        /// TextBoxPublisher control.
+        /// TextBoxPublisherShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPublisher;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPublisherShow;
 
         /// <summary>
-        /// TextBoxModeGame control.
+        /// TextBoxModeGameShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxModeGame;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxModeGameShow;
 
         /// <summary>
-        /// TextBoxFranchises control.
+        /// TextBoxFranchisesShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxFranchises;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxFranchisesShow;
 
         /// <summary>
-        /// TextBoxPerspektifPemain control.
+        /// TextBoxPerspektifPemainShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPerspektifPemain;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPerspektifPemainShow;
 
         /// <summary>
-        /// TextBoxNamaGenre control.
+        /// TextBoxNamaGenreShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxNamaGenre;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNamaGenreShow;
 
         /// <summary>
-        /// ButtonClose control.
+        /// ButtonCloseShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonClose;
+        protected global::System.Web.UI.WebControls.Button ButtonCloseShow;
 
         /// <summary>
-        /// ButtonUpdate control.
+        /// ButtonUpdateShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonUpdate;
+        protected global::System.Web.UI.WebControls.Button ButtonUpdateShow;
     }
 }
