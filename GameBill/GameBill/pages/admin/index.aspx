@@ -8,7 +8,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script>
         function openModal() {
-            const myModal = new bootstrap.Modal('#ModalShow', {});
+            const myModal = new bootstrap.Modal('#anothersection_ModalShow', {});
             myModal.show();
         }
     </script>
@@ -72,26 +72,26 @@
                                 <%#Regex.Replace(Eval("description").ToString(), "<[a-zA-Z/].*?>", String.Empty).PadRight(150).Substring(0,130).TrimEnd() %>
                             </td>
                             <td>
-                                <asp:Label ID="LabelTanggalRilis" runat="server" Text='<%#String.Format("{0:dd-MMM-yyy}", Eval("release_dates")) %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#String.Format("{0:dd-MMM-yyy}", Eval("release_dates")) %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="LabelDeveloper" runat="server" Text='<%#Eval("developers") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("developers") %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="LabelPublisher" runat="server" Text='<%#Eval("publishers") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("publishers") %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="LabelModeGame" runat="server" Text='<%#Eval("game_modes") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("game_modes") %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="LabelFranchises" runat="server" Text='<%#Eval("franchises") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("franchises") %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="LabelPerspektifPemain" runat="server" Text='<%#Eval("player_perspectives") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("player_perspectives") %>'></asp:Label>
                             </td>
                             <td>
                                 <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%#Eval("id") %>' OnClick="LinkButtonEdit_Click"><i class="bi bi-pencil me-2"></i></asp:LinkButton>
-                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandName="delete" OnClientClick="return confirm('Are you sure?')"><i class="bi bi-trash me-2"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandName="delete" OnClientClick="return confirm('Are you sure, you want to delete this?')"><i class="bi bi-trash me-2"></i></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -105,7 +105,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ModalLabel2">To Do List</h1>
+                    <h1 class="modal-title fs-5" id="ModalLabelShow">Edit Detail Games</h1>
                     <asp:Button ID="ButtonIconClose" runat="server" Text="" CssClass="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                 </div>
                 <div class="modal-body">
@@ -114,8 +114,36 @@
                         <label for="LabelNamaGame" runat="server">Nama Game</label>
                     </div>
                     <div class="form-floating mt-3 mb-3">
-                        <asp:TextBox ID="TextBoxIsi" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Isi" ValidateRequestMode="Disabled"></asp:TextBox>
-                        <label for="LabelIsi" runat="server">Isi</label>
+                        <asp:TextBox ID="TextBoxDeskripsi" runat="server" CssClass="form-control" placeholder="Deskripsi"></asp:TextBox>
+                        <label for="LabelDeskripsi" runat="server">Deskripsi</label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxTanggalRilis" runat="server" CssClass="form-control" placeholder="Tanggal Rilis"></asp:TextBox>
+                        <label for="LabelTanggalRilis" runat="server">Tanggal Rilis</label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxDeveloper" runat="server" CssClass="form-control" placeholder="Developer"></asp:TextBox>
+                        <label for="LabelDeveloper" runat="server">Developer</label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxPublisher" runat="server" CssClass="form-control" placeholder="Publisher"></asp:TextBox>
+                        <label for="LabelPublisher" runat="server">Publisher</label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxModeGame" runat="server" CssClass="form-control" placeholder="Mode Game"></asp:TextBox>
+                        <label for="LabelModeGame" runat="server">Mode Game</label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxFranchises" runat="server" CssClass="form-control" placeholder="Franchises"></asp:TextBox>
+                        <label for="LabelFranchises" runat="server">Franchises</label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxPerspektifPemain" runat="server" CssClass="form-control" placeholder="Perspektif Pemain"></asp:TextBox>
+                        <label for="LabelPerspektifPemain" runat="server">Perspektif Pemain</label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxNamaGenre" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
+                        <label for="LabelNamaGenre" runat="server">Nama Genre</label>
                     </div>
                 </div>
                 <div class="modal-footer">

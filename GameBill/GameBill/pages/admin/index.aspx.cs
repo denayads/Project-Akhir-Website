@@ -61,8 +61,7 @@ namespace GameBill.pages.admin
             long id = Convert.ToInt64(lbtn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             string querry = "select * from games where id=@id";
-            string querry2 = "select * from genre where id=@id";
-            string querry3 = "select * from games_platforms where id_games=@id";
+            string querry2 = "select c.genre_name from games_genre a join games b on a.id_games=b.id join genre c on a.id_genre=c.id where id_games=@id";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -77,9 +76,16 @@ namespace GameBill.pages.admin
                             if (reader.Read())
                             {
                                 TextBoxNamaGame.Text = reader["game_name"].ToString();
+                                TextBoxDeskripsi.Text = reader["description"].ToString();
+                                TextBoxTanggalRilis.Text = reader["release_dates"].ToString();
+                                TextBoxDeveloper.Text = reader["developers"].ToString();
+                                TextBoxPublisher.Text = reader["publishers"].ToString();
+                                TextBoxModeGame.Text = reader["game_modes"].ToString();
+                                TextBoxFranchises.Text = reader["franchises"].ToString();
+                                TextBoxPerspektifPemain.Text = reader["player_perspectives"].ToString();
                             }
                         }
-                        TextBoxIsi.Text = "";
+                        TextBoxNamaGenre.Text = "";
                         using (SqlCommand cmd2 = new SqlCommand(querry2, con))
                         {
                             cmd2.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
@@ -87,11 +93,11 @@ namespace GameBill.pages.admin
                             {
                                 while (reader.Read())
                                 {
-                                    TextBoxIsi.Text += reader["genre_name"].ToString() + ";\n";
+                                    TextBoxNamaGenre.Text += reader["genre_name"].ToString() + ";\n";
                                 }
                             }
                         }
-                        ButtonUpdate.CommandArgument = id.ToString();
+                        //LinkButtonUpdate.CommandArgument = id.ToString();
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
                 }
@@ -108,8 +114,8 @@ namespace GameBill.pages.admin
         //{
         //    LinkButton lbtn = (LinkButton)sender;
         //    long id = Convert.ToInt64(lbtn.CommandArgument);
-        //    string con_str = ConfigurationManager.ConnectionStrings["blogspaceCS"].ConnectionString;
-        //    string querry = "delete from todo where id=@id";
+        //    string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+        //    string querry = "delete from games where id=@id";
 
         //    using (SqlConnection con = new SqlConnection(con_str))
         //    {
@@ -121,13 +127,13 @@ namespace GameBill.pages.admin
         //                cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
         //                if (cmd.ExecuteNonQuery() > 0)
         //                {
-        //                    Response.Redirect("~/pages/member/todo/index.aspx");
+        //                    Response.Redirect("~/pages/admin/index.aspx");
         //                }
         //                else
         //                {
         //                    notif.Visible = true;
         //                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-        //                    message.Text = "Delete To Do Gagal";
+        //                    message.Text = "Delete Games Failed!";
         //                }
         //            }
         //        }

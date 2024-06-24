@@ -78,13 +78,76 @@ namespace GameBill.pages.admin
         protected global::System.Web.UI.WebControls.TextBox TextBoxNamaGame;
 
         /// <summary>
-        /// TextBoxIsi control.
+        /// TextBoxDeskripsi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxIsi;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDeskripsi;
+
+        /// <summary>
+        /// TextBoxTanggalRilis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxTanggalRilis;
+
+        /// <summary>
+        /// TextBoxDeveloper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDeveloper;
+
+        /// <summary>
+        /// TextBoxPublisher control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPublisher;
+
+        /// <summary>
+        /// TextBoxModeGame control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxModeGame;
+
+        /// <summary>
+        /// TextBoxFranchises control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxFranchises;
+
+        /// <summary>
+        /// TextBoxPerspektifPemain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPerspektifPemain;
+
+        /// <summary>
+        /// TextBoxNamaGenre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNamaGenre;
 
         /// <summary>
         /// ButtonClose control.
