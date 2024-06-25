@@ -131,10 +131,22 @@
                         <label for="TextBoxPerspektifPemainCreate" runat="server">Perspektif Pemain</label>
                     </div>
                     <div class="form-check form-switch mt-3 mb-3">
-                        <asp:TextBox ID="TextBoxNamaGenreCreate" runat="server" CssClass="form-check-input" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
-                        <label for="TextBoxNamaGenreCreate" runat="server" CssClass="form-check-label">Nama Genre</label>
-                        <input class="form-check-input" runat="server" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" runat="server" for="flexSwitchCheckDefault">Nama Genre</label>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <asp:TextBox ID="TextBoxNamaGenreCreate" runat="server" CssClass="form-check-input me-1" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
+                                <label for="TextBoxNamaGenreCreate" runat="server" cssclass="form-check-label stretched-link">Nama Genre</label>
+                                <input class="form-check-input me-1" type="checkbox" value="" role="switch" id="firstCheckboxStretched">
+                                <label class="form-check-label stretched-link" for="firstCheckboxStretched">Nama Genre</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value="" role="switch" id="secondCheckboxStretched">
+                                <label class="form-check-label stretched-link" for="secondCheckboxStretched">Second checkbox</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value="" role="switch" id="thirdCheckboxStretched">
+                                <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Third checkbox</label>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="modal-footer">
