@@ -24,35 +24,40 @@ namespace GameBill.pages.admin
 
         protected void BindData()
         {
-            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "select * from games g join users u on g.id_users=u.id";
+            DataTable rst = MyRst("select * from games g join users u on g.id_users=u.id");
 
-            using (SqlConnection con = new SqlConnection(con_str))
+            rst.Columns.Add("genre_name", typeof(string));
+
+            foreach (DataRow OneRow in rst.Rows)
             {
-                using (SqlCommand cmd = new SqlCommand(querry, con))
+                // get child rows for this main row
+                DataTable ChildRows = MyRst("select * from games_genre g join genre r on g.id_genre=r.id where id_games = " + OneRow["id"]);
+
+                foreach (DataRow ChildRow in ChildRows.Rows)
                 {
-                    try
+                    if (OneRow["genre_name"].ToString() != "")
                     {
-                        con.Open();
-
-                        using (SqlDataAdapter sda = new SqlDataAdapter())
-                        {
-                            sda.SelectCommand = cmd;
-
-                            using (DataTable dt = new DataTable())
-                            {
-                                sda.Fill(dt);
-                                ListViewGames.DataSource = dt;
-                                ListViewGames.DataBind();
-                            }
-                        }
+                        // start new line in this cell
+                        OneRow["genre_name"] += "<br/>";
                     }
-                    catch (Exception ex)
-                    {
-                        Response.Write(ex.Message);
-                    }
+
+                    OneRow["genre_name"] += ChildRow["genre_name"].ToString();
                 }
             }
+            ListViewGames.DataSource = rst;
+            ListViewGames.DataBind();
+        }
+
+        public DataTable MyRst(string query)
+        {
+            DataTable rstData = new DataTable();
+            using (SqlCommand cmdSQL = new SqlCommand(query,
+                new SqlConnection(ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString)))
+            {
+                cmdSQL.Connection.Open();
+                rstData.Load(cmdSQL.ExecuteReader());
+            }
+            return rstData;
         }
 
         protected void ButtonCreate_Click(object sender, EventArgs e)

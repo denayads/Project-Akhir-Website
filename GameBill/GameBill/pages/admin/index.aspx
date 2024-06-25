@@ -30,10 +30,8 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row g-4 justify-content-center">
-                <h5 class="section-title px-3">Look What You Have Create</h5>
-                <h1 class="mb-4">Blogspace To Do List</h1>
                 <p class="mb-0">
-                    To create your to do list, click<asp:HyperLink ID="HyperLinkText" runat="server" NavigateUrl="#" data-bs-toggle="modal" data-bs-target="#anothersection_ModalCreate"> here.</asp:HyperLink>
+                    To create games detail click<asp:HyperLink ID="HyperLinkText" runat="server" NavigateUrl="#" data-bs-toggle="modal" data-bs-target="#anothersection_ModalCreate"> here.</asp:HyperLink>
                 </p>
                 <div id="notif" runat="server" visible="false" class="col-6 mt-3 mb-3 mx-auto" role="alert">
                     <asp:Label ID="message" runat="server" Text=""></asp:Label>
@@ -46,6 +44,7 @@
                                 <th>Nama Game</th>
                                 <th>Deskripsi</th>
                                 <th>Tanggal Rilis</th>
+                                <th>Genre</th>
                                 <th>Administrator</th>
                                 <th>Aksi</th>
                             </tr>
@@ -74,6 +73,9 @@
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#String.Format("{0:dd-MMM-yyy}", Eval("release_dates")) %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label runat="server" Text='<%#Eval("genre_name") %>'></asp:Label>
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#Eval("user_name") %>'></asp:Label>
@@ -130,24 +132,22 @@
                         <asp:TextBox ID="TextBoxPerspektifPemainCreate" runat="server" CssClass="form-control" placeholder="Perspektif Pemain"></asp:TextBox>
                         <label for="TextBoxPerspektifPemainCreate" runat="server">Perspektif Pemain</label>
                     </div>
-                    <div class="form-check form-switch mt-3 mb-3">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <asp:TextBox ID="TextBoxNamaGenreCreate" runat="server" CssClass="form-check-input me-1" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
-                                <label for="TextBoxNamaGenreCreate" runat="server" cssclass="form-check-label stretched-link">Nama Genre</label>
-                                <input class="form-check-input me-1" type="checkbox" value="" role="switch" id="firstCheckboxStretched">
-                                <label class="form-check-label stretched-link" for="firstCheckboxStretched">Nama Genre</label>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" value="" role="switch" id="secondCheckboxStretched">
-                                <label class="form-check-label stretched-link" for="secondCheckboxStretched">Second checkbox</label>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" value="" role="switch" id="thirdCheckboxStretched">
-                                <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Third checkbox</label>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="list-group form-switch mt-3 mb-3">
+                        <li class="list-group-item">
+                            <%--<asp:TextBox ID="TextBoxNamaGenreCreate" runat="server" CssClass="form-check-input me-1" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
+                                <label for="TextBoxNamaGenreCreate" runat="server" cssclass="form-check-label stretched-link">Nama Genre</label>--%>
+                            <input class="form-check-input ms-0 me-2" type="checkbox" value="" id="firstCheckboxStretched">
+                            <label class="form-check-label stretched-link" for="firstCheckboxStretched">Nama Genre</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input ms-0 me-2" type="checkbox" value="" id="secondCheckboxStretched">
+                            <label class="form-check-label stretched-link" for="secondCheckboxStretched">Second checkbox</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input ms-0 me-2" type="checkbox" value="" id="thirdCheckboxStretched">
+                            <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Third checkbox</label>
+                        </li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="ButtonCloseCreate" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />
