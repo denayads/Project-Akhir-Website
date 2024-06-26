@@ -92,8 +92,8 @@
     </div>
 
     <%--Modal Create Start--%>
-    <div class="modal fade" id="ModalCreate" runat="server" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="ModalCreate" runat="server" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="ModalLabel1">Create Detail Games</h1>
@@ -132,26 +132,25 @@
                         <asp:TextBox ID="TextBoxPerspektifPemainCreate" runat="server" CssClass="form-control" placeholder="Perspektif Pemain"></asp:TextBox>
                         <label for="TextBoxPerspektifPemainCreate" runat="server">Perspektif Pemain</label>
                     </div>
-                    <ul class="list-group form-switch mt-3 mb-3">
+                    <p>Genre :</p>
+                    <ul class="list-group list-group-horizontal form-switch mt-3 mb-3">
                         <li class="list-group-item">
-                            <%--<asp:TextBox ID="TextBoxNamaGenreCreate" runat="server" CssClass="form-check-input me-1" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
-                                <label for="TextBoxNamaGenreCreate" runat="server" cssclass="form-check-label stretched-link">Nama Genre</label>--%>
-                            <input class="form-check-input ms-0 me-2" type="checkbox" value="" id="firstCheckboxStretched">
-                            <label class="form-check-label stretched-link" for="firstCheckboxStretched">Nama Genre</label>
+                            <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="1" id="CheckBoxActionCreate" validaterequestmode="Disabled">
+                            <label for="CheckBoxActionCreate" runat="server" cssclass="form-check-label">Action</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input ms-0 me-2" type="checkbox" value="" id="secondCheckboxStretched">
-                            <label class="form-check-label stretched-link" for="secondCheckboxStretched">Second checkbox</label>
+                            <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="2" id="CheckBoxAdventureCreate" validaterequestmode="Disabled">
+                            <label for="CheckBoxAdventureCreate" runat="server" cssclass="form-check-label">Adventure</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input ms-0 me-2" type="checkbox" value="" id="thirdCheckboxStretched">
-                            <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Third checkbox</label>
+                            <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="3" id="CheckBoxOpenWorldCreate" validaterequestmode="Disabled">
+                            <label for="CheckBoxOpenWorldCreate" runat="server" cssclass="form-check-label">Open world</label>
                         </li>
                     </ul>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="ButtonCloseCreate" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />
-                    <asp:Button ID="ButtonCreate" runat="server" Text="Save changes" CssClass="btn btn-primary" />
+                    <asp:Button ID="ButtonCreate" runat="server" Text="Create" CssClass="btn btn-primary" OnClick="ButtonCreate_Click" />
                 </div>
             </div>
         </div>
@@ -159,8 +158,8 @@
     <%--Modal Create End--%>
 
     <%--Modal Show Start--%>
-    <div class="modal fade" id="ModalShow" runat="server" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="ModalShow" runat="server" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="ModalLabelShow">Edit Detail Games</h1>
@@ -199,10 +198,21 @@
                         <asp:TextBox ID="TextBoxPerspektifPemainShow" runat="server" CssClass="form-control" placeholder="Perspektif Pemain"></asp:TextBox>
                         <label for="TextBoxPerspektifPemainShow" runat="server">Perspektif Pemain</label>
                     </div>
-                    <div class="form-floating mt-3 mb-3">
-                        <asp:TextBox ID="TextBoxNamaGenreShow" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Nama Genre" ValidateRequestMode="Disabled"></asp:TextBox>
-                        <label for="TextBoxNamaGenreShow" runat="server">Nama Genre</label>
-                    </div>
+                    <p>Genre :</p>
+                    <ul class="list-group list-group-horizontal form-switch mt-3 mb-3">
+                        <li class="list-group-item">
+                            <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="1" id="CheckBoxActionShow" validaterequestmode="Disabled">
+                            <label for="CheckBoxActionShow" runat="server" cssclass="form-check-label">Action</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="2" id="CheckBoxAdventureShow" validaterequestmode="Disabled">
+                            <label for="CheckBoxAdventureShow" runat="server" cssclass="form-check-label">Adventure</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="3" id="CheckBoxOpenWorldShow" validaterequestmode="Disabled">
+                            <label for="CheckBoxOpenWorldShow" runat="server" cssclass="form-check-label">Open world</label>
+                        </li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="ButtonCloseShow" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />

@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Security.Policy;
 
 namespace GameBill.pages.admin
 {
@@ -30,14 +31,12 @@ namespace GameBill.pages.admin
 
             foreach (DataRow OneRow in rst.Rows)
             {
-                // get child rows for this main row
                 DataTable ChildRows = MyRst("select * from games_genre g join genre r on g.id_genre=r.id where id_games = " + OneRow["id"]);
 
                 foreach (DataRow ChildRow in ChildRows.Rows)
                 {
                     if (OneRow["genre_name"].ToString() != "")
                     {
-                        // start new line in this cell
                         OneRow["genre_name"] += "<br/>";
                     }
 
@@ -91,17 +90,33 @@ namespace GameBill.pages.admin
                         cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
                         id = Convert.ToInt64(cmd.ExecuteScalar());
                     }
-
-                    //string[] task = TextBoxNamaGenreCreate.Text.Split(new char[] { ';' });
-                    //foreach (var item in task)
-                    //{
-                    //    using (SqlCommand cmd2 = new SqlCommand("insert into games_genre (game_name, description, release_dates, developers, publishers, game_modes, franchises, player_perspectives) values (@isi, @id_todo)", con))
-                    //    {
-                    //        cmd2.Parameters.AddWithValue("@isi", item);
-                    //        cmd2.Parameters.AddWithValue("@id_todo", id);
-                    //        cmd2.ExecuteNonQuery();
-                    //    }
-                    //}
+                    if (CheckBoxActionCreate.Checked)
+                    {
+                        using (SqlCommand cmd2 = new SqlCommand("insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)", con))
+                        {
+                            cmd2.Parameters.AddWithValue("@id_genre", 1);
+                            cmd2.Parameters.AddWithValue("@id_games", id);
+                            cmd2.ExecuteNonQuery();
+                        }
+                    }
+                    if (CheckBoxAdventureCreate.Checked)
+                    {
+                        using (SqlCommand cmd2 = new SqlCommand("insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)", con))
+                        {
+                            cmd2.Parameters.AddWithValue("@id_genre", 2);
+                            cmd2.Parameters.AddWithValue("@id_games", id);
+                            cmd2.ExecuteNonQuery();
+                        }
+                    }
+                    if (CheckBoxOpenWorldCreate.Checked)
+                    {
+                        using (SqlCommand cmd2 = new SqlCommand("insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)", con))
+                        {
+                            cmd2.Parameters.AddWithValue("@id_genre", 3);
+                            cmd2.Parameters.AddWithValue("@id_games", id);
+                            cmd2.ExecuteNonQuery();
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -118,7 +133,7 @@ namespace GameBill.pages.admin
             long id = Convert.ToInt64(lbtn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             string querry = "select * from games where id=@id";
-            string querry2 = "select c.genre_name from games_genre a join games b on a.id_games=b.id join genre c on a.id_genre=c.id where id_games=@id";
+            string querry2 = "select * from games_genre e join genre r on e.id_genre=r.id join games g on e.id_games=g.id where id_games=@id";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -142,21 +157,103 @@ namespace GameBill.pages.admin
                                 TextBoxPerspektifPemainShow.Text = reader["player_perspectives"].ToString();
                             }
                         }
-                        TextBoxNamaGenreShow.Text = "";
                         using (SqlCommand cmd2 = new SqlCommand(querry2, con))
                         {
                             cmd2.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
                             using (SqlDataReader reader = cmd2.ExecuteReader())
                             {
+                                //tidak terupdate setelah diclose
                                 while (reader.Read())
                                 {
-                                    TextBoxNamaGenreShow.Text += reader["genre_name"].ToString() + ";\n";
+                                    if (Convert.ToInt64(reader["id_genre"].ToString()) == 1)
+                                    {
+                                        CheckBoxActionShow.Checked = true;
+                                    }
+                                    if (Convert.ToInt64(reader["id_genre"].ToString()) == 2)
+                                    {
+                                        CheckBoxAdventureShow.Checked = true;
+                                    }
+                                    if (Convert.ToInt64(reader["id_genre"].ToString()) == 3)
+                                    {
+                                        CheckBoxOpenWorldShow.Checked = true;
+                                    }
                                 }
                             }
                         }
-                        //LinkButtonUpdate.CommandArgument = id.ToString();
+                        ButtonUpdateShow.CommandArgument = id.ToString();
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
+                }
+            }
+        }
+
+        protected void ButtonUpdateShow_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            long id = Convert.ToInt64(btn.CommandArgument);
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            
+            string querry = "update games set game_name=@game_name, description=@description, release_dates=@release_dates, developers=@developers, publishers=@publishers, game_modes=@game_modes, franchises=@franchises, player_perspectives=@player_perspectives where id=@id";
+            string querryDelete = "delete from games_genre e join genre r on e.id_genre=r.id join games g on e.id_games=g.id where id_games=@id";
+            string querryInsert = "insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)";
+
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    {
+                        cmd.Parameters.Add("@game_name", SqlDbType.NVarChar).Value = TextBoxNamaGameShow.Text;
+                        cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = TextBoxDeskripsiShow.Text;
+                        cmd.Parameters.Add("@release_dates", SqlDbType.Date).Value = TextBoxTanggalRilisShow.Text;
+                        cmd.Parameters.Add("@developers", SqlDbType.NVarChar).Value = TextBoxDeveloperShow.Text;
+                        cmd.Parameters.Add("@publishers", SqlDbType.NVarChar).Value = TextBoxPublisherShow.Text;
+                        cmd.Parameters.Add("@game_modes", SqlDbType.NVarChar).Value = TextBoxModeGameShow.Text;
+                        cmd.Parameters.Add("@franchises", SqlDbType.NVarChar).Value = TextBoxFranchisesShow.Text;
+                        cmd.Parameters.Add("@player_perspectives", SqlDbType.NVarChar).Value = TextBoxPerspektifPemainShow.Text;
+                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        cmd.ExecuteNonQuery();
+                    }
+                    using (SqlCommand cmd2 = new SqlCommand(querryDelete, con))
+                    {
+                        cmd2.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        cmd2.ExecuteNonQuery();
+                    }
+                    if (CheckBoxActionCreate.Checked)
+                    {
+                        using (SqlCommand cmd3 = new SqlCommand(querryInsert, con))
+                        {
+                            cmd3.Parameters.AddWithValue("@id_genre", 1);
+                            cmd3.Parameters.AddWithValue("@id_games", id);
+                            cmd3.ExecuteNonQuery();
+                        }
+                    }
+                    if (CheckBoxAdventureCreate.Checked)
+                    {
+                        using (SqlCommand cmd3 = new SqlCommand(querryInsert, con))
+                        {
+                            cmd3.Parameters.AddWithValue("@id_genre", 2);
+                            cmd3.Parameters.AddWithValue("@id_games", id);
+                            cmd3.ExecuteNonQuery();
+                        }
+                    }
+                    if (CheckBoxOpenWorldCreate.Checked)
+                    {
+                        using (SqlCommand cmd3 = new SqlCommand(querryInsert, con))
+                        {
+                            cmd3.Parameters.AddWithValue("@id_genre", 3);
+                            cmd3.Parameters.AddWithValue("@id_games", id);
+                            cmd3.ExecuteNonQuery();
+                        }
+                    }
+                    Response.Redirect("~/pages/admin/index.aspx");
                 }
                 catch (Exception ex)
                 {
