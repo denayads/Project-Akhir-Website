@@ -82,7 +82,7 @@
                             </td>
                             <td>
                                 <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%#Eval("id") %>' OnClick="LinkButtonEdit_Click"><i class="bi bi-pencil me-2"></i></asp:LinkButton>
-                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandName="delete" OnClientClick="return confirm('Are you sure, you want to delete this?')"><i class="bi bi-trash me-2"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandName="delete" OnClientClick="return confirm('Are you sure, you want to delete this?')" OnClick="LinkButtonDelete_Click"><i class="bi bi-trash me-2"></i></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -199,6 +199,7 @@
                         <label for="TextBoxPerspektifPemainShow" runat="server">Perspektif Pemain</label>
                     </div>
                     <p>Genre :</p>
+                    <asp:CheckBoxList ID="CheckBoxListGenreShow" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
                     <ul class="list-group list-group-horizontal form-switch mt-3 mb-3">
                         <li class="list-group-item">
                             <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="1" id="CheckBoxActionShow" validaterequestmode="Disabled">
@@ -216,7 +217,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="ButtonCloseShow" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />
-                    <asp:Button ID="ButtonUpdateShow" runat="server" Text="Save changes" CssClass="btn btn-primary" />
+                    <asp:Button ID="ButtonUpdateShow" runat="server" Text="Save changes" CssClass="btn btn-primary" OnClick="ButtonUpdateShow_Click" />
                 </div>
             </div>
         </div>
