@@ -133,7 +133,8 @@
                         <label for="TextBoxPerspektifPemainCreate" runat="server">Perspektif Pemain</label>
                     </div>
                     <p>Genre :</p>
-                    <ul class="list-group list-group-horizontal form-switch mt-3 mb-3">
+                    <asp:CheckBoxList ID="CheckBoxListGenreCreate" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
+                    <%--<ul class="list-group list-group-horizontal form-switch mt-3 mb-3">
                         <li class="list-group-item">
                             <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="1" id="CheckBoxActionCreate" validaterequestmode="Disabled">
                             <label for="CheckBoxActionCreate" runat="server" cssclass="form-check-label">Action</label>
@@ -146,7 +147,7 @@
                             <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="3" id="CheckBoxOpenWorldCreate" validaterequestmode="Disabled">
                             <label for="CheckBoxOpenWorldCreate" runat="server" cssclass="form-check-label">Open world</label>
                         </li>
-                    </ul>
+                    </ul>--%>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="ButtonCloseCreate" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />
@@ -200,7 +201,7 @@
                     </div>
                     <p>Genre :</p>
                     <asp:CheckBoxList ID="CheckBoxListGenreShow" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
-                    <ul class="list-group list-group-horizontal form-switch mt-3 mb-3">
+                    <%--<ul class="list-group list-group-horizontal form-switch mt-3 mb-3">
                         <li class="list-group-item">
                             <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="1" id="CheckBoxActionShow" validaterequestmode="Disabled">
                             <label for="CheckBoxActionShow" runat="server" cssclass="form-check-label">Action</label>
@@ -213,7 +214,7 @@
                             <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="3" id="CheckBoxOpenWorldShow" validaterequestmode="Disabled">
                             <label for="CheckBoxOpenWorldShow" runat="server" cssclass="form-check-label">Open world</label>
                         </li>
-                    </ul>
+                    </ul>--%>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="ButtonCloseShow" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />

@@ -150,31 +150,13 @@ namespace GameBill.pages.admin
         protected global::System.Web.UI.WebControls.TextBox TextBoxPerspektifPemainCreate;
 
         /// <summary>
-        /// CheckBoxActionCreate control.
+        /// CheckBoxListGenreCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBoxActionCreate;
-
-        /// <summary>
-        /// CheckBoxAdventureCreate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBoxAdventureCreate;
-
-        /// <summary>
-        /// CheckBoxOpenWorldCreate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBoxOpenWorldCreate;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListGenreCreate;
 
         /// <summary>
         /// ButtonCloseCreate control.
@@ -292,33 +274,6 @@ namespace GameBill.pages.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListGenreShow;
-
-        /// <summary>
-        /// CheckBoxActionShow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBoxActionShow;
-
-        /// <summary>
-        /// CheckBoxAdventureShow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBoxAdventureShow;
-
-        /// <summary>
-        /// CheckBoxOpenWorldShow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CheckBoxOpenWorldShow;
 
         /// <summary>
         /// ButtonCloseShow control.

@@ -10,6 +10,7 @@ using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Security.Policy;
+using System.EnterpriseServices.Internal;
 
 namespace GameBill.pages.admin
 {
@@ -45,6 +46,34 @@ namespace GameBill.pages.admin
             }
             ListViewGames.DataSource = rst;
             ListViewGames.DataBind();
+
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
+                {
+                    con.Open();
+                    CheckBoxListGenreCreate.Items.Clear();
+                    using (SqlCommand cmd = new SqlCommand("select * from genre", con))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ListItem item = new ListItem(reader["genre_name"].ToString(), reader["id"].ToString());
+                                item.Selected = false;
+                                CheckBoxListGenreCreate.Items.Add(item);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
+                }
+            }
         }
 
         public DataTable MyRst(string query)
@@ -71,13 +100,15 @@ namespace GameBill.pages.admin
             string perspektifpemain = TextBoxPerspektifPemainCreate.Text.Trim();
             long id = Convert.ToInt64(Session["id"]);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querry = "insert into games (game_name, description, release_dates, developers, publishers, game_modes, franchises, player_perspectives, id_users) values (@game_name, @description, @release_dates, @developers, @publishers, @game_modes, @franchises, @player_perspectives, @id_users); SELECT SCOPE_IDENTITY()";
+            string querry2 = "insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
                 try
                 {
                     con.Open();
-                    using (SqlCommand cmd = new SqlCommand("insert into games (game_name, description, release_dates, developers, publishers, game_modes, franchises, player_perspectives, id_users) values (@game_name, @description, @release_dates, @developers, @publishers, @game_modes, @franchises, @player_perspectives, @id_users); SELECT SCOPE_IDENTITY()", con))
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
                     {
                         cmd.Parameters.Add("@game_name", SqlDbType.NVarChar).Value = namagame;
                         cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = deskripsi;
@@ -90,31 +121,17 @@ namespace GameBill.pages.admin
                         cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
                         id = Convert.ToInt64(cmd.ExecuteScalar());
                     }
-                    if (CheckBoxActionCreate.Checked)
+                    using (SqlCommand cmd = new SqlCommand(querry2, con))
                     {
-                        using (SqlCommand cmd2 = new SqlCommand("insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)", con))
+                        foreach (ListItem item in CheckBoxListGenreCreate.Items)
                         {
-                            cmd2.Parameters.AddWithValue("@id_genre", 1);
-                            cmd2.Parameters.AddWithValue("@id_games", id);
-                            cmd2.ExecuteNonQuery();
-                        }
-                    }
-                    if (CheckBoxAdventureCreate.Checked)
-                    {
-                        using (SqlCommand cmd2 = new SqlCommand("insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)", con))
-                        {
-                            cmd2.Parameters.AddWithValue("@id_genre", 2);
-                            cmd2.Parameters.AddWithValue("@id_games", id);
-                            cmd2.ExecuteNonQuery();
-                        }
-                    }
-                    if (CheckBoxOpenWorldCreate.Checked)
-                    {
-                        using (SqlCommand cmd2 = new SqlCommand("insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)", con))
-                        {
-                            cmd2.Parameters.AddWithValue("@id_genre", 3);
-                            cmd2.Parameters.AddWithValue("@id_games", id);
-                            cmd2.ExecuteNonQuery();
+                            if (item.Selected)
+                            {
+                                cmd.Parameters.Clear();
+                                cmd.Parameters.AddWithValue("@id_genre", item.Value);
+                                cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = id;
+                                cmd.ExecuteNonQuery();
+                            }
                         }
                     }
                     Response.Redirect("~/pages/admin/index.aspx");
@@ -230,21 +247,21 @@ namespace GameBill.pages.admin
                         cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
                         cmd.ExecuteNonQuery();
                     }
-                    using (SqlCommand cmd2 = new SqlCommand(querryDelete, con))
+                    using (SqlCommand cmd = new SqlCommand(querryDelete, con))
                     {
-                        cmd2.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
-                        cmd2.ExecuteNonQuery();
+                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        cmd.ExecuteNonQuery();
                     }
-                    using (SqlCommand cmd3 = new SqlCommand(querryInsert, con))
+                    using (SqlCommand cmd = new SqlCommand(querryInsert, con))
                     {
                         foreach (ListItem item in CheckBoxListGenreShow.Items)
                         {
                             if (item.Selected)
                             {
-                                cmd3.Parameters.Clear();
-                                cmd3.Parameters.AddWithValue("@id_genre", item.Value);
-                                cmd3.Parameters.Add("@id_games", SqlDbType.BigInt).Value = id;
-                                cmd3.ExecuteNonQuery();
+                                cmd.Parameters.Clear();
+                                cmd.Parameters.AddWithValue("@id_genre", item.Value);
+                                cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = id;
+                                cmd.ExecuteNonQuery();
                             }
                         }
                     }
@@ -265,7 +282,6 @@ namespace GameBill.pages.admin
             long id = Convert.ToInt64(lbtn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             string querry = "delete from games where id=@id";
-            string querry2 = "delete from games_genre where id_games=@id";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -275,19 +291,18 @@ namespace GameBill.pages.admin
                     using (SqlCommand cmd = new SqlCommand(querry, con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
-                        using (SqlCommand cmd2 = new SqlCommand(querry2, con))
+                        if (cmd.ExecuteNonQuery() > 0)
                         {
-                            cmd2.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
-                            if (cmd.ExecuteNonQuery() > 0 && cmd2.ExecuteNonQuery() > 0)
-                            {
-                                Response.Redirect("~/pages/admin/index.aspx");
-                            }
-                            else
-                            {
-                                notif.Visible = true;
-                                notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                                message.Text = "Delete Games Failed!";
-                            }
+                            BindData();
+                            notif.Visible = true;
+                            notif.Attributes.Add("class", "alert alert-primary alert-dismissible fade show");
+                            message.Text = "Delete Games Success!";
+                        }
+                        else
+                        {
+                            notif.Visible = true;
+                            notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                            message.Text = "Delete Games Failed!";
                         }
                     }
                 }
@@ -309,13 +324,6 @@ namespace GameBill.pages.admin
         protected void ListViewGames_ItemDeleting(object sender, ListViewDeleteEventArgs e)
         {
 
-        }
-
-        private void ClearCheckBoxShow()
-        {
-            CheckBoxActionShow.Checked = false;
-            CheckBoxAdventureShow.Checked = false;
-            CheckBoxOpenWorldShow.Checked = false;
         }
     }
 }
