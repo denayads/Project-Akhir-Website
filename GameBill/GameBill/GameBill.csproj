@@ -94,6 +94,7 @@
     <Content Include="pages\auth\register.aspx" />
     <Content Include="pages\main\index.aspx" />
     <Content Include="pages\member\index.aspx" />
+    <Content Include="pages\shop\index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pages\member\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\shop\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\shop\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

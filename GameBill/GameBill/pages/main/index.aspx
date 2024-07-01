@@ -6,7 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="style" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
-    <script src="<%=ResolveUrl("~/assets/js/IGDB.js")%>"></script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="banner" runat="server">
 </asp:Content>
