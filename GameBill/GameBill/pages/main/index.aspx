@@ -10,7 +10,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="banner" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="features" runat="server">
-    <div class="container-fluid">
+    <div class="container-fluid py-3">
         <div class="container py-3">
             <div class="row g-3">
                 <div class="col-10">

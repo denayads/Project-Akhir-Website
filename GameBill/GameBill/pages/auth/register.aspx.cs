@@ -29,7 +29,6 @@ namespace GameBill.pages.auth
             {
                 string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
                 Encryptor encryptor = new Encryptor();
-
                 using (SqlConnection con = new SqlConnection(con_str))
                 {
                     using (SqlCommand cmd = new SqlCommand("insert into users (user_name, email, password) values (@user_name, @email, @password)", con))

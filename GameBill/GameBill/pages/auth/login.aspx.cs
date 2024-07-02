@@ -24,14 +24,12 @@ namespace GameBill.pages.auth
             string password = TextBoxPassword.Text.Trim();
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             Encryptor encryptor = new Encryptor();
-
             using (SqlConnection con = new SqlConnection(con_str))
             {
                 using (SqlCommand cmd = new SqlCommand("select * from users where user_name=@user_name and password=@password", con))
                 {
                     cmd.Parameters.Add("@user_name", SqlDbType.NVarChar).Value = user_name;
                     cmd.Parameters.Add("@password", SqlDbType.NVarChar).Value = encryptor.Hash(password);
-
                     try
                     {
                         con.Open();

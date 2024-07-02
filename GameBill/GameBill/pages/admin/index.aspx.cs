@@ -26,14 +26,11 @@ namespace GameBill.pages.admin
 
         protected void BindData()
         {
-            DataTable rst = MyRst("select * from games g join users u on g.id_users=u.id");
-
+            DataTable rst = MyRst("select * from games join users on games.id_users=users.id");
             rst.Columns.Add("genre_name", typeof(string));
-
             foreach (DataRow OneRow in rst.Rows)
             {
-                DataTable ChildRows = MyRst("select * from games_genre g join genre r on g.id_genre=r.id where id_games = " + OneRow["id"]);
-
+                DataTable ChildRows = MyRst("select * from games_genre join genre on games_genre.id_genre=genre.id where id_games = " + OneRow["id"]);
                 foreach (DataRow ChildRow in ChildRows.Rows)
                 {
                     if (OneRow["genre_name"].ToString() != "")
@@ -79,8 +76,7 @@ namespace GameBill.pages.admin
         public DataTable MyRst(string query)
         {
             DataTable rstData = new DataTable();
-            using (SqlCommand cmdSQL = new SqlCommand(query,
-                new SqlConnection(ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString)))
+            using (SqlCommand cmdSQL = new SqlCommand(query, new SqlConnection(ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString)))
             {
                 cmdSQL.Connection.Open();
                 rstData.Load(cmdSQL.ExecuteReader());
@@ -90,14 +86,6 @@ namespace GameBill.pages.admin
 
         protected void ButtonCreate_Click(object sender, EventArgs e)
         {
-            string namagame = TextBoxNamaGameCreate.Text.Trim(); ;
-            string deskripsi = TextBoxDeskripsiCreate.Text.Trim();
-            string tanggalrilis = TextBoxTanggalRilisCreate.Text.Trim();
-            string developer = TextBoxDeveloperCreate.Text.Trim();
-            string publisher = TextBoxPublisherCreate.Text.Trim();
-            string modegame = TextBoxModeGameCreate.Text.Trim();
-            string franchises = TextBoxFranchisesCreate.Text.Trim();
-            string perspektifpemain = TextBoxPerspektifPemainCreate.Text.Trim();
             long id = Convert.ToInt64(Session["id"]);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             string querry = "insert into games (game_name, description, release_dates, developers, publishers, game_modes, franchises, player_perspectives, id_users) values (@game_name, @description, @release_dates, @developers, @publishers, @game_modes, @franchises, @player_perspectives, @id_users); SELECT SCOPE_IDENTITY()";
@@ -110,14 +98,14 @@ namespace GameBill.pages.admin
                     con.Open();
                     using (SqlCommand cmd = new SqlCommand(querry, con))
                     {
-                        cmd.Parameters.Add("@game_name", SqlDbType.NVarChar).Value = namagame;
-                        cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = deskripsi;
-                        cmd.Parameters.Add("@release_dates", SqlDbType.Date).Value = tanggalrilis;
-                        cmd.Parameters.Add("@developers", SqlDbType.NVarChar).Value = developer;
-                        cmd.Parameters.Add("@publishers", SqlDbType.NVarChar).Value = publisher;
-                        cmd.Parameters.Add("@game_modes", SqlDbType.NVarChar).Value = modegame;
-                        cmd.Parameters.Add("@franchises", SqlDbType.NVarChar).Value = franchises;
-                        cmd.Parameters.Add("@player_perspectives", SqlDbType.NVarChar).Value = perspektifpemain;
+                        cmd.Parameters.Add("@game_name", SqlDbType.NVarChar).Value = TextBoxNamaGameCreate.Text.Trim();
+                        cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = TextBoxDeskripsiCreate.Text.Trim();
+                        cmd.Parameters.Add("@release_dates", SqlDbType.Date).Value = TextBoxTanggalRilisCreate.Text.Trim();
+                        cmd.Parameters.Add("@developers", SqlDbType.NVarChar).Value = TextBoxDeveloperCreate.Text.Trim();
+                        cmd.Parameters.Add("@publishers", SqlDbType.NVarChar).Value = TextBoxPublisherCreate.Text.Trim();
+                        cmd.Parameters.Add("@game_modes", SqlDbType.NVarChar).Value = TextBoxModeGameCreate.Text.Trim();
+                        cmd.Parameters.Add("@franchises", SqlDbType.NVarChar).Value = TextBoxFranchisesCreate.Text.Trim();
+                        cmd.Parameters.Add("@player_perspectives", SqlDbType.NVarChar).Value = TextBoxPerspektifPemainCreate.Text.Trim();
                         cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
                         id = Convert.ToInt64(cmd.ExecuteScalar());
                     }
@@ -236,14 +224,14 @@ namespace GameBill.pages.admin
                     con.Open();
                     using (SqlCommand cmd = new SqlCommand(querry, con))
                     {
-                        cmd.Parameters.Add("@game_name", SqlDbType.NVarChar).Value = TextBoxNamaGameShow.Text;
-                        cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = TextBoxDeskripsiShow.Text;
-                        cmd.Parameters.Add("@release_dates", SqlDbType.Date).Value = TextBoxTanggalRilisShow.Text;
-                        cmd.Parameters.Add("@developers", SqlDbType.NVarChar).Value = TextBoxDeveloperShow.Text;
-                        cmd.Parameters.Add("@publishers", SqlDbType.NVarChar).Value = TextBoxPublisherShow.Text;
-                        cmd.Parameters.Add("@game_modes", SqlDbType.NVarChar).Value = TextBoxModeGameShow.Text;
-                        cmd.Parameters.Add("@franchises", SqlDbType.NVarChar).Value = TextBoxFranchisesShow.Text;
-                        cmd.Parameters.Add("@player_perspectives", SqlDbType.NVarChar).Value = TextBoxPerspektifPemainShow.Text;
+                        cmd.Parameters.Add("@game_name", SqlDbType.NVarChar).Value = TextBoxNamaGameShow.Text.Trim();
+                        cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = TextBoxDeskripsiShow.Text.Trim();
+                        cmd.Parameters.Add("@release_dates", SqlDbType.Date).Value = TextBoxTanggalRilisShow.Text.Trim();
+                        cmd.Parameters.Add("@developers", SqlDbType.NVarChar).Value = TextBoxDeveloperShow.Text.Trim();
+                        cmd.Parameters.Add("@publishers", SqlDbType.NVarChar).Value = TextBoxPublisherShow.Text.Trim();
+                        cmd.Parameters.Add("@game_modes", SqlDbType.NVarChar).Value = TextBoxModeGameShow.Text.Trim();
+                        cmd.Parameters.Add("@franchises", SqlDbType.NVarChar).Value = TextBoxFranchisesShow.Text.Trim();
+                        cmd.Parameters.Add("@player_perspectives", SqlDbType.NVarChar).Value = TextBoxPerspektifPemainShow.Text.Trim();
                         cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
                         cmd.ExecuteNonQuery();
                     }

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="GameBill.pages.shop.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
-    <title>GameBill - Shop</title>
+    <title>GameBill - Browse</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="style" runat="server">
 </asp:Content>
@@ -31,7 +31,7 @@
                     </LayoutTemplate>
                     <ItemTemplate>
                         <div class="col-lg-3 col-md-6">
-                            <asp:HyperLink ID="HyperLinkGame" runat="server" NavigateUrl='<%#Eval ("id", "~/pages/browse/index.aspx?id={0}") %>'>
+                            <asp:HyperLink ID="HyperLinkGame" runat="server" NavigateUrl='<%#Eval ("id", "~/pages/browse/show.aspx?id={0}") %>'>
                                 <div class="game-item">
                                     <div class="game-img">
                                         <div class="game-img-inner">
