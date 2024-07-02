@@ -149,8 +149,8 @@
 }
 
 @keyframes noteAnimate {
-    from {left: -735px;}
-    to {left: 735px;}
+    from {left: -780px;}
+    to {left: 780px;}
 }
 
 /*** Topbar End ***/

@@ -19,7 +19,7 @@
                     <LayoutTemplate>
                         <div id="ItemPlaceHolder" runat="server">
                         </div>
-                        <div id="pager" runat="server">
+                        <div id="pager" runat="server" class="text-center">
                             <asp:DataPager ID="DataPagerGames" runat="server" PageSize="10" class="btn-group btn-group-sm">
                                 <Fields>
                                     <asp:NextPreviousPagerField ButtonType="Link" />

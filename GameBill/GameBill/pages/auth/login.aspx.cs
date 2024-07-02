@@ -33,15 +33,15 @@ namespace GameBill.pages.auth
                     try
                     {
                         con.Open();
-                        using (SqlDataReader rdr = cmd.ExecuteReader())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (rdr.Read())
+                            if (reader.Read())
                             {
-                                Session.Add("id", rdr["id"]);
-                                Session.Add("user_name", rdr["user_name"]);
-                                Session.Add("email", rdr["email"]);
-                                Session.Add("admin", rdr["admin"]);
-                                if (Convert.ToInt32(rdr["admin"]) == 1)
+                                Session.Add("id", reader["id"]);
+                                Session.Add("user_name", reader["user_name"]);
+                                Session.Add("email", reader["email"]);
+                                Session.Add("admin", reader["admin"]);
+                                if (Convert.ToInt32(reader["admin"]) == 1)
                                 {
                                     Response.Redirect("~/pages/admin/index.aspx");
                                 }

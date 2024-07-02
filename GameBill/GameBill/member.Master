@@ -56,9 +56,9 @@
 
         <!-- Navbar start -->
         <div class="container-fluid sticky-top px-0">
-            <div class="container-fluid topbar bg-dark d-none d-lg-block">
+            <div class="container-fluid topbar bg-dark d-none d-xl-block">
                 <div class="container px-0">
-                    <div class="topbar-top d-flex justify-content-between flex-lg-wrap">
+                    <div class="topbar-top d-flex justify-content-between flex-xl-wrap">
                         <div class="top-info flex-grow-0">
                             <span class="rounded-circle btn-sm-square bg-primary me-2">
                                 <i class="fas fa-exclamation text-white"></i>
@@ -66,15 +66,13 @@
                             <div class="pe-2 me-3 border-end border-white d-flex align-items-center">
                                 <p class="mb-0 text-white fs-6 fw-normal">Information</p>
                             </div>
-                            <div class="overflow-hidden" style="width: 735px;">
+                            <div class="overflow-hidden" style="width: 780px;">
                                 <div id="note" class="ps-2">
                                     <img src="img/features-fashion.jpg" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
-                                    <a href="#">
-                                        <p class="text-white mb-0 link-hover">Welcome to GameBill, The Game Store For You.</p>
-                                    </a>
+                                    <p class="text-white mb-0 link-hover">Welcome to GameBill, The Game Store For You.</p>
                                 </div>
                             </div>
-                            <div class="ps-2 ms-2 border-start border-white d-flex icon">
+                            <div class="ps-2 ms-2 border-start border-white d-flex align-items-center icon">
                                 <p class="mb-0 text-white me-2">Follow Us:</p>
                                 <a href="#" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
                                 <a href="#" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
