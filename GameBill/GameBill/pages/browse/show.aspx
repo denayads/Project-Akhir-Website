@@ -32,6 +32,9 @@
                     </div>
                 </div>
                 <div class="col-2">
+                    <asp:LinkButton ID="LinkButtonBuy" runat="server" CssClass="btn btn-primary w-100 py-3">Buy Now</asp:LinkButton>
+                    <div class="col-6">
+                    </div>
                 </div>
             </div>
         </div>

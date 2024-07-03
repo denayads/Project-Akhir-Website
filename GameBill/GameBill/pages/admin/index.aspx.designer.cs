@@ -150,6 +150,15 @@ namespace GameBill.pages.admin
         protected global::System.Web.UI.WebControls.TextBox TextBoxPerspektifPemainCreate;
 
         /// <summary>
+        /// TextBoxHargaCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxHargaCreate;
+
+        /// <summary>
         /// CheckBoxListGenreCreate control.
         /// </summary>
         /// <remarks>
@@ -265,6 +274,15 @@ namespace GameBill.pages.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxPerspektifPemainShow;
+
+        /// <summary>
+        /// TextBoxHargaShow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxHargaShow;
 
         /// <summary>
         /// CheckBoxListGenreShow control.

@@ -44,6 +44,12 @@
                                 <th>Nama Game</th>
                                 <th>Deskripsi</th>
                                 <th>Tanggal Rilis</th>
+                                <th>Developer</th>
+                                <th>Publisher</th>
+                                <th>Mode Game</th>
+                                <th>Franchises</th>
+                                <th>Perspektif Pemain</th>
+                                <th>Harga</th>
                                 <th>Genre</th>
                                 <th>Administrator</th>
                                 <th>Aksi</th>
@@ -75,14 +81,32 @@
                                 <asp:Label runat="server" Text='<%#String.Format("{0:dd-MMM-yyy}", Eval("release_dates")) %>'></asp:Label>
                             </td>
                             <td>
+                                <asp:Label runat="server" Text='<%#Eval("developers") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label runat="server" Text='<%#Eval("publishers") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label runat="server" Text='<%#Eval("game_modes") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label runat="server" Text='<%#Eval("franchises") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label runat="server" Text='<%#Eval("player_perspectives") %>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label runat="server" Text='<%#String.Format("{0:n0}", Eval("prices)) %>'></asp:Label>
+                            </td>
+                            <td>
                                 <asp:Label runat="server" Text='<%#Eval("genre_name") %>'></asp:Label>
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#Eval("user_name") %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%#Eval("id") %>' OnClick="LinkButtonEdit_Click"><i class="bi bi-pencil me-2"></i></asp:LinkButton>
-                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandArgument='<%#Eval("id") %>' OnClientClick="return confirm('Are you sure, you want to delete this?')" OnClick="LinkButtonDelete_Click"><i class="bi bi-trash me-2"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%#Eval("id") %>' OnClick="LinkButtonEdit_Click"><i class="bi bi-pencil"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandArgument='<%#Eval("id") %>' OnClientClick="return confirm('Are you sure, you want to delete this?')" OnClick="LinkButtonDelete_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -131,6 +155,10 @@
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxPerspektifPemainCreate" runat="server" CssClass="form-control" placeholder="Perspektif Pemain"></asp:TextBox>
                         <label for="TextBoxPerspektifPemainCreate" runat="server">Perspektif Pemain</label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxHargaCreate" runat="server" CssClass="form-control" placeholder="Harga"></asp:TextBox>
+                        <label for="TextBoxHargaCreate" runat="server">Harga</label>
                     </div>
                     <p>Genre :</p>
                     <asp:CheckBoxList ID="CheckBoxListGenreCreate" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
@@ -199,22 +227,12 @@
                         <asp:TextBox ID="TextBoxPerspektifPemainShow" runat="server" CssClass="form-control" placeholder="Perspektif Pemain"></asp:TextBox>
                         <label for="TextBoxPerspektifPemainShow" runat="server">Perspektif Pemain</label>
                     </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:TextBox ID="TextBoxHargaShow" runat="server" CssClass="form-control" placeholder="Harga"></asp:TextBox>
+                        <label for="TextBoxHargaShow" runat="server">Harga</label>
+                    </div>
                     <p>Genre :</p>
                     <asp:CheckBoxList ID="CheckBoxListGenreShow" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
-                    <%--<ul class="list-group list-group-horizontal form-switch mt-3 mb-3">
-                        <li class="list-group-item">
-                            <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="1" id="CheckBoxActionShow" validaterequestmode="Disabled">
-                            <label for="CheckBoxActionShow" runat="server" cssclass="form-check-label">Action</label>
-                        </li>
-                        <li class="list-group-item">
-                            <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="2" id="CheckBoxAdventureShow" validaterequestmode="Disabled">
-                            <label for="CheckBoxAdventureShow" runat="server" cssclass="form-check-label">Adventure</label>
-                        </li>
-                        <li class="list-group-item">
-                            <input runat="server" class="form-check-input ms-0 me-2" type="checkbox" value="3" id="CheckBoxOpenWorldShow" validaterequestmode="Disabled">
-                            <label for="CheckBoxOpenWorldShow" runat="server" cssclass="form-check-label">Open world</label>
-                        </li>
-                    </ul>--%>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="ButtonCloseShow" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />

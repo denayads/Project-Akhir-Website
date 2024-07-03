@@ -88,7 +88,7 @@ namespace GameBill.pages.admin
         {
             long id = Convert.ToInt64(Session["id"]);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "insert into games (game_name, description, release_dates, developers, publishers, game_modes, franchises, player_perspectives, id_users) values (@game_name, @description, @release_dates, @developers, @publishers, @game_modes, @franchises, @player_perspectives, @id_users); SELECT SCOPE_IDENTITY()";
+            string querry = "insert into games (game_name, description, release_dates, developers, publishers, game_modes, franchises, player_perspectives, prices, id_users) values (@game_name, @description, @release_dates, @developers, @publishers, @game_modes, @franchises, @player_perspectives, @prices, @id_users); SELECT SCOPE_IDENTITY()";
             string querry2 = "insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)";
 
             using (SqlConnection con = new SqlConnection(con_str))
@@ -106,6 +106,7 @@ namespace GameBill.pages.admin
                         cmd.Parameters.Add("@game_modes", SqlDbType.NVarChar).Value = TextBoxModeGameCreate.Text.Trim();
                         cmd.Parameters.Add("@franchises", SqlDbType.NVarChar).Value = TextBoxFranchisesCreate.Text.Trim();
                         cmd.Parameters.Add("@player_perspectives", SqlDbType.NVarChar).Value = TextBoxPerspektifPemainCreate.Text.Trim();
+                        cmd.Parameters.Add("@prices", SqlDbType.Money).Value = Convert.ToInt64(TextBoxHargaCreate.Text.Trim());
                         cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
                         id = Convert.ToInt64(cmd.ExecuteScalar());
                     }
@@ -162,6 +163,7 @@ namespace GameBill.pages.admin
                                 TextBoxModeGameShow.Text = reader["game_modes"].ToString();
                                 TextBoxFranchisesShow.Text = reader["franchises"].ToString();
                                 TextBoxPerspektifPemainShow.Text = reader["player_perspectives"].ToString();
+                                TextBoxHargaShow.Text = Convert.ToInt64(reader["prices"]).ToString();
                             }
                         }
                     }
@@ -213,7 +215,7 @@ namespace GameBill.pages.admin
             long id = Convert.ToInt64(btn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
 
-            string querry = "update games set game_name=@game_name, description=@description, release_dates=@release_dates, developers=@developers, publishers=@publishers, game_modes=@game_modes, franchises=@franchises, player_perspectives=@player_perspectives where id=@id";
+            string querry = "update games set game_name=@game_name, description=@description, release_dates=@release_dates, developers=@developers, publishers=@publishers, game_modes=@game_modes, franchises=@franchises, player_perspectives=@player_perspectives, prices=@prices where id=@id";
             string querryDelete = "delete from games_genre where id_games=@id";
             string querryInsert = "insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)";
 
@@ -232,6 +234,7 @@ namespace GameBill.pages.admin
                         cmd.Parameters.Add("@game_modes", SqlDbType.NVarChar).Value = TextBoxModeGameShow.Text.Trim();
                         cmd.Parameters.Add("@franchises", SqlDbType.NVarChar).Value = TextBoxFranchisesShow.Text.Trim();
                         cmd.Parameters.Add("@player_perspectives", SqlDbType.NVarChar).Value = TextBoxPerspektifPemainShow.Text.Trim();
+                        cmd.Parameters.Add("@prices", SqlDbType.Money).Value = Convert.ToInt64(TextBoxHargaShow.Text.Trim());
                         cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
                         cmd.ExecuteNonQuery();
                     }
