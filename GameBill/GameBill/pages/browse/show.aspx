@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="show.aspx.cs" Inherits="GameBill.pages.browse.show" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
-    <title>GameBill - Detail of Game</title>
+    <title>GameBill - Detail of <%=title %></title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="style" runat="server">
 </asp:Content>
@@ -32,9 +32,7 @@
                     </div>
                 </div>
                 <div class="col-2">
-                    <asp:LinkButton ID="LinkButtonBuy" runat="server" CssClass="btn btn-primary w-100 py-3">Buy Now</asp:LinkButton>
-                    <div class="col-6">
-                    </div>
+                    <asp:LinkButton ID="LinkButtonBuy" runat="server" CssClass="btn btn-primary w-100 py-3" OnClick="LinkButtonBuy_Click">Buy Now</asp:LinkButton>
                 </div>
             </div>
         </div>

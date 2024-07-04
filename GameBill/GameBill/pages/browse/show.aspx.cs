@@ -7,11 +7,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services.Description;
+using System.Runtime.Remoting.Lifetime;
 
 namespace GameBill.pages.browse
 {
     public partial class show : System.Web.UI.Page
     {
+        public string title = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,7 +25,7 @@ namespace GameBill.pages.browse
 
         protected void ShowData()
         {
-            DataTable rst = MyRst("select * from games where games.id="+ Convert.ToInt64(Request.QueryString["id"]) + "");
+            DataTable rst = MyRst("select * from games where games.id=" + Convert.ToInt64(Request.QueryString["id"]) + "");
 
             rst.Columns.Add("genre_name", typeof(string));
 
@@ -56,6 +59,7 @@ namespace GameBill.pages.browse
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             reader.Read();
+                            title = reader["game_name"].ToString();
                             LabelNamaGame.Text = reader["game_name"].ToString();
                             LabelDeskripsi.Text = reader["description"].ToString();
                         }
@@ -77,6 +81,34 @@ namespace GameBill.pages.browse
                 rstData.Load(cmdSQL.ExecuteReader());
             }
             return rstData;
+        }
+
+        protected void LinkButtonBuy_Click(object sender, EventArgs e)
+        {
+            long id = Convert.ToInt64(Session["id"]);
+            string querry = "insert into cart (id_games, id_users) values (@id_games, @id_users)";
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    {
+                        cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = Convert.ToInt64(Request.QueryString["id"]);
+                        cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
+                        if (cmd.ExecuteNonQuery() > 0)
+                        {
+                            Response.Redirect("~/pages/cart/index.aspx");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+            }
         }
     }
 }

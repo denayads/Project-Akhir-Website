@@ -94,6 +94,7 @@
     <Content Include="pages\auth\login.aspx" />
     <Content Include="pages\auth\register.aspx" />
     <Content Include="pages\browse\show.aspx" />
+    <Content Include="pages\cart\index.aspx" />
     <Content Include="pages\main\index.aspx" />
     <Content Include="pages\member\index.aspx" />
     <Content Include="pages\browse\index.aspx" />
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="pages\browse\show.aspx.designer.cs">
       <DependentUpon>show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cart\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cart\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\main\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

@@ -29,7 +29,7 @@
 <asp:Content ID="Content7" ContentPlaceHolderID="anothersection" runat="server">
     <div class="container-fluid py-5">
         <div class="container py-5">
-            <div class="row g-4 justify-content-center">
+            <div class="row g-3 justify-content-center">
                 <p class="mb-0">
                     To create games detail click<asp:HyperLink ID="HyperLinkText" runat="server" NavigateUrl="#" data-bs-toggle="modal" data-bs-target="#anothersection_ModalCreate"> here.</asp:HyperLink>
                 </p>
@@ -96,7 +96,7 @@
                                 <asp:Label runat="server" Text='<%#Eval("player_perspectives") %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#String.Format("{0:n0}", Eval("prices)) %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#String.Format("{0:n0}", Eval("prices")) %>'></asp:Label>
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#Eval("genre_name") %>'></asp:Label>

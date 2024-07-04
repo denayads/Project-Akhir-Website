@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace GameBill.pages.browse
+namespace GameBill.pages.cart
 {
     public partial class index : System.Web.UI.Page
     {
@@ -16,27 +16,24 @@ namespace GameBill.pages.browse
         {
             if (!IsPostBack)
             {
+                if (Session["id"] == null)
+                {
+                    Response.Redirect("~/pages/auth/login.aspx");
+                }
                 BindData();
             }
         }
 
-        protected void BindData(string searchText = "")
+        protected void BindData()
         {
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "select * from games";
+            string querry = "select * from cart join games on cart.id_games=games.id join users on cart.id_users=users.id where cart.id_users=@id";
 
-            if (!searchText.Equals(""))
-            {
-                querry = "select * from games where games.game_name like '%' + @search + '%'";
-            }
             using (SqlConnection con = new SqlConnection(con_str))
             {
                 using (SqlCommand cmd = new SqlCommand(querry, con))
                 {
-                    if (!searchText.Equals(""))
-                    {
-                        cmd.Parameters.Add("@search", SqlDbType.NVarChar).Value = searchText.Trim();
-                    }
+                    cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = Convert.ToInt64(Session["id"]);
                     try
                     {
                         con.Open();
@@ -48,8 +45,8 @@ namespace GameBill.pages.browse
                             using (DataTable dt = new DataTable())
                             {
                                 sda.Fill(dt);
-                                ListViewGames.DataSource = dt;
-                                ListViewGames.DataBind();
+                                ListViewCart.DataSource = dt;
+                                ListViewCart.DataBind();
                             }
                         }
                     }
@@ -59,17 +56,6 @@ namespace GameBill.pages.browse
                     }
                 }
             }
-        }
-
-        protected void ListViewGames_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
-        {
-            (ListViewGames.FindControl("DataPagerGames") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-            BindData();
-        }
-
-        protected void ButtonSearch_Click(object sender, EventArgs e)
-        {
-            //BindData(TextBoxSearch.Text.Trim());
         }
     }
 }

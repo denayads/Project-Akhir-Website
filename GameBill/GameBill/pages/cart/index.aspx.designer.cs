@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameBill.pages.browse
+namespace GameBill.pages.cart
 {
 
 
@@ -15,12 +15,21 @@ namespace GameBill.pages.browse
     {
 
         /// <summary>
-        /// ListViewGames control.
+        /// ListViewCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListViewGames;
+        protected global::System.Web.UI.WebControls.ListView ListViewCart;
+
+        /// <summary>
+        /// LinkButtonCheckout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCheckout;
     }
 }

@@ -15,12 +15,6 @@
             <div class="row g-3">
                 <div class="col-10">
                     <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-                        <%--<ol class="carousel-indicators">
-                            <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
-                            <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
-                            <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
-                            <li data-bs-target="#carouselId" data-bs-slide-to="3"></li>
-                        </ol>--%>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="<%=ResolveUrl("~/assets/img/Cyberpunk2077_1.png")%>" class="img-fluid w-100 rounded">
