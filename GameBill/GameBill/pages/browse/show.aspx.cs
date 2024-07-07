@@ -67,7 +67,9 @@ namespace GameBill.pages.browse
                 }
                 catch (Exception ex)
                 {
-                    Response.Write(ex.Message);
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
                 }
             }
         }
@@ -85,29 +87,38 @@ namespace GameBill.pages.browse
 
         protected void LinkButtonBuy_Click(object sender, EventArgs e)
         {
-            long id = Convert.ToInt64(Session["id"]);
-            string querry = "insert into cart (id_games, id_users) values (@id_games, @id_users)";
-            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-
-            using (SqlConnection con = new SqlConnection(con_str))
+            if (Session["id"] != null)
             {
-                try
+                long id = Convert.ToInt64(Session["id"]);
+                string querry = "insert into cart (id_games, id_users) values (@id_games, @id_users)";
+                string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+
+                using (SqlConnection con = new SqlConnection(con_str))
                 {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    try
                     {
-                        cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = Convert.ToInt64(Request.QueryString["id"]);
-                        cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
-                        if (cmd.ExecuteNonQuery() > 0)
+                        con.Open();
+                        using (SqlCommand cmd = new SqlCommand(querry, con))
                         {
-                            Response.Redirect("~/pages/cart/index.aspx");
+                            cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = Convert.ToInt64(Request.QueryString["id"]);
+                            cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
+                            if (cmd.ExecuteNonQuery() > 0)
+                            {
+                                Response.Redirect("~/pages/cart/index.aspx");
+                            }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        notif.Visible = true;
+                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                        message.Text = ex.Message;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message);
-                }
+            }
+            else
+            {
+                Response.Redirect("~/pages/auth/login.aspx");
             }
         }
     }

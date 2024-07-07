@@ -15,6 +15,10 @@
     <div class="container-fluid py-3">
         <div class="container py-3">
             <div class="row g-3">
+                <div id="notif" runat="server" visible="false" class="col-6 mt-3 mb-3 mx-auto" role="alert">
+                    <asp:Label ID="message" runat="server" Text=""></asp:Label>
+                    <asp:Button ID="ButtonX" runat="server" CssClass="btn-close" data-bs-dismiss="alert" aria-label="Close" />
+                </div>
                 <div class="col-10">
                     <div class="form-floating mt-3 mb-3">
                         <asp:Label ID="LabelNamaGame" runat="server" CssClass="h2" Text=""></asp:Label>

@@ -24,13 +24,18 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row g-3 justify-content-center">
+                <div id="notif" runat="server" visible="false" class="col-6 mt-3 mb-3 mx-auto" role="alert">
+                    <asp:Label ID="message" runat="server" Text=""></asp:Label>
+                    <asp:Button ID="ButtonX" runat="server" CssClass="btn-close" data-bs-dismiss="alert" aria-label="Close" />
+                </div>
                 <div class="col-10">
-                    <asp:ListView ID="ListViewCart" runat="server">
+                    <asp:ListView ID="ListViewCart" runat="server" OnItemDeleting="ListViewCart_ItemDeleting">
                         <LayoutTemplate>
                             <table class="table">
                                 <tr>
                                     <th>Nama Game</th>
                                     <th>Harga</th>
+                                    <th>Tool</th>
                                 </tr>
                                 <tr id="ItemPlaceHolder" runat="server">
                                 </tr>
@@ -43,6 +48,9 @@
                                 </td>
                                 <td>
                                     <asp:Label runat="server" Text='<%#String.Format("{0:n0}", Eval("prices")) %>'></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandArgument='<%#Eval("id") %>' OnClientClick="return confirm('Are you sure, you want to delete this?')" OnClick="LinkButtonDelete_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                                 </td>
                             </tr>
                         </ItemTemplate>

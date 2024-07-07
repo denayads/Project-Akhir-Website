@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services.Description;
 
 namespace GameBill.pages.cart
 {
@@ -56,6 +57,50 @@ namespace GameBill.pages.cart
                     }
                 }
             }
+        }
+
+        protected void LinkButtonDelete_Click(object sender, EventArgs e)
+        {
+            LinkButton lbtn = (LinkButton)sender;
+            long id = Convert.ToInt64(lbtn.CommandArgument);
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querry = "delete from games where id=@id";
+
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    {
+                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        if (cmd.ExecuteNonQuery() > 0)
+                        {
+                            BindData();
+                            notif.Visible = true;
+                            notif.Attributes.Add("class", "alert alert-primary alert-dismissible fade show");
+                            message.Text = "Delete Games Success!";
+                        }
+                        else
+                        {
+                            notif.Visible = true;
+                            notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                            message.Text = "Delete Games Failed!";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
+                }
+            }
+        }
+
+        protected void ListViewCart_ItemDeleting(object sender, ListViewDeleteEventArgs e)
+        {
+
         }
     }
 }

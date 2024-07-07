@@ -52,7 +52,7 @@
                                 <th>Harga</th>
                                 <th>Genre</th>
                                 <th>Administrator</th>
-                                <th>Aksi</th>
+                                <th>Tool</th>
                             </tr>
                             <tr id="ItemPlaceHolder" runat="server">
                             </tr>
