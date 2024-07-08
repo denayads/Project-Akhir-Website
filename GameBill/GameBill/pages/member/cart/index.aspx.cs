@@ -9,7 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services.Description;
 
-namespace GameBill.pages.cart
+namespace GameBill.pages.member.cart
 {
     public partial class index : System.Web.UI.Page
     {
@@ -53,7 +53,9 @@ namespace GameBill.pages.cart
                     }
                     catch (Exception ex)
                     {
-                        Response.Write(ex.Message);
+                        notif.Visible = true;
+                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                        message.Text = ex.Message;
                     }
                 }
             }

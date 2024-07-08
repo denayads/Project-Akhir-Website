@@ -104,7 +104,7 @@ namespace GameBill.pages.browse
                             cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
                             if (cmd.ExecuteNonQuery() > 0)
                             {
-                                Response.Redirect("~/pages/cart/index.aspx");
+                                Response.Redirect("~/pages/member/cart/index.aspx");
                             }
                         }
                     }

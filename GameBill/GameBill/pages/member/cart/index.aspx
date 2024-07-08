@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/member.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="GameBill.pages.cart.index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/member.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="GameBill.pages.member.cart.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     <title>GameBill - Cart</title>

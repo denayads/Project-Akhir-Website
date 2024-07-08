@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|g:\\project-akhir-website\\gamebill\\gamebill\\pages\\cart\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\pages\\cart\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|g:\\project-akhir-website\\gamebill\\gamebill\\pages\\admin\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\pages\\admin\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,19 +30,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "index.aspx",
-              "DocumentMoniker": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\admin\\index.aspx",
-              "RelativeDocumentMoniker": "GameBill\\pages\\admin\\index.aspx",
-              "ToolTip": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\admin\\index.aspx",
-              "RelativeToolTip": "GameBill\\pages\\admin\\index.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-07T10:41:02.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "index.aspx",
               "DocumentMoniker": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\cart\\index.aspx",
@@ -55,7 +38,7 @@
               "RelativeToolTip": "GameBill\\pages\\cart\\index.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-07T10:40:45.511Z",
+              "WhenOpened": "2024-07-08T07:01:26.906Z",
               "EditorCaption": ""
             }
           ]

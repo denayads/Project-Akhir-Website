@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameBill.pages.cart
+namespace GameBill.pages.member.cart
 {
 
 
