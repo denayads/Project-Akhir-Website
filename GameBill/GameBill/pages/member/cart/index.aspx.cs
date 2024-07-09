@@ -100,7 +100,6 @@ namespace GameBill.pages.member.cart
 
         protected void LinkButtonCheckout_Click(object sender, EventArgs e)
         {
-            long id = Convert.ToInt64(Session["id"]);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             string querry = "select * from cart join games on cart.id_games=games.id join users on cart.id_users=users.id where cart.id_users=@id";
 
@@ -108,7 +107,7 @@ namespace GameBill.pages.member.cart
             {
                 using (SqlCommand cmd = new SqlCommand(querry, con))
                 {
-                    cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                    cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = Convert.ToInt64(Session["id"]);
                     try
                     {
                         con.Open();
@@ -118,16 +117,8 @@ namespace GameBill.pages.member.cart
                             using (DataTable dt = new DataTable())
                             {
                                 sda.Fill(dt);
-                                ListViewGames.DataSource = dt;
-                                ListViewGames.DataBind();
-                            }
-                        }
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                LabelNamaGameCheckout.Text = reader["game_name"].ToString();
-                                LabelHargaCheckout.Text = Convert.ToInt64(reader["prices"]).ToString();
+                                ListViewCheckout.DataSource = dt;
+                                ListViewCheckout.DataBind();
                             }
                         }
                     }

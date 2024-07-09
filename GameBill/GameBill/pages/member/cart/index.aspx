@@ -78,12 +78,6 @@
                             <p class="h4"><%#Eval("prices")%></p>
                         </ItemTemplate>
                     </asp:ListView>
-                    <div class="form-floating mt-3 mb-3">
-                        <asp:Label ID="LabelNamaGameCheckout" runat="server" Text=""></asp:Label>
-                    </div>
-                    <div class="form-floating mt-3 mb-3">
-                        <asp:Label ID="LabelHargaCheckout" runat="server" Text=""></asp:Label>
-                    </div>
                 </div>
             </div>
         </div>

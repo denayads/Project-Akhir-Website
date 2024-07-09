@@ -46,27 +46,28 @@ namespace GameBill.pages.browse
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(con_str))
             {
-                try
+                using (SqlCommand cmd = new SqlCommand("select * from games join games_genre on games.id=games_genre.id_games join genre on games_genre.id_genre=genre.id where games.id=@id", con))
                 {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand("select * from games join games_genre on games.id=games_genre.id_games join genre on games_genre.id_genre=genre.id where games.id=@id", con))
+                    cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = Convert.ToInt64(Request.QueryString["id"]);
+                    try
                     {
-                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = Convert.ToInt64(Request.QueryString["id"]);
-
+                        con.Open();
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            reader.Read();
-                            title = reader["game_name"].ToString();
-                            LabelNamaGame.Text = reader["game_name"].ToString();
-                            LabelDeskripsi.Text = reader["description"].ToString();
+                            if (reader.Read())
+                            {
+                                title = reader["game_name"].ToString();
+                                LabelNamaGame.Text = reader["game_name"].ToString();
+                                LabelDeskripsi.Text = reader["description"].ToString();
+                            }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    notif.Visible = true;
-                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                    message.Text = ex.Message;
+                    catch (Exception ex)
+                    {
+                        notif.Visible = true;
+                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                        message.Text = ex.Message;
+                    }
                 }
             }
         }

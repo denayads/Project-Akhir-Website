@@ -37,7 +37,6 @@ namespace GameBill.pages.admin
                     {
                         OneRow["genre_name"] += "<br/>";
                     }
-
                     OneRow["genre_name"] += ChildRow["genre_name"].ToString();
                 }
             }
@@ -214,7 +213,6 @@ namespace GameBill.pages.admin
             Button btn = (Button)sender;
             long id = Convert.ToInt64(btn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-
             string querry = "update games set game_name=@game_name, description=@description, release_dates=@release_dates, developers=@developers, publishers=@publishers, game_modes=@game_modes, franchises=@franchises, player_perspectives=@player_perspectives, prices=@prices where id=@id";
             string querryDelete = "delete from games_genre where id_games=@id";
             string querryInsert = "insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)";

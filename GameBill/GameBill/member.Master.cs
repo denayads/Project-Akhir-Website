@@ -36,24 +36,26 @@ namespace GameBill
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
-                try
+                using (SqlCommand cmd = new SqlCommand(querry, con))
                 {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                    int count = Convert.ToInt32(cmd.ExecuteNonQuery());
+                    try
                     {
-                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        con.Open();
+                        if (count > 0)
                         {
-                            while (reader.Read())
-                            {
-
-                            }
+                            LabelCount.Text = Convert.ToString(count.ToString());
+                        }
+                        else
+                        {
+                            LabelCount.Text = "0";
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message);
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.Message);
+                    }
                 }
             }
         }

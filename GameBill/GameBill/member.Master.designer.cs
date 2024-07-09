@@ -51,6 +51,15 @@ namespace GameBill
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// LabelCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCount;
+
+        /// <summary>
         /// LinkButtonLogOut control.
         /// </summary>
         /// <remarks>

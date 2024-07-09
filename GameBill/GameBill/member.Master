@@ -106,14 +106,14 @@
                                     <i class="fa fa-shopping-cart fa-2x"></i>
                                     <% if (Session["id"] != null)
                                         { %>
-                                    <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                                    <asp:Label ID="LabelCount" runat="server" Text="" CssClass="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -10px; left: 25px; height: 20px; min-width: 20px;"></asp:Label>
                                     <%  } %>
                                 </a>
                                 <% if (Session["user_name"] != null)
                                     { %>
                                 <div class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle my-auto" data-bs-toggle="dropdown">
-                                        <%= Session["user_name"].ToString() %>
+                                        <%=Session["user_name"].ToString()%>
                                     </a>
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                         <a href="<%=ResolveUrl("~/pages/member/index.aspx")%>" class="dropdown-item">
