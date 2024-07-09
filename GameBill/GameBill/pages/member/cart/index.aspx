@@ -57,9 +57,30 @@
                     </asp:ListView>
                 </div>
                 <div class="col-2">
-                    <asp:LinkButton ID="LinkButtonCheckout" runat="server" CssClass="btn btn-primary w-100 py-3">Checkout</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButtonCheckout" runat="server" CssClass="btn btn-primary w-100 py-3" OnClick="LinkButtonCheckout_Click" data-bs-toggle="modal" data-bs-target="#anothersection_ModalCheckout">Checkout</asp:LinkButton>
                 </div>
             </div>
         </div>
     </div>
+
+    <%--Modal Show Start--%>
+    <div class="modal fade" id="ModalCheckout" runat="server" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ModalLabelCheckout">Checkout Information</h1>
+                    <asp:Button ID="ButtonIconCloseCheckout" runat="server" Text="" CssClass="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:Label ID="LabelNamaGameCheckout" runat="server" Text=""></asp:Label>
+                    </div>
+                    <div class="form-floating mt-3 mb-3">
+                        <asp:Label ID="LabelHargaCheckout" runat="server" Text=""></asp:Label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%--Modal Show End--%>
 </asp:Content>

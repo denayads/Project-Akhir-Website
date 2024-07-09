@@ -14,10 +14,11 @@
         <div class="container py-3">
             <div class="row g-3">
                 <div class="col-10">
+                    <div class="carousel-header"></div>
                     <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="<%=ResolveUrl("~/assets/img/Cyberpunk2077_1.png")%>" class="img-fluid w-100 rounded">
+                                <img src="<%=ResolveUrl("~/assets/img/Cyberpunk2077_1.png")%>" class="img-fluid w-100 rounded" style="opacity: 0.5;">
                                 <div class="carousel-caption">
                                     <div class="p-3">
                                         <h1 class="display-6 text-capitalize text-primary mb-4">Cyberpunk 2077</h1>
@@ -31,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="<%=ResolveUrl("~/assets/img/ResidentEvil4_1.jfif")%>" class="img-fluid w-100 rounded">
+                                <img src="<%=ResolveUrl("~/assets/img/ResidentEvil4_1.jfif")%>" class="img-fluid w-100 rounded" style="opacity: 0.5;">
                                 <div class="carousel-caption">
                                     <div class="p-3">
                                         <h1 class="display-6 text-capitalize text-primary mb-4">Resident Evil 4</h1>
@@ -45,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="<%=ResolveUrl("~/assets/img/AlanWake2_1.jfif")%>" class="img-fluid w-100 rounded">
+                                <img src="<%=ResolveUrl("~/assets/img/AlanWake2_1.jfif")%>" class="img-fluid w-100 rounded" style="opacity: 0.5;">
                                 <div class="carousel-caption">
                                     <div class="p-3">
                                         <h1 class="display-6 text-capitalize text-primary mb-4">Alan Wake II</h1>
@@ -59,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="<%=ResolveUrl("~/assets/img/MarvelsSpiderMan2_1.jfif")%>" class="img-fluid w-100 rounded">
+                                <img src="<%=ResolveUrl("~/assets/img/MarvelsSpiderMan2_1.jfif")%>" class="img-fluid w-100 rounded" style="opacity: 0.5;">
                                 <div class="carousel-caption">
                                     <div class="p-3" style="max-width: 5000px;">
                                         <h1 class="display-6 text-capitalize text-primary mb-4">Marvel's Spider-Man 2</h1>

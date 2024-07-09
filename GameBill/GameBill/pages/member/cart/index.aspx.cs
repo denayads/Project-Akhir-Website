@@ -66,7 +66,7 @@ namespace GameBill.pages.member.cart
             LinkButton lbtn = (LinkButton)sender;
             long id = Convert.ToInt64(lbtn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "delete from games where id=@id";
+            string querry = "delete from cart where id=@id";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -88,6 +88,65 @@ namespace GameBill.pages.member.cart
                             notif.Visible = true;
                             notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
                             message.Text = "Delete Games Failed!";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
+                }
+            }
+        }
+
+        protected void LinkButtonCheckout_Click(object sender, EventArgs e)
+        {
+            LinkButton lbtn = (LinkButton)sender;
+            long id = Convert.ToInt64(lbtn.CommandArgument);
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querry = "select * from cart join games on cart.id_games=games.id join users on cart.id_users=users.id where cart.id_users=@id";
+            string querry2 = "select * from genre";
+            string querry3 = "select genre.* from games_genre join genre on games_genre.id_genre=genre.id where games_genre.id_games=@id";
+
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    {
+                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                LabelNamaGameCheckout.Text = reader["game_name"].ToString();
+                                LabelHargaCheckout.Text = Convert.ToInt64(reader["prices"]).ToString();
+
+                            }
+                        }
+                    }
+                    using (SqlCommand cmd = new SqlCommand(querry2, con))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ListItem item = new ListItem(reader["genre_name"].ToString(), reader["id"].ToString());
+                                item.Selected = false;
+                            }
+                        }
+                    }
+                    using (SqlCommand cmd = new SqlCommand(querry3, con))
+                    {
+                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+
+                            }
                         }
                     }
                 }
