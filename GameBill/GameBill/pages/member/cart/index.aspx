@@ -6,6 +6,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="style" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script>
+        function openModal() {
+            const myModal = new bootstrap.Modal('#anothersection_ModalCheckout', {});
+            myModal.show();
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="banner" runat="server">
     <div class="container-fluid page-header py-5">
@@ -35,7 +41,7 @@
                                 <tr>
                                     <th>Nama Game</th>
                                     <th>Harga</th>
-                                    <th>Tool</th>
+                                    <th>Aksi</th>
                                 </tr>
                                 <tr id="ItemPlaceHolder" runat="server">
                                 </tr>
@@ -57,30 +63,9 @@
                     </asp:ListView>
                 </div>
                 <div class="col-2">
-                    <asp:LinkButton ID="LinkButtonCheckout" runat="server" CssClass="btn btn-primary w-100 py-3" OnClick="LinkButtonCheckout_Click" data-bs-toggle="modal" data-bs-target="#anothersection_ModalCheckout">Checkout</asp:LinkButton>
+                    <asp:HyperLink ID="HyperLinkCheckout" runat="server" CssClass="btn btn-primary w-100 py-3" NavigateUrl="~/pages/member/checkout/index.aspx">Checkout</asp:HyperLink>
                 </div>
             </div>
         </div>
     </div>
-
-    <%--Modal Show Start--%>
-    <div class="modal fade" id="ModalCheckout" runat="server" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ModalLabelCheckout">Checkout Information</h1>
-                    <asp:Button ID="ButtonIconCloseCheckout" runat="server" Text="" CssClass="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                </div>
-                <div class="modal-body">
-                    <asp:ListView ID="ListViewCheckout" runat="server">
-                        <ItemTemplate>
-                            <p class="h4"><%#Eval("game_name")%></p>
-                            <p class="h4"><%#Eval("prices")%></p>
-                        </ItemTemplate>
-                    </asp:ListView>
-                </div>
-            </div>
-        </div>
-    </div>
-    <%--Modal Show End--%>
 </asp:Content>

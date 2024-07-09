@@ -90,14 +90,18 @@
     <Content Include="assets\lib\owlcarousel\owl.carousel.js" />
     <Content Include="assets\lib\owlcarousel\owl.carousel.min.js" />
     <Content Include="assets\lib\waypoints\waypoints.min.js" />
+    <Content Include="pages\admin\crud\index.aspx" />
     <Content Include="pages\admin\index.aspx" />
     <Content Include="pages\auth\login.aspx" />
     <Content Include="pages\auth\register.aspx" />
     <Content Include="pages\browse\show.aspx" />
     <Content Include="pages\member\cart\index.aspx" />
     <Content Include="pages\main\index.aspx" />
+    <Content Include="pages\member\checkout\index.aspx" />
     <Content Include="pages\member\index.aspx" />
     <Content Include="pages\browse\index.aspx" />
+    <Content Include="pages\member\profile\change_name.aspx" />
+    <Content Include="pages\member\profile\change_password.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +126,13 @@
     </Compile>
     <Compile Include="member.Master.designer.cs">
       <DependentUpon>member.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\admin\crud\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\admin\crud\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -165,6 +176,13 @@
     <Compile Include="pages\main\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\member\checkout\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\member\checkout\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\member\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -178,6 +196,20 @@
     </Compile>
     <Compile Include="pages\browse\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\member\profile\change_name.aspx.cs">
+      <DependentUpon>change_name.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\member\profile\change_name.aspx.designer.cs">
+      <DependentUpon>change_name.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\member\profile\change_password.aspx.cs">
+      <DependentUpon>change_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\member\profile\change_password.aspx.designer.cs">
+      <DependentUpon>change_password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

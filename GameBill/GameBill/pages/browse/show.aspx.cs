@@ -29,7 +29,7 @@ namespace GameBill.pages.browse
             rst.Columns.Add("genre_name", typeof(string));
             foreach (DataRow OneRow in rst.Rows)
             {
-                DataTable ChildRows = MyRst("select * from games_genre join genre on games_genre.id_genre=genre.id where id_games = " + OneRow["id"]);
+                DataTable ChildRows = MyRst("select * from games_genre join genre on games_genre.id_genre=genre.id where games_genre.id_games= " + OneRow["id"]);
                 foreach (DataRow ChildRow in ChildRows.Rows)
                 {
                     if (OneRow["genre_name"].ToString() != "")

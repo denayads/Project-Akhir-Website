@@ -51,39 +51,12 @@ namespace GameBill.pages.member.cart
         protected global::System.Web.UI.WebControls.ListView ListViewCart;
 
         /// <summary>
-        /// LinkButtonCheckout control.
+        /// HyperLinkCheckout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCheckout;
-
-        /// <summary>
-        /// ModalCheckout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalCheckout;
-
-        /// <summary>
-        /// ButtonIconCloseCheckout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonIconCloseCheckout;
-
-        /// <summary>
-        /// ListViewCheckout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListViewCheckout;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkCheckout;
     }
 }
