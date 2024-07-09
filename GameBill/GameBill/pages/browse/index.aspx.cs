@@ -40,11 +40,9 @@ namespace GameBill.pages.browse
                     try
                     {
                         con.Open();
-
                         using (SqlDataAdapter sda = new SqlDataAdapter())
                         {
                             sda.SelectCommand = cmd;
-
                             using (DataTable dt = new DataTable())
                             {
                                 sda.Fill(dt);

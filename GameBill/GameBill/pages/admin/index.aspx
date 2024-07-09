@@ -72,41 +72,41 @@
                     <ItemTemplate>
                         <tr class="TableData">
                             <td>
-                                <asp:Label runat="server" Text='<%#Eval("game_name") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("game_name")%>'></asp:Label>
                             </td>
                             <td>
-                                <%#Regex.Replace(Eval("description").ToString(), "<[a-zA-Z/].*?>", String.Empty).PadRight(150).Substring(0,130).TrimEnd() %>
+                                <%#Regex.Replace(Eval("description").ToString(), "<[a-zA-Z/].*?>", String.Empty).PadRight(150).Substring(0,130).TrimEnd()%>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#String.Format("{0:dd-MMM-yyy}", Eval("release_dates")) %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#String.Format("{0:dd-MMM-yyy}", Eval("release_dates"))%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#Eval("developers") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("developers")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#Eval("publishers") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("publishers")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#Eval("game_modes") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("game_modes")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#Eval("franchises") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("franchises")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#Eval("player_perspectives") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("player_perspectives")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#String.Format("{0:n0}", Eval("prices")) %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#String.Format("{0:n0}", Eval("prices"))%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#Eval("genre_name") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("genre_name")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" Text='<%#Eval("user_name") %>'></asp:Label>
+                                <asp:Label runat="server" Text='<%#Eval("user_name")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%#Eval("id") %>' OnClick="LinkButtonEdit_Click" data-bs-toggle="modal" data-bs-target="#anothersection_ModalShow"><i class="bi bi-pencil"></i></asp:LinkButton>
-                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandArgument='<%#Eval("id") %>' OnClientClick="return confirm('Are you sure, you want to delete this?')" OnClick="LinkButtonDelete_Click"><i class="bi bi-trash"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%#Eval("id")%>' OnClick="LinkButtonEdit_Click" data-bs-toggle="modal" data-bs-target="#anothersection_ModalShow"><i class="bi bi-pencil"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandArgument='<%#Eval("id")%>' OnClientClick="return confirm('Are you sure, you want to delete this?')" OnClick="LinkButtonDelete_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>

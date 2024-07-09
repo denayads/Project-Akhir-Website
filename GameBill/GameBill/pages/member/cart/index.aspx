@@ -44,13 +44,13 @@
                         <ItemTemplate>
                             <tr class="TableData">
                                 <td>
-                                    <asp:Label runat="server" Text='<%#Eval("game_name") %>'></asp:Label>
+                                    <asp:Label runat="server" Text='<%#Eval("game_name")%>'></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label runat="server" Text='<%#String.Format("{0:n0}", Eval("prices")) %>'></asp:Label>
+                                    <asp:Label runat="server" Text='<%#String.Format("{0:n0}", Eval("prices"))%>'></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandArgument='<%#Eval("id") %>' OnClientClick="return confirm('Are you sure, you want to delete this?')" OnClick="LinkButtonDelete_Click"><i class="bi bi-trash"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandArgument='<%#Eval("id")%>' OnClientClick="return confirm('Are you sure, you want to delete this?')" OnClick="LinkButtonDelete_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -72,6 +72,12 @@
                     <asp:Button ID="ButtonIconCloseCheckout" runat="server" Text="" CssClass="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                 </div>
                 <div class="modal-body">
+                    <asp:ListView ID="ListViewCheckout" runat="server">
+                        <ItemTemplate>
+                            <p class="h4"><%#Eval("game_name")%></p>
+                            <p class="h4"><%#Eval("prices")%></p>
+                        </ItemTemplate>
+                    </asp:ListView>
                     <div class="form-floating mt-3 mb-3">
                         <asp:Label ID="LabelNamaGameCheckout" runat="server" Text=""></asp:Label>
                     </div>

@@ -47,12 +47,12 @@ namespace GameBill.pages.admin
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(con_str))
             {
-                try
+                using (SqlCommand cmd = new SqlCommand("select * from genre", con))
                 {
-                    con.Open();
-                    CheckBoxListGenreCreate.Items.Clear();
-                    using (SqlCommand cmd = new SqlCommand("select * from genre", con))
+                    try
                     {
+                        con.Open();
+                        CheckBoxListGenreCreate.Items.Clear();
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
@@ -63,12 +63,12 @@ namespace GameBill.pages.admin
                             }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    notif.Visible = true;
-                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                    message.Text = ex.Message;
+                    catch (Exception ex)
+                    {
+                        notif.Visible = true;
+                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                        message.Text = ex.Message;
+                    }
                 }
             }
         }
@@ -276,12 +276,12 @@ namespace GameBill.pages.admin
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
-                try
+                using (SqlCommand cmd = new SqlCommand(querry, con))
                 {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                    try
                     {
-                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        con.Open();
                         if (cmd.ExecuteNonQuery() > 0)
                         {
                             BindData();
@@ -296,12 +296,12 @@ namespace GameBill.pages.admin
                             message.Text = "Delete Games Failed!";
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    notif.Visible = true;
-                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                    message.Text = ex.Message;
+                    catch (Exception ex)
+                    {
+                        notif.Visible = true;
+                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                        message.Text = ex.Message;
+                    }
                 }
             }
         }

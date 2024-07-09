@@ -31,15 +31,15 @@
                     </LayoutTemplate>
                     <ItemTemplate>
                         <div class="col-lg-3 col-md-6">
-                            <asp:HyperLink ID="HyperLinkGame" runat="server" NavigateUrl='<%#Eval ("id", "~/pages/browse/show.aspx?id={0}") %>'>
+                            <asp:HyperLink ID="HyperLinkGame" runat="server" NavigateUrl='<%#Eval("id", "~/pages/browse/show.aspx?id={0}")%>'>
                                 <div class="game-item">
                                     <div class="game-img">
                                         <div class="game-img-inner">
-                                            <asp:Image ID="ImageGame" runat="server" CssClass="img-fluid w-100 rounded-top" ImageUrl='<%#(String.IsNullOrEmpty(Eval("img_location").ToString())) ? "~/assets/img/No_Image_Available.jpg" : "~/" + Eval("img_location") %>' />
+                                            <asp:Image ID="ImageGame" runat="server" CssClass="img-fluid w-100 rounded-top" ImageUrl='<%#(String.IsNullOrEmpty(Eval ("img_location").ToString())) ? "~/assets/img/No_Image_Available.jpg" : "~/" + Eval("img_location")%>' />
                                         </div>
                                     </div>
                                     <div class="game-content border border-top-0 rounded-bottom p-4">
-                                        <p class="h4"><%#Eval ("game_name") %></p>
+                                        <p class="h4"><%#Eval("game_name")%></p>
                                     </div>
                                 </div>
                             </asp:HyperLink>

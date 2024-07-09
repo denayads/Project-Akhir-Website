@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="show.aspx.cs" Inherits="GameBill.pages.browse.show" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
-    <title>GameBill - Detail of <%=title %></title>
+    <title>GameBill - Detail of <%=title%></title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="style" runat="server">
 </asp:Content>
@@ -27,7 +27,7 @@
                         <asp:Label ID="LabelNamaGenre" runat="server" Text="Genres:"></asp:Label>
                         <asp:ListView ID="ListViewGenre" runat="server">
                             <ItemTemplate>
-                                <p><%#Eval("genre_name") %></p>
+                                <p><%#Eval("genre_name")%></p>
                             </ItemTemplate>
                         </asp:ListView>
                     </div>

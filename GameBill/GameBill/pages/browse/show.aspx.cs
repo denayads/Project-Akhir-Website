@@ -26,13 +26,10 @@ namespace GameBill.pages.browse
         protected void ShowData()
         {
             DataTable rst = MyRst("select * from games where games.id=" + Convert.ToInt64(Request.QueryString["id"]) + "");
-
             rst.Columns.Add("genre_name", typeof(string));
-
             foreach (DataRow OneRow in rst.Rows)
             {
                 DataTable ChildRows = MyRst("select * from games_genre join genre on games_genre.id_genre=genre.id where id_games = " + OneRow["id"]);
-
                 foreach (DataRow ChildRow in ChildRows.Rows)
                 {
                     if (OneRow["genre_name"].ToString() != "")
@@ -95,24 +92,24 @@ namespace GameBill.pages.browse
 
                 using (SqlConnection con = new SqlConnection(con_str))
                 {
-                    try
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
                     {
-                        con.Open();
-                        using (SqlCommand cmd = new SqlCommand(querry, con))
+                        cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = Convert.ToInt64(Request.QueryString["id"]);
+                        cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
+                        try
                         {
-                            cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = Convert.ToInt64(Request.QueryString["id"]);
-                            cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
+                            con.Open();
                             if (cmd.ExecuteNonQuery() > 0)
                             {
                                 Response.Redirect("~/pages/member/cart/index.aspx");
                             }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        notif.Visible = true;
-                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                        message.Text = ex.Message;
+                        catch (Exception ex)
+                        {
+                            notif.Visible = true;
+                            notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                            message.Text = ex.Message;
+                        }
                     }
                 }
             }

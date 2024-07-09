@@ -38,11 +38,9 @@ namespace GameBill.pages.member.cart
                     try
                     {
                         con.Open();
-
                         using (SqlDataAdapter sda = new SqlDataAdapter())
                         {
                             sda.SelectCommand = cmd;
-
                             using (DataTable dt = new DataTable())
                             {
                                 sda.Fill(dt);
@@ -70,12 +68,12 @@ namespace GameBill.pages.member.cart
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
-                try
+                using (SqlCommand cmd = new SqlCommand(querry, con))
                 {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                    try
                     {
-                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        con.Open();
                         if (cmd.ExecuteNonQuery() > 0)
                         {
                             BindData();
@@ -90,71 +88,55 @@ namespace GameBill.pages.member.cart
                             message.Text = "Delete Games Failed!";
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    notif.Visible = true;
-                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                    message.Text = ex.Message;
+                    catch (Exception ex)
+                    {
+                        notif.Visible = true;
+                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                        message.Text = ex.Message;
+                    }
                 }
             }
         }
 
         protected void LinkButtonCheckout_Click(object sender, EventArgs e)
         {
-            LinkButton lbtn = (LinkButton)sender;
-            long id = Convert.ToInt64(lbtn.CommandArgument);
+            long id = Convert.ToInt64(Session["id"]);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             string querry = "select * from cart join games on cart.id_games=games.id join users on cart.id_users=users.id where cart.id_users=@id";
-            string querry2 = "select * from genre";
-            string querry3 = "select genre.* from games_genre join genre on games_genre.id_genre=genre.id where games_genre.id_games=@id";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
-                try
+                using (SqlCommand cmd = new SqlCommand(querry, con))
                 {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                    try
                     {
-                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        con.Open();
+                        using (SqlDataAdapter sda = new SqlDataAdapter())
+                        {
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                ListViewGames.DataSource = dt;
+                                ListViewGames.DataBind();
+                            }
+                        }
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                 LabelNamaGameCheckout.Text = reader["game_name"].ToString();
                                 LabelHargaCheckout.Text = Convert.ToInt64(reader["prices"]).ToString();
-
                             }
                         }
                     }
-                    using (SqlCommand cmd = new SqlCommand(querry2, con))
+                    catch (Exception ex)
                     {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                ListItem item = new ListItem(reader["genre_name"].ToString(), reader["id"].ToString());
-                                item.Selected = false;
-                            }
-                        }
+                        notif.Visible = true;
+                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                        message.Text = ex.Message;
                     }
-                    using (SqlCommand cmd = new SqlCommand(querry3, con))
-                    {
-                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    notif.Visible = true;
-                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                    message.Text = ex.Message;
                 }
             }
         }
