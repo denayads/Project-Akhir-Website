@@ -63,7 +63,7 @@
                     </asp:ListView>
                 </div>
                 <div class="col-2">
-                    <asp:HyperLink ID="HyperLinkCheckout" runat="server" CssClass="btn btn-primary w-100 py-3" NavigateUrl="~/pages/member/checkout/index.aspx">Checkout</asp:HyperLink>
+                    <asp:LinkButton ID="LinkButtonCheckout" runat="server" CssClass="btn btn-primary w-100 py-3" OnClientClick="return confirm('Are you sure, you already want to checkout?')"  OnClick="LinkButtonCheckout_Click">Checkout</asp:LinkButton>
                 </div>
             </div>
         </div>

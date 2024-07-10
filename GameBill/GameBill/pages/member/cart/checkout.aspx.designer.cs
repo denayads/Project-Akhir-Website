@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameBill.pages.member.checkout
+namespace GameBill.pages.member.cart
 {
 
 
-    public partial class index
+    public partial class checkout
     {
     }
 }
