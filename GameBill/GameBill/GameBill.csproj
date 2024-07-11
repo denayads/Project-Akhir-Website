@@ -95,7 +95,6 @@
     <Content Include="pages\auth\login.aspx" />
     <Content Include="pages\auth\register.aspx" />
     <Content Include="pages\browse\show.aspx" />
-    <Content Include="pages\member\cart\checkout.aspx" />
     <Content Include="pages\member\cart\index.aspx" />
     <Content Include="pages\main\index.aspx" />
     <Content Include="pages\member\index.aspx" />
@@ -161,13 +160,6 @@
     </Compile>
     <Compile Include="pages\browse\show.aspx.designer.cs">
       <DependentUpon>show.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\member\cart\checkout.aspx.cs">
-      <DependentUpon>checkout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\member\cart\checkout.aspx.designer.cs">
-      <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\member\cart\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -309,7 +301,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="pages\member\history\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

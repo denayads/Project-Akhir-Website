@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services.Description;
 using System.Runtime.Remoting.Lifetime;
+using System.Collections;
 
 namespace GameBill.pages.member.cart
 {
@@ -99,30 +100,12 @@ namespace GameBill.pages.member.cart
             }
         }
 
-        private static int codeCounter = 0;
-
-        private string CDCode(string release, string gameName)
-        {
-            string acronymCapital = "GB";
-
-            string[] date = release.Split('-');
-            string year = date[0].Substring(2, 2);
-            string month = date[1];
-
-            string gameFirstThirdLetter = gameName.Substring(0, 3).ToUpper();
-
-            string increaseNumber = (Convert.ToString(Session["id"]) + (++codeCounter)).ToString();
-
-            string code = acronymCapital + month + year + gameFirstThirdLetter + increaseNumber;
-
-            return code;
-        }
-
         protected void LinkButtonCheckout_Click(object sender, EventArgs e)
         {
-            string release = string.Empty;
-            string gameName = string.Empty;
-            string title = string.Empty;
+            DateTime currentDateTime = DateTime.Now;
+            string date = string.Format("{0:dd.MM.yyyy.hh.mm.ss}", currentDateTime);
+            string id_order = "GB" + "/" + Convert.ToInt64(Session["id"]) + "/" + date;
+            var id_games = new ArrayList();
             long id = Convert.ToInt64(Session["id"]);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
 
@@ -136,29 +119,29 @@ namespace GameBill.pages.member.cart
                         cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read())
+                            while (reader.Read())
                             {
-                                release = reader["game_name"].ToString();
-                                gameName = reader["game_name"].ToString();
+                                foreach (string item in id_games)
+                                {
+                                    id_games.Add(reader["id_games"].ToString());
+                                }
                             }
                         }
                     }
-                    string code = CDCode(release, gameName);
-                    string querry = "insert into checkout (id_order, status, id_users) values (@id_order, @status, @id_users); SELECT SCOPE_IDENTITY()";
-                    string querry2 = "insert into checkout (id_games) select id_games from cart where id_users=@id";
+                    Response.Write(id_games[0]);
+                    //string querry = "insert into checkout (id_order, id_games, id_users) values (@id_order, @id_games, @id_users)";
 
-                    using (SqlCommand cmd = new SqlCommand(querry, con))
-                    {
-                        cmd.Parameters.Add("@id_order", SqlDbType.NVarChar).Value = code;
-                        cmd.Parameters.Add("@status", SqlDbType.NVarChar).Value = "Order Processing";
-                        cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
-                        id = Convert.ToInt64(cmd.ExecuteScalar());
-                    }
-                    using (SqlCommand cmd = new SqlCommand(querry2, con))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    Response.Redirect("~/pages/member/cart/index.aspx");
+                    //using (SqlCommand cmd = new SqlCommand(querry, con))
+                    //{
+                    //    foreach (string item in id_games)
+                    //    {
+                    //        cmd.Parameters.Clear();
+                    //        cmd.Parameters.Add("@id_order", SqlDbType.NVarChar).Value = id_order;
+                    //        cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = item;
+                    //        cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
+                    //        cmd.ExecuteNonQuery();
+                    //    }
+                    //}
                 }
                 catch (Exception ex)
                 {
