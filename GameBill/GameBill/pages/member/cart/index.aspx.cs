@@ -102,46 +102,47 @@ namespace GameBill.pages.member.cart
 
         protected void LinkButtonCheckout_Click(object sender, EventArgs e)
         {
-            DateTime currentDateTime = DateTime.Now;
-            string date = string.Format("{0:dd.MM.yyyy.hh.mm.ss}", currentDateTime);
-            string id_order = "GB" + "/" + Convert.ToInt64(Session["id"]) + "/" + date;
-            var id_games = new ArrayList();
+            string date = string.Format("{0:dd.MM.yyyy.hh.mm.ss}", DateTime.Now);
+            List<string> id_games = new List<string>();
             long id = Convert.ToInt64(Session["id"]);
+            string id_order = "GB/" + id + "/" + date;
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querry = "select * from cart where id_users=@id";
+            string querry2 = "insert into checkout (id_order, id_games, id_users) values (@id_order, @id_games, @id_users)";
+            string querryDelete = "delete from cart where id_users=@id";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
                 try
                 {
                     con.Open();
-                    using (SqlCommand cmd = new SqlCommand("select * from games join cart on cart.id_games=games.id where cart.id_users=@id", con))
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                foreach (string item in id_games)
-                                {
-                                    id_games.Add(reader["id_games"].ToString());
-                                }
+                                id_games.Add(reader["id_games"].ToString());
                             }
                         }
                     }
-                    Response.Write(id_games[0]);
-                    //string querry = "insert into checkout (id_order, id_games, id_users) values (@id_order, @id_games, @id_users)";
-
-                    //using (SqlCommand cmd = new SqlCommand(querry, con))
-                    //{
-                    //    foreach (string item in id_games)
-                    //    {
-                    //        cmd.Parameters.Clear();
-                    //        cmd.Parameters.Add("@id_order", SqlDbType.NVarChar).Value = id_order;
-                    //        cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = item;
-                    //        cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
-                    //        cmd.ExecuteNonQuery();
-                    //    }
-                    //}
+                    using (SqlCommand cmd = new SqlCommand(querry2, con))
+                    {
+                        foreach (string item in id_games)
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.Add("@id_order", SqlDbType.NVarChar).Value = id_order;
+                            cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = item;
+                            cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    using (SqlCommand cmd = new SqlCommand(querryDelete, con))
+                    {
+                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 catch (Exception ex)
                 {
