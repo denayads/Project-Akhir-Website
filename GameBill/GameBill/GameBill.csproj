@@ -68,13 +68,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\kaiadmin.css" />
+    <Content Include="assets\css\kaiadmin.min.css" />
+    <Content Include="assets\css\plugins.css" />
+    <Content Include="assets\css\plugins.min.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\img\AlanWake2_1.jfif" />
     <Content Include="assets\img\Cyberpunk2077_1.png" />
     <Content Include="assets\img\MarvelsSpiderMan2_1.jfif" />
     <Content Include="assets\img\No-Image-Available.jpg" />
     <Content Include="assets\img\ResidentEvil4_1.jfif" />
+    <Content Include="assets\js\core\jquery-3.7.1.min.js" />
+    <Content Include="assets\js\core\popper.min.js" />
+    <Content Include="assets\js\kaiadmin.js" />
+    <Content Include="assets\js\kaiadmin.min.js" />
     <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\plugin\bootstrap-notify\bootstrap-notify.min.js" />
+    <Content Include="assets\js\plugin\bootstrap-tagsinput\bootstrap-tagsinput.min.js" />
+    <Content Include="assets\js\plugin\bootstrap-toggle\bootstrap-toggle.min.js" />
+    <Content Include="assets\js\plugin\jquery-scrollbar\jquery.scrollbar.min.js" />
+    <Content Include="assets\js\plugin\jquery.magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="assets\js\plugin\jquery.sparkline\jquery.sparkline.min.js" />
+    <Content Include="assets\js\plugin\jquery.validate\jquery.validate.min.js" />
+    <Content Include="assets\js\plugin\sweetalert\sweetalert.min.js" />
     <Content Include="assets\lib\animate\animate.css" />
     <Content Include="assets\lib\animate\animate.min.css" />
     <Content Include="assets\lib\easing\easing.js" />
@@ -293,6 +309,8 @@
     <Content Include="assets\scss\bootstrap\scss\_variables.scss" />
     <Content Include="admin.Master" />
     <Content Include="member.Master" />
+    <Content Include="assets\css\kaiadmin.css.map" />
+    <Content Include="assets\css\plugins.css.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

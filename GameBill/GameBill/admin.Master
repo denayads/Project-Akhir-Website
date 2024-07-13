@@ -24,9 +24,10 @@
     <link href="<%=ResolveUrl("~/assets/lib/animate/animate.min.css")%>" rel="stylesheet">
     <link href="<%=ResolveUrl("~/assets/lib/owlcarousel/assets/owl.carousel.min.css")%>" rel="stylesheet">
 
-
     <!-- Customized Bootstrap Stylesheet -->
     <link href="<%=ResolveUrl("~/assets/css/bootstrap.min.css")%>" rel="stylesheet">
+    <link href="<%=ResolveUrl("~/assets/css/plugins.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/assets/css/kaiadmin.min.css")%>" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
     <link href="<%=ResolveUrl("~/assets/css/style.css")%>" rel="stylesheet">
@@ -39,6 +40,20 @@
     <script src="<%=ResolveUrl("~/assets/lib/easing/easing.min.js")%>"></script>
     <script src="<%=ResolveUrl("~/assets/lib/waypoints/waypoints.min.js")%>"></script>
     <script src="<%=ResolveUrl("~/assets/lib/owlcarousel/owl.carousel.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/assets/js/core/jquery-3.7.1.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/assets/js/core/popper.min.js")%>"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="<%=ResolveUrl("~/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js")%>"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="<%=ResolveUrl("~/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js")%>"></script>
+
+    <!-- Sweet Alert -->
+    <script src="<%=ResolveUrl("~/assets/js/plugin/sweetalert/sweetalert.min.js")%>"></script>
+
+    <!-- Kaiadmin JS -->
+    <script src="<%=ResolveUrl("~/assets/js/kaiadmin.min.js")%>"></script>
 
     <!-- Template Javascript -->
     <script src="<%=ResolveUrl("~/assets/js/main.js")%>"></script>
@@ -47,215 +62,370 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
-        </div>
-        <!-- Spinner End -->
+        <div class="wrapper">
+            <!-- Spinner Start -->
+            <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+                <div class="spinner-grow text-primary" role="status"></div>
+            </div>
+            <!-- Spinner End -->
 
 
-        <!-- Navbar start -->
-        <div class="container-fluid sticky-top px-0">
-            <div class="container-fluid topbar bg-dark d-none d-xl-block">
-                <div class="container px-0">
-                    <div class="topbar-top d-flex justify-content-between flex-xl-wrap">
-                        <div class="top-info flex-grow-0">
-                            <span class="rounded-circle btn-sm-square bg-primary me-2">
-                                <i class="fas fa-exclamation text-white"></i>
-                            </span>
-                            <div class="pe-2 me-3 border-end border-white d-flex align-items-center">
-                                <p class="mb-0 text-white fs-6 fw-normal">Information</p>
-                            </div>
-                            <div class="overflow-hidden" style="width: 780px;">
-                                <div id="note" class="ps-2">
-                                    <img src="img/features-fashion.jpg" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
-                                    <p class="text-white mb-0 link-hover">Welcome to GameBill, The Game Store For You.</p>
+            <!-- Sidebar -->
+            <div class="sidebar" data-background-color="dark">
+                <div class="sidebar-logo">
+                    <!-- Logo Header -->
+                    <div class="logo-header" data-background-color="dark">
+                        <a href="<%=ResolveUrl("~/pages/main/index.aspx")%>" class="logo">
+                            <h1 class="navbar-brand text-primary display-6" alt="navbar brand" height="20">GameBill</h1>
+                        </a>
+                        <div class="nav-toggle">
+                            <button class="btn btn-toggle toggle-sidebar">
+                                <i class="gg-menu-right"></i>
+                            </button>
+                            <button class="btn btn-toggle sidenav-toggler">
+                                <i class="gg-menu-left"></i>
+                            </button>
+                        </div>
+                        <button class="topbar-toggler more">
+                            <i class="gg-more-vertical-alt"></i>
+                        </button>
+                    </div>
+                    <!-- End Logo Header -->
+                </div>
+                <div class="sidebar-wrapper scrollbar scrollbar-inner">
+                    <div class="sidebar-content">
+                        <ul class="nav nav-secondary">
+                            <li class="nav-item active">
+                                <a
+                                    data-bs-toggle="collapse"
+                                    href="#dashboard"
+                                    class="collapsed"
+                                    aria-expanded="false">
+                                    <i class="fas fa-home"></i>
+                                    <p>Dashboard</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="dashboard">
+                                    <ul class="nav nav-collapse">
+                                        <li>
+                                            <a href="<%=ResolveUrl("~/pages/admin/index.aspx")%>">
+                                                <span class="sub-item">Admin Dashboard</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="ps-2 ms-2 border-start border-white d-flex align-items-center icon">
-                                <p class="mb-0 text-white me-2">Follow Us:</p>
-                                <a href="#" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
-                                <a href="#" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
-                                <a href="#" class="me-2"><i class="fab fa-tiktok text-body link-hover"></i></a>
-                                <a href="#" class=""><i class="fab fa-whatsapp text-body link-hover"></i></a>
-                            </div>
-                        </div>
-                        <div class="top-link flex-lg-wrap">
-                        </div>
+                            </li>
+                            <li class="nav-section">
+                                <span class="sidebar-mini-icon">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </span>
+                                <h4 class="text-section">Components</h4>
+                            </li>
+                            <li class="nav-item">
+                                <a data-bs-toggle="collapse" href="#pages">
+                                    <i class="fas fa-layer-group"></i>
+                                    <p>Pages</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="pages">
+                                    <ul class="nav nav-collapse">
+                                        <li>
+                                            <a href="<%=ResolveUrl("~/pages/main/index.aspx")%>">
+                                                <span class="sub-item">Home</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<%=ResolveUrl("~/pages/browse/index.aspx")%>">
+                                                <span class="sub-item">Browse</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a data-bs-toggle="collapse" href="#create">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>Create</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="create">
+                                    <ul class="nav nav-collapse">
+                                        <li>
+                                            <a href="forms/forms.html">
+                                                <span class="sub-item">Insert Games</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a data-bs-toggle="collapse" href="#tables">
+                                    <i class="fas fa-table"></i>
+                                    <p>Tables</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="tables">
+                                    <ul class="nav nav-collapse">
+                                        <li>
+                                            <a href="<%=ResolveUrl("~/pages/admin/crud/index.aspx")%>">
+                                                <span class="sub-item">Database Game</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="container-fluid bg-light">
-                <div class="container px-0">
-                    <nav class="navbar navbar-light navbar-expand-xl">
-                        <a href="<%=ResolveUrl("~/pages/main/index.aspx")%>" class="navbar-brand">
-                            <h1 class="text-primary display-6">GameBill</h1>
-                        </a>
-                        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                            <span class="fa fa-bars text-primary"></span>
-                        </button>
-                        <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
-                            <div class="navbar-nav mx-auto border-top">
-                                <a href="<%=ResolveUrl("~/pages/main/index.aspx")%>" class="nav-item nav-link active">Home</a>
-                                <a href="<%=ResolveUrl("~/pages/browse/index.aspx")%>" class="nav-item nav-link">Browse</a>
-                                <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+            <!-- End Sidebar -->
+
+
+            <!-- Navbar start -->
+            <div class="main-panel">
+                <div class="main-header">
+                    <div class="main-header-logo">
+                        <!-- Logo Header -->
+                        <div class="logo-header" data-background-color="dark">
+                            <a href="<%=ResolveUrl("~/pages/main/index.aspx")%>" class="logo">
+                                <h1 class="navbar-brand text-primary display-6" alt="navbar brand" height="20">GameBill</h1>
+                            </a>
+                            <div class="nav-toggle">
+                                <button class="btn btn-toggle toggle-sidebar">
+                                    <i class="gg-menu-right"></i>
+                                </button>
+                                <button class="btn btn-toggle sidenav-toggler">
+                                    <i class="gg-menu-left"></i>
+                                </button>
                             </div>
-                            <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0">
-                                <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                                <a href="<%=ResolveUrl("~/pages/member/cart/index.aspx")%>" class="position-relative me-4 my-auto">
-                                    <i class="fa fa-shopping-cart fa-2x"></i>
-                                </a>
-                                <% if (Session["user_name"] != null)
-                                    { %>
-                                <div class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle my-auto" data-bs-toggle="dropdown">
-                                        <%=Session["user_name"].ToString()%>
-                                    </a>
-                                    <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                        <a href="<%=ResolveUrl("~/pages/admin/index.aspx")%>" class="dropdown-item">
-                                            <i class="bi bi-house-door-fill me-2"></i>
-                                            Admin Dashboard
-                                        </a>
-                                        <a href="<%=ResolveUrl("~/pages/admin/profile/edit.aspx")%>" class="dropdown-item">
-                                            <i class="bi bi-gear me-2"></i>
-                                            Change Name
-                                        </a>
-                                        <a href="<%=ResolveUrl("~/pages/admin/profile/changepassword.aspx")%>" class="dropdown-item">
-                                            <i class="bi bi-gear me-2"></i>
-                                            Change Password
-                                        </a>
-                                        <asp:LinkButton ID="LinkButtonLogOut" runat="server" CssClass="dropdown-item" OnClick="LinkButtonLogOut_Click">
-                                            <i class="bi bi-power me-2"></i>
-                                            Log Out
-                                        </asp:LinkButton>
+                            <button class="topbar-toggler more">
+                                <i class="gg-more-vertical-alt"></i>
+                            </button>
+                        </div>
+                        <!-- End Logo Header -->
+                    </div>
+                    <!-- Navbar Header -->
+                    <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+                        <div class="container-fluid">
+                            <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button type="submit" class="btn btn-search pe-1">
+                                            <i class="fa fa-search search-icon"></i>
+                                        </button>
                                     </div>
+                                    <input
+                                        type="text"
+                                        placeholder="Search ..."
+                                        class="form-control" />
                                 </div>
-                                <%  } %>
-                                <% else
-                                    { %>
-                                <a href="<%=ResolveUrl("~/pages/auth/login.aspx")%>" class="my-auto">
-                                    <i class="fas fa-user fa-2x"></i>
-                                </a>
-                                <%  } %>
-                            </div>
+                            </nav>
+
+                            <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                                <li
+                                    class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
+                                    <a
+                                        class="nav-link dropdown-toggle"
+                                        data-bs-toggle="dropdown"
+                                        href="#"
+                                        role="button"
+                                        aria-expanded="false"
+                                        aria-haspopup="true">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-search animated fadeIn">
+                                        <form class="navbar-left navbar-form nav-search">
+                                            <div class="input-group">
+                                                <input
+                                                    type="text"
+                                                    placeholder="Search ..."
+                                                    class="form-control" />
+                                            </div>
+                                        </form>
+                                    </ul>
+                                </li>
+                                <li class="nav-item topbar-icon dropdown hidden-caret">
+                                    <a
+                                        class="nav-link dropdown-toggle"
+                                        href="#"
+                                        id="notifDropdown"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false">
+                                        <i class="fa fa-bell"></i>
+                                        <span class="notification">4</span>
+                                    </a>
+                                    <ul
+                                        class="dropdown-menu notif-box animated fadeIn"
+                                        aria-labelledby="notifDropdown">
+                                        <li>
+                                            <div class="dropdown-title">
+                                                You have 4 new notification
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="notif-scroll scrollbar-outer">
+                                                <div class="notif-center">
+                                                    <a href="#">
+                                                        <div class="notif-icon notif-primary">
+                                                            <i class="fa fa-user-plus"></i>
+                                                        </div>
+                                                        <div class="notif-content">
+                                                            <span class="block">New user registered </span>
+                                                            <span class="time">5 minutes ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="notif-icon notif-success">
+                                                            <i class="fa fa-comment"></i>
+                                                        </div>
+                                                        <div class="notif-content">
+                                                            <span class="block">Rahmad commented on Admin
+                                                            </span>
+                                                            <span class="time">12 minutes ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="notif-img">
+                                                            <img
+                                                                src="assets/img/profile2.jpg"
+                                                                alt="Img Profile" />
+                                                        </div>
+                                                        <div class="notif-content">
+                                                            <span class="block">Reza send messages to you
+                                                            </span>
+                                                            <span class="time">12 minutes ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="notif-icon notif-danger">
+                                                            <i class="fa fa-heart"></i>
+                                                        </div>
+                                                        <div class="notif-content">
+                                                            <span class="block">Farrah liked Admin </span>
+                                                            <span class="time">17 minutes ago</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item topbar-user dropdown hidden-caret">
+                                    <% if (Session["user_name"] != null)
+                                        { %>
+                                    <a
+                                        class="dropdown-toggle profile-pic"
+                                        data-bs-toggle="dropdown"
+                                        href="#"
+                                        aria-expanded="false">
+                                        <div class="avatar-sm">
+                                            <img
+                                                src="assets/img/profile.jpg"
+                                                alt="..."
+                                                class="avatar-img rounded-circle" />
+                                        </div>
+                                        <span class="profile-username">
+                                            <span class="op-7">Hi,</span>
+                                            <span class="fw-bold"><%=Session["user_name"].ToString()%></span>
+                                        </span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-user animated fadeIn">
+                                        <ul class="dropdown-user-scroll scrollbar-outer">
+                                            <li>
+                                                <div class="user-box">
+                                                    <div class="avatar-lg">
+                                                        <img
+                                                            src="assets/img/profile.jpg"
+                                                            alt="image profile"
+                                                            class="avatar-img rounded" />
+                                                    </div>
+                                                    <div class="u-text">
+                                                        <h4><%=Session["user_name"].ToString()%></h4>
+                                                        <p class="text-muted"><%=Session["email"].ToString()%></p>
+                                                        <a
+                                                            href="profile.html"
+                                                            class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="dropdown-divider"></div>
+                                                <asp:LinkButton ID="LinkButtonLogOut" runat="server" CssClass="dropdown-item" OnClick="LinkButtonLogOut_Click">
+                                                <i class="bi bi-power me-2"></i>
+                                                Log Out
+                                                </asp:LinkButton>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <%  } %>
+                                    <% else
+                                        { %>
+                                    <a href="<%=ResolveUrl("~/pages/auth/login.aspx")%>" class="my-auto">
+                                        <i class="fas fa-user fa-2x"></i>
+                                    </a>
+                                    <%  } %>
+                                </li>
+                            </ul>
                         </div>
                     </nav>
                 </div>
             </div>
-        </div>
-        <!-- Navbar End -->
+            <!-- End Navbar -->
 
 
-        <!-- Modal Search Start -->
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center">
-                        <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+            <!-- Modal Search Start -->
+            <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal Search End -->
-
-
-        <!-- Banner Start-->
-        <asp:ContentPlaceHolder ID="banner" runat="server">
-        </asp:ContentPlaceHolder>
-        <!-- Banner End-->
-
-
-        <!-- Features Start -->
-        <asp:ContentPlaceHolder ID="features" runat="server">
-        </asp:ContentPlaceHolder>
-        <!-- Features End -->
-
-
-        <!-- Games Section Start -->
-        <asp:ContentPlaceHolder ID="gamessection" runat="server">
-        </asp:ContentPlaceHolder>
-        <!-- Games Section End -->
-
-
-        <!-- Another Section Start -->
-        <asp:ContentPlaceHolder ID="anothersection" runat="server">
-        </asp:ContentPlaceHolder>
-        <!-- Another Section End -->
-
-
-        <!-- Footer Start -->
-        <div class="container-fluid bg-dark footer py-5">
-            <div class="container py-5">
-                <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                    <div class="row g-4">
-                        <div class="col-lg-3">
-                            <a href="#" class="d-flex flex-column flex-wrap">
-                                <p class="text-white mb-0 display-6">GameBill</p>
-                                <small class="text-light" style="letter-spacing: 1px; line-height: 0;">The Game Store For You</small>
-                            </a>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="d-flex position-relative rounded-pill overflow-hidden">
-                                <input class="form-control border-0 w-100 py-3 rounded-pill" type="email" placeholder="example@gmail.com">
-                                <button type="submit" class="btn btn-primary border-0 py-3 px-5 rounded-pill text-white position-absolute" style="top: 0; right: 0;">Subscribe Now</button>
+                        <div class="modal-body d-flex align-items-center">
+                            <div class="input-group w-75 mx-auto d-flex">
+                                <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                                <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row g-5">
-                    <div class="col-lg-6 col-xl-6">
-                        <div class="footer-item-1">
-                            <h4 class="mb-4 text-white">Get In Touch</h4>
-                            <p class="text-secondary line-h">Address: <span class="text-white">Antapani, Bandung</span></p>
-                            <p class="text-secondary line-h">Email: <span class="text-white">gamebill@gmail.com</span></p>
-                            <p class="text-secondary line-h">Phone: <span class="text-white">+6222 0123 456</span></p>
-                            <div class="d-flex line-h">
-                                <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube text-dark"></i></a>
-                                <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-instagram text-dark"></i></a>
-                                <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-tiktok text-dark"></i></a>
-                                <a class="btn btn-light btn-md-square rounded-circle" href=""><i class="fab fa-whatsapp text-dark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-6">
-                        <div class="d-flex flex-column text-start footer-item-3">
-                            <h4 class="mb-4 text-white">Links</h4>
-                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>About Us</a>
-                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>Contact Us</a>
-                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>Privacy Policy</a>
-                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>Terms & Condition</a>
-                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>Return Policy</a>
-                            <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i>FAQs & Help</a>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <!-- Modal Search End -->
+
+
+            <!-- Banner Start-->
+            <asp:ContentPlaceHolder ID="banner" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- Banner End-->
+
+
+            <!-- Features Start -->
+            <asp:ContentPlaceHolder ID="features" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- Features End -->
+
+
+            <!-- Games Section Start -->
+            <asp:ContentPlaceHolder ID="gamessection" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- Games Section End -->
+
+
+            <!-- Another Section Start -->
+            <asp:ContentPlaceHolder ID="anothersection" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- Another Section End -->
+
+
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-primary border-2 border-white rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
         </div>
-        <!-- Footer End -->
-
-        <!-- Copyright Start -->
-        <div class="container-fluid copyright bg-dark py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>GameBill</a>, All right reserved.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Copyright End -->
-
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary border-2 border-white rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
     </form>
 </body>
 </html>

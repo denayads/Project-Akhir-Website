@@ -24,7 +24,6 @@
     <link href="<%=ResolveUrl("~/assets/lib/animate/animate.min.css")%>" rel="stylesheet">
     <link href="<%=ResolveUrl("~/assets/lib/owlcarousel/assets/owl.carousel.min.css")%>" rel="stylesheet">
 
-
     <!-- Customized Bootstrap Stylesheet -->
     <link href="<%=ResolveUrl("~/assets/css/bootstrap.min.css")%>" rel="stylesheet">
 
@@ -262,6 +261,7 @@
         </div>
         <!-- Footer End -->
 
+
         <!-- Copyright Start -->
         <div class="container-fluid copyright bg-dark py-4">
             <div class="container">
@@ -273,7 +273,6 @@
             </div>
         </div>
         <!-- Copyright End -->
-
 
 
         <!-- Back to Top -->

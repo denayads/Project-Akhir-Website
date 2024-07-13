@@ -6,12 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="style" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
-    <script>
-        function openModal() {
-            const myModal = new bootstrap.Modal('#anothersection_ModalCheckout', {});
-            myModal.show();
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="banner" runat="server">
     <div class="container-fluid page-header py-5">
