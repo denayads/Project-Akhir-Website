@@ -24,6 +24,7 @@ namespace GameBill.pages.admin.crud
         {
             DataTable rst = MyRst("select * from games join users on games.id_users=users.id");
             rst.Columns.Add("genre_name", typeof(string));
+            rst.Columns.Add("platforms_name", typeof(string));
             foreach (DataRow OneRow in rst.Rows)
             {
                 DataTable ChildRows = MyRst("select * from games_genre join genre on games_genre.id_genre=genre.id where games_genre.id_games= " + OneRow["id"]);
@@ -36,34 +37,62 @@ namespace GameBill.pages.admin.crud
                     OneRow["genre_name"] += ChildRow["genre_name"].ToString();
                 }
             }
+            foreach (DataRow OneRow in rst.Rows)
+            {
+                DataTable ChildRows = MyRst("select * from games_platforms join platforms on games_platforms.id_platforms=platforms.id where games_platforms.id_games= " + OneRow["id"]);
+                foreach (DataRow ChildRow in ChildRows.Rows)
+                {
+                    if (OneRow["platforms_name"].ToString() != "")
+                    {
+                        OneRow["platforms_name"] += "<br/>";
+                    }
+                    OneRow["platforms_name"] += ChildRow["platforms_name"].ToString();
+                }
+            }
             ListViewGames.DataSource = rst;
             ListViewGames.DataBind();
 
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string queryGenre = "select * from genre";
+            string queryPlatform = "select * from platforms";
+
             using (SqlConnection con = new SqlConnection(con_str))
             {
-                using (SqlCommand cmd = new SqlCommand("select * from genre", con))
+                try
                 {
-                    try
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(queryGenre, con))
                     {
-                        con.Open();
-                        CheckBoxListGenreCreate.Items.Clear();
+                        CheckBoxListGenre.Items.Clear();
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                 ListItem item = new ListItem(reader["genre_name"].ToString(), reader["id"].ToString());
                                 item.Selected = false;
-                                CheckBoxListGenreCreate.Items.Add(item);
+                                CheckBoxListGenre.Items.Add(item);
                             }
                         }
                     }
-                    catch (Exception ex)
+                    using (SqlCommand cmd = new SqlCommand(queryPlatform, con))
                     {
-                        notif.Visible = true;
-                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
-                        message.Text = ex.Message;
+                        CheckBoxListPlatform.Items.Clear();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ListItem item = new ListItem(reader["platforms_name"].ToString(), reader["id"].ToString());
+                                item.Selected = false;
+                                CheckBoxListPlatform.Items.Add(item);
+                            }
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
                 }
             }
         }
@@ -84,7 +113,6 @@ namespace GameBill.pages.admin.crud
             long id = Convert.ToInt64(Session["id"]);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             string querry = "insert into games (game_name, description, release_dates, developers, publishers, game_modes, franchises, player_perspectives, prices, id_users) values (@game_name, @description, @release_dates, @developers, @publishers, @game_modes, @franchises, @player_perspectives, @prices, @id_users); SELECT SCOPE_IDENTITY()";
-            string querry2 = "insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -105,20 +133,7 @@ namespace GameBill.pages.admin.crud
                         cmd.Parameters.Add("@id_users", SqlDbType.BigInt).Value = id;
                         id = Convert.ToInt64(cmd.ExecuteScalar());
                     }
-                    using (SqlCommand cmd = new SqlCommand(querry2, con))
-                    {
-                        foreach (ListItem item in CheckBoxListGenreCreate.Items)
-                        {
-                            if (item.Selected)
-                            {
-                                cmd.Parameters.Clear();
-                                cmd.Parameters.AddWithValue("@id_genre", item.Value);
-                                cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = id;
-                                cmd.ExecuteNonQuery();
-                            }
-                        }
-                    }
-                    Response.Redirect("~/pages/admin/index.aspx");
+                    Response.Redirect("~/pages/admin/crud/index.aspx");
                 }
                 catch (Exception ex)
                 {
@@ -135,8 +150,6 @@ namespace GameBill.pages.admin.crud
             long id = Convert.ToInt64(lbtn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             string querry = "select * from games where id=@id";
-            string querry2 = "select * from genre";
-            string querry3 = "select genre.* from games_genre join genre on games_genre.id_genre=genre.id where games_genre.id_games=@id";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -162,36 +175,6 @@ namespace GameBill.pages.admin.crud
                             }
                         }
                     }
-                    CheckBoxListGenreShow.Items.Clear();
-                    using (SqlCommand cmd = new SqlCommand(querry2, con))
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                ListItem item = new ListItem(reader["genre_name"].ToString(), reader["id"].ToString());
-                                item.Selected = false;
-                                CheckBoxListGenreShow.Items.Add(item);
-                            }
-                        }
-                    }
-                    using (SqlCommand cmd = new SqlCommand(querry3, con))
-                    {
-                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                foreach (ListItem item in CheckBoxListGenreShow.Items)
-                                {
-                                    if (reader["genre_name"].ToString().Equals(item.Text))
-                                    {
-                                        item.Selected = true;
-                                    }
-                                }
-                            }
-                        }
-                    }
                     ButtonUpdateShow.CommandArgument = id.ToString();
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
@@ -210,8 +193,6 @@ namespace GameBill.pages.admin.crud
             long id = Convert.ToInt64(btn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             string querry = "update games set game_name=@game_name, description=@description, release_dates=@release_dates, developers=@developers, publishers=@publishers, game_modes=@game_modes, franchises=@franchises, player_perspectives=@player_perspectives, prices=@prices where id=@id";
-            string querryDelete = "delete from games_genre where id_games=@id";
-            string querryInsert = "insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -232,6 +213,94 @@ namespace GameBill.pages.admin.crud
                         cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
                         cmd.ExecuteNonQuery();
                     }
+                    Response.Redirect("~/pages/admin/crud/index.aspx");
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
+                }
+            }
+        }
+
+        protected void LinkButtonGenre_Click(object sender, EventArgs e)
+        {
+            LinkButton lbtn = (LinkButton)sender;
+            long id = Convert.ToInt64(lbtn.CommandArgument);
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querry = "select genre.* from games_genre join genre on games_genre.id_genre=genre.id where games_genre.id_games=@id";
+            string querryInsert = "insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)";
+
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
+                {
+                    con.Open();
+                    bool hasGenres = false;
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    {
+                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                hasGenres = true;
+                                while (reader.Read())
+                                {
+                                    foreach (ListItem item in CheckBoxListGenre.Items)
+                                    {
+                                        if (reader["genre_name"].ToString().Equals(item.Text))
+                                        {
+                                            item.Selected = true;
+                                        }
+                                    }
+                                }
+                                ButtonGenreCreate.CommandArgument = id.ToString();
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalGenre();", true);
+                            }
+                        }
+                    }
+                    if (!hasGenres)
+                    {
+                        using (SqlCommand cmd = new SqlCommand(querryInsert, con))
+                        {
+                            foreach (ListItem item in CheckBoxListGenre.Items)
+                            {
+                                if (item.Selected)
+                                {
+                                    cmd.Parameters.Clear();
+                                    cmd.Parameters.AddWithValue("@id_genre", item.Value);
+                                    cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = id;
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                        Response.Redirect("~/pages/admin/crud/index.aspx");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
+                }
+            }
+        }
+
+        protected void ButtonGenreCreate_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            long id = Convert.ToInt64(btn.CommandArgument);
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querryDelete = "delete from games_genre where id_games=@id";
+            string querryInsert = "insert into games_genre (id_genre, id_games) values (@id_genre, @id_games)";
+
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
+                {
+                    con.Open();
                     using (SqlCommand cmd = new SqlCommand(querryDelete, con))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
@@ -239,7 +308,7 @@ namespace GameBill.pages.admin.crud
                     }
                     using (SqlCommand cmd = new SqlCommand(querryInsert, con))
                     {
-                        foreach (ListItem item in CheckBoxListGenreShow.Items)
+                        foreach (ListItem item in CheckBoxListGenre.Items)
                         {
                             if (item.Selected)
                             {
@@ -250,13 +319,120 @@ namespace GameBill.pages.admin.crud
                             }
                         }
                     }
-                    Response.Redirect("~/pages/admin/index.aspx");
+                    Response.Redirect("~/pages/admin/crud/index.aspx");
                 }
                 catch (Exception ex)
                 {
                     notif.Visible = true;
                     notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
                     message.Text = ex.Message;
+                }
+            }
+        }
+
+        protected void LinkButtonPlatform_Click(object sender, EventArgs e)
+        {
+            LinkButton lbtn = (LinkButton)sender;
+            long id = Convert.ToInt64(lbtn.CommandArgument);
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querry = "select platforms.* from games_platforms join platforms on games_platforms.id_platforms=platforms.id where games_platforms.id_games=@id";
+            string querryInsert = "insert into games_platforms (id_platforms, id_games) values (@id_platforms, @id_games)";
+
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
+                {
+                    con.Open();
+                    bool hasPlatform = false;
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    {
+                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                hasPlatform = true;
+                                while (reader.Read())
+                                {
+                                    foreach (ListItem item in CheckBoxListPlatform.Items)
+                                    {
+                                        if (reader["platforms_name"].ToString().Equals(item.Text))
+                                        {
+                                            item.Selected = true;
+                                        }
+                                    }
+                                }
+                                ButtonPlatformCreate.CommandArgument = id.ToString();
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalPlatform();", true);
+                            }
+                        }
+                    }
+                    if (!hasPlatform)
+                    {
+                        using (SqlCommand cmd = new SqlCommand(querryInsert, con))
+                        {
+                            foreach (ListItem item in CheckBoxListPlatform.Items)
+                            {
+                                if (item.Selected)
+                                {
+                                    cmd.Parameters.Clear();
+                                    cmd.Parameters.AddWithValue("@id_platforms", item.Value);
+                                    cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = id;
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
+                }
+            }
+        }
+
+        protected void ButtonPlatformCreate_Click(object sender, EventArgs e)
+        {
+            {
+                Button btn = (Button)sender;
+                long id = Convert.ToInt64(btn.CommandArgument);
+                string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+                string querryDelete = "delete from games_platforms where id_games=@id";
+                string querryInsert = "insert into games_platforms (id_platforms, id_games) values (@id_platforms, @id_games)";
+
+                using (SqlConnection con = new SqlConnection(con_str))
+                {
+                    try
+                    {
+                        con.Open();
+                        using (SqlCommand cmd = new SqlCommand(querryDelete, con))
+                        {
+                            cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                            cmd.ExecuteNonQuery();
+                        }
+                        using (SqlCommand cmd = new SqlCommand(querryInsert, con))
+                        {
+                            foreach (ListItem item in CheckBoxListPlatform.Items)
+                            {
+                                if (item.Selected)
+                                {
+                                    cmd.Parameters.Clear();
+                                    cmd.Parameters.AddWithValue("@id_platforms", item.Value);
+                                    cmd.Parameters.Add("@id_games", SqlDbType.BigInt).Value = id;
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                        Response.Redirect("~/pages/admin/crud/index.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        notif.Visible = true;
+                        notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                        message.Text = ex.Message;
+                    }
                 }
             }
         }

@@ -159,15 +159,6 @@ namespace GameBill.pages.admin.crud
         protected global::System.Web.UI.WebControls.TextBox TextBoxHargaCreate;
 
         /// <summary>
-        /// CheckBoxListGenreCreate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListGenreCreate;
-
-        /// <summary>
         /// ButtonCloseCreate control.
         /// </summary>
         /// <remarks>
@@ -285,15 +276,6 @@ namespace GameBill.pages.admin.crud
         protected global::System.Web.UI.WebControls.TextBox TextBoxHargaShow;
 
         /// <summary>
-        /// CheckBoxListGenreShow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListGenreShow;
-
-        /// <summary>
         /// ButtonCloseShow control.
         /// </summary>
         /// <remarks>
@@ -310,5 +292,95 @@ namespace GameBill.pages.admin.crud
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonUpdateShow;
+
+        /// <summary>
+        /// ModalGenre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalGenre;
+
+        /// <summary>
+        /// ButtonIconCloseGenre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonIconCloseGenre;
+
+        /// <summary>
+        /// CheckBoxListGenre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListGenre;
+
+        /// <summary>
+        /// ButtonGenreClose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonGenreClose;
+
+        /// <summary>
+        /// ButtonGenreCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonGenreCreate;
+
+        /// <summary>
+        /// ModalPlatform control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalPlatform;
+
+        /// <summary>
+        /// ButtonIconClosePlatform control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonIconClosePlatform;
+
+        /// <summary>
+        /// CheckBoxListPlatform control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListPlatform;
+
+        /// <summary>
+        /// ButtonPlatformClose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonPlatformClose;
+
+        /// <summary>
+        /// ButtonPlatformCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonPlatformCreate;
     }
 }
