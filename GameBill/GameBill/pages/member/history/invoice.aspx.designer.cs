@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameBill.pages.member
+namespace GameBill.pages.member.history
 {
 
 
-    public partial class index
+    public partial class invoice
     {
 
         /// <summary>
@@ -42,12 +42,12 @@ namespace GameBill.pages.member
         protected global::System.Web.UI.WebControls.Button ButtonX;
 
         /// <summary>
-        /// HyperLinkInvoice control.
+        /// ListViewInvoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkInvoice;
+        protected global::System.Web.UI.WebControls.ListView ListViewInvoice;
     }
 }

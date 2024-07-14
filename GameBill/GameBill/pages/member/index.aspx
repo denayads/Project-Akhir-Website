@@ -28,6 +28,9 @@
                     <asp:Label ID="message" runat="server" Text=""></asp:Label>
                     <asp:Button ID="ButtonX" runat="server" CssClass="btn-close" data-bs-dismiss="alert" aria-label="Close" />
                 </div>
+                <div class="col-3">
+                    <asp:HyperLink ID="HyperLinkInvoice" runat="server" CssClass="btn btn-primary w-100 py-3" NavigateUrl="~/pages/member/history/invoice.aspx"><i class="bi bi-clipboard-data me-3"></i>Invoice</asp:HyperLink>
+                </div>
             </div>
         </div>
     </div>

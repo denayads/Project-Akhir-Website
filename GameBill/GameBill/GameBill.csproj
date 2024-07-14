@@ -97,6 +97,7 @@
     <Content Include="pages\browse\show.aspx" />
     <Content Include="pages\member\cart\index.aspx" />
     <Content Include="pages\main\index.aspx" />
+    <Content Include="pages\member\history\invoice.aspx" />
     <Content Include="pages\member\index.aspx" />
     <Content Include="pages\browse\index.aspx" />
     <Content Include="pages\member\profile\change_name.aspx" />
@@ -174,6 +175,13 @@
     </Compile>
     <Compile Include="pages\main\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\member\history\invoice.aspx.cs">
+      <DependentUpon>invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\member\history\invoice.aspx.designer.cs">
+      <DependentUpon>invoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\member\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -301,9 +309,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="pages\member\history\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

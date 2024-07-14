@@ -17,8 +17,18 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="features" runat="server">
-    <div class="col-3">
-        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-primary w-100 py-3" NavigateUrl="~/pages/admin/crud/index.aspx"><i class="bi bi-clipboard-data me-3"></i>Create, Update, Delete Game</asp:HyperLink>
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row g-4 justify-content-center">
+                <div id="notif" runat="server" visible="false" class="col-6 mt-3 mb-3 mx-auto" role="alert">
+                    <asp:Label ID="message" runat="server" Text=""></asp:Label>
+                    <asp:Button ID="ButtonX" runat="server" CssClass="btn-close" data-bs-dismiss="alert" aria-label="Close" />
+                </div>
+                <div class="col-3">
+                    <asp:HyperLink ID="HyperLinkCRUD" runat="server" CssClass="btn btn-primary w-100 py-3" NavigateUrl="~/pages/admin/crud/index.aspx"><i class="bi bi-clipboard-data me-3"></i>Create, Update, Delete Game</asp:HyperLink>
+                </div>
+            </div>
+        </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="gamessection" runat="server">
