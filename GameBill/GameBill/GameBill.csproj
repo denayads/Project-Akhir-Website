@@ -92,6 +92,7 @@
     <Content Include="assets\lib\waypoints\waypoints.min.js" />
     <Content Include="pages\admin\crud\index.aspx" />
     <Content Include="pages\admin\index.aspx" />
+    <Content Include="pages\admin\transaction\payment.aspx" />
     <Content Include="pages\auth\login.aspx" />
     <Content Include="pages\auth\register.aspx" />
     <Content Include="pages\browse\show.aspx" />
@@ -140,6 +141,13 @@
     </Compile>
     <Compile Include="pages\admin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\admin\transaction\payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\admin\transaction\payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\auth\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

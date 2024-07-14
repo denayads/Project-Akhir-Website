@@ -27,6 +27,9 @@
                 <div class="col-3">
                     <asp:HyperLink ID="HyperLinkCRUD" runat="server" CssClass="btn btn-primary w-100 py-3" NavigateUrl="~/pages/admin/crud/index.aspx"><i class="bi bi-clipboard-data me-3"></i>Create, Update, Delete Game</asp:HyperLink>
                 </div>
+                <div class="col-3">
+                    <asp:HyperLink ID="HyperLinkTransaction" runat="server" CssClass="btn btn-primary w-100 py-3" NavigateUrl="~/pages/admin/transaction/payment.aspx"><i class="bi bi-clipboard-data me-3"></i>Transaction</asp:HyperLink>
+                </div>
             </div>
         </div>
     </div>

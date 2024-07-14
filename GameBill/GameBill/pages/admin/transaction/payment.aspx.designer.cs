@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameBill.pages.admin
+namespace GameBill.pages.admin.transaction
 {
 
 
-    public partial class index
+    public partial class payment
     {
 
         /// <summary>
@@ -42,21 +42,57 @@ namespace GameBill.pages.admin
         protected global::System.Web.UI.WebControls.Button ButtonX;
 
         /// <summary>
-        /// HyperLinkCRUD control.
+        /// ListViewTransaction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkCRUD;
+        protected global::System.Web.UI.WebControls.ListView ListViewTransaction;
 
         /// <summary>
-        /// HyperLinkTransaction control.
+        /// ModalStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkTransaction;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModalStatus;
+
+        /// <summary>
+        /// ButtonIconCloseStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonIconCloseStatus;
+
+        /// <summary>
+        /// TextBoxStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxStatus;
+
+        /// <summary>
+        /// ButtonCloseStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCloseStatus;
+
+        /// <summary>
+        /// ButtonUpdateStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonUpdateStatus;
     }
 }

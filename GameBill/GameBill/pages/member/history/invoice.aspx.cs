@@ -64,7 +64,7 @@ namespace GameBill.pages.member.history
 
         protected void ListViewInvoice_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         {
-            (ListViewInvoice.FindControl("DataPagerGames") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+            (ListViewInvoice.FindControl("DataPagerInvoice") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             BindData();
         }
 
