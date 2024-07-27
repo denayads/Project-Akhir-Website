@@ -64,9 +64,9 @@ namespace GameBill.pages.admin.transaction
         protected void LinkButtonStatus_Click(object sender, EventArgs e)
         {
             LinkButton lbtn = (LinkButton)sender;
-            long id = Convert.ToInt64(lbtn.CommandArgument);
+            string id = (lbtn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "select * from checkout where id=@id";
+            string querry = "select * from checkout where id_order=@id";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -75,12 +75,12 @@ namespace GameBill.pages.admin.transaction
                     con.Open();
                     using (SqlCommand cmd = new SqlCommand(querry, con))
                     {
-                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        cmd.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                TextBoxStatus.Text = reader["status"].ToString();
+                                DropDownListStatus.SelectedValue = reader["status"].ToString();
                             }
                         }
                     }
@@ -99,9 +99,9 @@ namespace GameBill.pages.admin.transaction
         protected void ButtonUpdateStatus_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            long id = Convert.ToInt64(btn.CommandArgument);
+            string id = (btn.CommandArgument);
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "update checkout set status=@status where id=@id";
+            string querry = "update checkout set status=@status where id_order=@id";
 
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -110,8 +110,8 @@ namespace GameBill.pages.admin.transaction
                     con.Open();
                     using (SqlCommand cmd = new SqlCommand(querry, con))
                     {
-                        cmd.Parameters.Add("@status", SqlDbType.NVarChar).Value = TextBoxStatus.Text.Trim();
-                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = id;
+                        cmd.Parameters.Add("@status", SqlDbType.NVarChar).Value = DropDownListStatus.SelectedValue;
+                        cmd.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
                         cmd.ExecuteNonQuery();
                     }
                     Response.Redirect("~/pages/admin/transaction/payment.aspx");

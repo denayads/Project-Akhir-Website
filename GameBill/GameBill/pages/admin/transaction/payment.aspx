@@ -76,7 +76,7 @@
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#Eval("status")%>'></asp:Label>
-                                <asp:LinkButton ID="LinkButtonStatus" runat="server" CommandArgument='<%#Eval("id")%>' OnClick="LinkButtonStatus_Click" data-bs-toggle="modal" data-bs-target="#anothersection_ModalStatus"><i class="bi bi-pencil"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonStatus" runat="server" CommandArgument='<%#Eval("id_order")%>' OnClick="LinkButtonStatus_Click"><i class="bi bi-pencil"></i></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -94,9 +94,13 @@
                     <asp:Button ID="ButtonIconCloseStatus" runat="server" Text="" CssClass="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                 </div>
                 <div class="modal-body">
-                    <div class="form-floating mt-3 mb-3">
-                        <asp:TextBox ID="TextBoxStatus" runat="server" CssClass="form-control" placeholder="Status"></asp:TextBox>
-                        <label for="TextBoxStatus" runat="server">Status</label>
+                    <div class="mt-3 mb-3">
+                        <label for="DropDownListStatus" runat="server">Status:</label>
+                        <asp:DropDownList ID="DropDownListStatus" runat="server">
+                            <asp:ListItem>Waiting for payment</asp:ListItem>
+                            <asp:ListItem>Payment verified</asp:ListItem>
+                            <asp:ListItem>Transaction successful</asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                 </div>
                 <div class="modal-footer">
