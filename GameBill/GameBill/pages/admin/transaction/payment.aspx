@@ -84,7 +84,7 @@
                                     <div class="game-item">
                                         <div class="game-img">
                                             <div class="game-img-inner">
-                                                <asp:Image ID="ImageGame" runat="server" CssClass="img-fluid w-100 rounded-top" ImageUrl='<%#(String.IsNullOrEmpty(Eval ("img_location").ToString())) ? "~/assets/img/No_Image_Available.jpg" : "~/" + Eval("img_location")%>' />
+                                                <asp:Image ID="ImagePayment" runat="server" CssClass="img-fluid w-100 rounded-top" ImageUrl='<%#(String.IsNullOrEmpty(Eval ("img_location").ToString())) ? "~/assets/img/No_Image_Available.jpg" : "~/" + Eval("img_location")%>' />
                                             </div>
                                         </div>
                                     </div>

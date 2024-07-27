@@ -23,11 +23,11 @@ namespace GameBill.pages.member.history
         protected void BindData(string searchText = "")
         {
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "select * from checkout join games on checkout.id_games=games.id where checkout.id_users=@id";
+            string querry = "select * from checkout join games on checkout.id_games=games.id join users on checkout.id_users=users.id where checkout.id_users=@id";
 
             if (!searchText.Equals(""))
             {
-                querry = "select * from checkout join games on checkout.id_games=games.id where checkout.id_users=@id like '%' + @search + '%'";
+                querry = "select * from checkout join games on checkout.id_games=games.id join users on checkout.id_users=users.id where checkout.id_users=@id like '%' + @search + '%'";
             }
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -57,6 +57,95 @@ namespace GameBill.pages.member.history
                         notif.Visible = true;
                         notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
                         message.Text = ex.Message;
+                    }
+                }
+            }
+        }
+
+        protected void LinkButtonImage_Click(object sender, EventArgs e)
+        {
+            LinkButton lbtn = (LinkButton)sender;
+            string id = (lbtn.CommandArgument);
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querry = "select img_location from checkout where id_order=@id";
+
+            using (SqlConnection con = new SqlConnection(con_str))
+            {
+                try
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    {
+                        cmd.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
+                    }
+                    ButtonUpdateImage.CommandArgument = id.ToString();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
+                catch (Exception ex)
+                {
+                    notif.Visible = true;
+                    notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                    message.Text = ex.Message;
+                }
+            }
+        }
+
+        protected void ButtonUpdateImage_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string id = (btn.CommandArgument);
+            string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
+            string querry = "update checkout set img_location=@img_location where id_order=@id";
+            string img_name = FileUploadImage.PostedFile.FileName;
+
+            if (FileUploadImage != null && !img_name.Equals(""))
+            {
+                int img_file_size = FileUploadImage.PostedFile.ContentLength;
+                string img_ext = System.IO.Path.GetExtension(img_name);
+                string[] allowed_ext = { ".jpg", ".jpeg", ".png", ".jfif" };
+                if (img_file_size > 15240000)
+                {
+                    Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('File terlalu besar')", true);
+                }
+                else if (!allowed_ext.Contains(img_ext))
+                {
+                    Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Ekstensi tidak diperbolehkan')", true);
+                }
+
+                using (SqlConnection con = new SqlConnection(con_str))
+                {
+                    using (SqlCommand cmd = new SqlCommand(querry, con))
+                    {
+                        cmd.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
+                        try
+                        {
+                            if (FileUploadImage != null && !img_name.Equals(""))
+                            {
+                                string path_name = "assets/img/" + img_name;
+                                cmd.Parameters.Add("@img_location", SqlDbType.NVarChar).Value = path_name;
+                                FileUploadImage.SaveAs(Server.MapPath("~/" + path_name));
+                            }
+                            con.Open();
+                            if (cmd.ExecuteNonQuery() > 0)
+                            {
+                                Response.Redirect("~/pages/member/history/invoice.aspx");
+                                notif.Visible = true;
+                                notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                                message.Text = "Success upload payment image";
+                            }
+                            else
+                            {
+                                notif.Visible = true;
+                                notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                                message.Text = "Failed upload payment image!";
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            notif.Visible = true;
+                            notif.Attributes.Add("class", "alert alert-danger alert-dismissible fade show");
+                            message.Text = ex.Message;
+                        }
                     }
                 }
             }
