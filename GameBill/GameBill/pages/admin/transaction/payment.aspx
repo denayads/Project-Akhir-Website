@@ -40,9 +40,11 @@
                         <table class="table">
                             <tr>
                                 <th>Nomer</th>
+                                <th>Pembeli</th>
                                 <th>Tanggal Pembelian</th>
                                 <th>Nama Game</th>
                                 <th>Harga</th>
+                                <th>Bukti Pembayaran</th>
                                 <th>Status</th>
                             </tr>
                             <tr id="ItemPlaceHolder" runat="server">
@@ -66,6 +68,9 @@
                                 <asp:Label runat="server" Text='<%#Eval("id_order")%>'></asp:Label>
                             </td>
                             <td>
+                                <asp:Label runat="server" Text='<%#Eval("user_name")%>'></asp:Label>
+                            </td>
+                            <td>
                                 <asp:Label runat="server" Text='<%#String.Format("{0:dd-MMM-yyy}", Eval("dates"))%>'></asp:Label>
                             </td>
                             <td>
@@ -73,6 +78,17 @@
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#String.Format("{0:n0}", Eval("prices"))%>'></asp:Label>
+                            </td>
+                            <td>
+                                <div class="col-5">
+                                    <div class="game-item">
+                                        <div class="game-img">
+                                            <div class="game-img-inner">
+                                                <asp:Image ID="ImageGame" runat="server" CssClass="img-fluid w-100 rounded-top" ImageUrl='<%#(String.IsNullOrEmpty(Eval ("img_location").ToString())) ? "~/assets/img/No_Image_Available.jpg" : "~/" + Eval("img_location")%>' />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#Eval("status")%>'></asp:Label>

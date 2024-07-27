@@ -23,11 +23,11 @@ namespace GameBill.pages.admin.transaction
         protected void BindData(string searchText = "")
         {
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "select * from checkout join games on checkout.id_games=games.id";
+            string querry = "select * from checkout join games on checkout.id_games=games.id join users on checkout.id_users=users.id";
 
             if (!searchText.Equals(""))
             {
-                querry = "select * from checkout join games on checkout.id_games=games.id like '%' + @search + '%'";
+                querry = "select * from checkout join games on checkout.id_games=games.id join users on checkout.id_users=users.id like '%' + @search + '%'";
             }
             using (SqlConnection con = new SqlConnection(con_str))
             {
