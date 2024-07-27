@@ -23,10 +23,10 @@
                                     <div class="p-3">
                                         <h1 class="display-6 text-capitalize text-primary mb-4">Cyberpunk 2077</h1>
                                         <p class="mb-5 fs-5">
-                                            Rp. Lorem Ipsum
+                                            Rp. 700.000
                                         </p>
                                         <div class="d-flex align-items-center justify-content-center">
-                                            <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Buy Now</a>
+                                            <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="<%=ResolveUrl("~/pages/browse/show.aspx?id=1")%>">Buy Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -37,10 +37,10 @@
                                     <div class="p-3">
                                         <h1 class="display-6 text-capitalize text-primary mb-4">Resident Evil 4</h1>
                                         <p class="mb-5 fs-5">
-                                            Rp. Lorem Ipsum
+                                            Rp. 600.000
                                         </p>
                                         <div class="d-flex align-items-center justify-content-center">
-                                            <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Buy Now</a>
+                                            <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="<%=ResolveUrl("~/pages/browse/show.aspx?id=2")%>">Buy Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -51,10 +51,10 @@
                                     <div class="p-3">
                                         <h1 class="display-6 text-capitalize text-primary mb-4">Alan Wake II</h1>
                                         <p class="mb-5 fs-5">
-                                            Rp. Lorem Ipsum
+                                            Rp. 590.000
                                         </p>
                                         <div class="d-flex align-items-center justify-content-center">
-                                            <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Buy Now</a>
+                                            <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="<%=ResolveUrl("~/pages/browse/show.aspx?id=3")%>">Buy Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -65,10 +65,10 @@
                                     <div class="p-3" style="max-width: 5000px;">
                                         <h1 class="display-6 text-capitalize text-primary mb-4">Marvel's Spider-Man 2</h1>
                                         <p class="mb-5 fs-5">
-                                            Rp. Lorem Ipsum
+                                            Rp. 890.000
                                         </p>
                                         <div class="d-flex align-items-center justify-content-center">
-                                            <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Buy Now</a>
+                                            <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="<%=ResolveUrl("~/pages/browse/show.aspx?id=4")%>">Buy Now</a>
                                         </div>
                                     </div>
                                 </div>
