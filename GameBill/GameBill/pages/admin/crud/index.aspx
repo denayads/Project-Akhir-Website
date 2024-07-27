@@ -11,14 +11,6 @@
             const myModal = new bootstrap.Modal('#anothersection_ModalShow', {});
             myModal.show();
         }
-        function openModalGenre() {
-            const myModal = new bootstrap.Modal('#anothersection_ModalGenre', {});
-            myModal.show();
-        }
-        function openModalPlatform() {
-            const myModal = new bootstrap.Modal('#anothersection_ModalPlatform', {});
-            myModal.show();
-        }
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="banner" runat="server">
@@ -39,9 +31,7 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row g-3 justify-content-center">
-                <p class="mb-0">
-                    To create games detail click<asp:HyperLink ID="HyperLinkText" runat="server" NavigateUrl="#" data-bs-toggle="modal" data-bs-target="#anothersection_ModalCreate"> here.</asp:HyperLink>
-                </p>
+                <asp:LinkButton ID="LinkButtonCreate" runat="server" CssClass="col-1" data-bs-toggle="modal" data-bs-target="#anothersection_ModalCreate"><i class="fa fa-folder-plus fa-3x"></i></asp:LinkButton>
                 <div id="notif" runat="server" visible="false" class="col-6 mt-3 mb-3 mx-auto" role="alert">
                     <asp:Label ID="message" runat="server" Text=""></asp:Label>
                     <asp:Button ID="ButtonX" runat="server" CssClass="btn-close" data-bs-dismiss="alert" aria-label="Close" />
@@ -110,17 +100,15 @@
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#Eval("genre_name")%>'></asp:Label>
-                                <asp:LinkButton ID="LinkButtonGenre" runat="server" CommandArgument='<%#Eval("id")%>' OnClick="LinkButtonGenre_Click" data-bs-toggle="modal" data-bs-target="#anothersection_ModalGenre"><i class="bi bi-pencil"></i></asp:LinkButton>
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#Eval("platforms_name")%>'></asp:Label>
-                                <asp:LinkButton ID="LinkButtonPlatform" runat="server" CommandArgument='<%#Eval("id")%>' OnClick="LinkButtonPlatform_Click" data-bs-toggle="modal" data-bs-target="#anothersection_ModalPlatform"><i class="bi bi-pencil"></i></asp:LinkButton>
                             </td>
                             <td>
                                 <asp:Label runat="server" Text='<%#Eval("user_name")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%#Eval("id")%>' OnClick="LinkButtonEdit_Click" data-bs-toggle="modal" data-bs-target="#anothersection_ModalShow"><i class="bi bi-pencil"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButtonEdit" runat="server" CommandArgument='<%#Eval("id")%>' OnClick="LinkButtonEdit_Click"><i class="bi bi-pencil"></i></asp:LinkButton>
                                 <asp:LinkButton ID="LinkButtonDelete" runat="server" CommandArgument='<%#Eval("id")%>' OnClientClick="return confirm('Are you sure, you want to delete this?')" OnClick="LinkButtonDelete_Click"><i class="bi bi-trash"></i></asp:LinkButton>
                             </td>
                         </tr>
@@ -174,6 +162,16 @@
                     <div class="form-floating mt-3 mb-3">
                         <asp:TextBox ID="TextBoxHargaCreate" runat="server" CssClass="form-control" placeholder="Harga"></asp:TextBox>
                         <label for="TextBoxHargaCreate" runat="server">Harga</label>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <p>Genre :</p>
+                            <asp:CheckBoxList ID="CheckBoxListGenreCreate" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
+                        </div>
+                        <div class="col-6">
+                            <p>Platform :</p>
+                            <asp:CheckBoxList ID="CheckBoxListPlatformCreate" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -230,6 +228,16 @@
                         <asp:TextBox ID="TextBoxHargaShow" runat="server" CssClass="form-control" placeholder="Harga"></asp:TextBox>
                         <label for="TextBoxHargaShow" runat="server">Harga</label>
                     </div>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <p>Genre :</p>
+                            <asp:CheckBoxList ID="CheckBoxListGenreShow" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
+                        </div>
+                        <div class="col-6">
+                            <p>Platform :</p>
+                            <asp:CheckBoxList ID="CheckBoxListPlatformShow" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="ButtonCloseShow" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />
@@ -239,46 +247,4 @@
         </div>
     </div>
     <%--Modal Show End--%>
-
-    <%--Modal Genre Start--%>
-    <div class="modal fade" id="ModalGenre" runat="server" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ModalLabelGenre">Detail Genre</h1>
-                    <asp:Button ID="ButtonIconCloseGenre" runat="server" Text="" CssClass="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                </div>
-                <div class="modal-body">
-                    <p>Genre :</p>
-                    <asp:CheckBoxList ID="CheckBoxListGenre" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
-                </div>
-                <div class="modal-footer">
-                    <asp:Button ID="ButtonGenreClose" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />
-                    <asp:Button ID="ButtonGenreCreate" runat="server" Text="Create" CssClass="btn btn-primary" OnClick="ButtonGenreCreate_Click" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <%--Modal Genre End--%>
-
-    <%--Modal Platform Start--%>
-    <div class="modal fade" id="ModalPlatform" runat="server" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ModalLabelPlatform">Detail Platform</h1>
-                    <asp:Button ID="ButtonIconClosePlatform" runat="server" Text="" CssClass="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                </div>
-                <div class="modal-body">
-                    <p>Platform :</p>
-                    <asp:CheckBoxList ID="CheckBoxListPlatform" runat="server" CssClass="list-group list-group-horizontal form-switch mt-3 mb-3"></asp:CheckBoxList>
-                </div>
-                <div class="modal-footer">
-                    <asp:Button ID="ButtonPlatformClose" runat="server" Text="Close" CssClass="btn btn-secondary" data-bs-dismiss="modal" />
-                    <asp:Button ID="ButtonPlatformCreate" runat="server" Text="Create" CssClass="btn btn-primary" OnClick="ButtonPlatformCreate_Click" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <%--Modal Platform End--%>
 </asp:Content>
