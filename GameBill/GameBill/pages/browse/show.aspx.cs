@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Services.Description;
-using System.Runtime.Remoting.Lifetime;
 
 namespace GameBill.pages.browse
 {
@@ -27,6 +26,7 @@ namespace GameBill.pages.browse
         {
             DataTable rst = MyRst("select * from games where games.id=" + Convert.ToInt64(Request.QueryString["id"]) + "");
             rst.Columns.Add("genre_name", typeof(string));
+            rst.Columns.Add("platforms_name", typeof(string));
             foreach (DataRow OneRow in rst.Rows)
             {
                 DataTable ChildRows = MyRst("select * from games_genre join genre on games_genre.id_genre=genre.id where games_genre.id_games= " + OneRow["id"]);
@@ -36,17 +36,28 @@ namespace GameBill.pages.browse
                     {
                         OneRow["genre_name"] += ", ";
                     }
-
                     OneRow["genre_name"] += ChildRow["genre_name"].ToString();
                 }
             }
-            ListViewGenre.DataSource = rst;
-            ListViewGenre.DataBind();
+            foreach (DataRow OneRow in rst.Rows)
+            {
+                DataTable ChildRows = MyRst("select * from games_platforms join platforms on games_platforms.id_platforms=platforms.id where games_platforms.id_games= " + OneRow["id"]);
+                foreach (DataRow ChildRow in ChildRows.Rows)
+                {
+                    if (OneRow["platforms_name"].ToString() != "")
+                    {
+                        OneRow["platforms_name"] += ", ";
+                    }
+                    OneRow["platforms_name"] += ChildRow["platforms_name"].ToString();
+                }
+            }
+            ListViewDetail.DataSource = rst;
+            ListViewDetail.DataBind();
 
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(con_str))
             {
-                using (SqlCommand cmd = new SqlCommand("select * from games join games_genre on games.id=games_genre.id_games join genre on games_genre.id_genre=genre.id where games.id=@id", con))
+                using (SqlCommand cmd = new SqlCommand("select * from games join games_genre on games.id=games_genre.id_games join genre on games_genre.id_genre=genre.id join games_platforms on games.id=games_platforms.id_games join platforms on games_platforms.id_platforms=platforms.id where games.id=@id", con))
                 {
                     cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = Convert.ToInt64(Request.QueryString["id"]);
                     try
@@ -58,7 +69,14 @@ namespace GameBill.pages.browse
                             {
                                 title = reader["game_name"].ToString();
                                 LabelNamaGame.Text = reader["game_name"].ToString();
+                                ImageGame.ImageUrl = "~/" + reader["img_location"].ToString();
                                 LabelDeskripsi.Text = reader["description"].ToString();
+                                LabelHarga.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:C2}", reader["prices"]);
+                                LabelDevelopers.Text = reader["developers"].ToString();
+                                LabelPublishers.Text = reader["publishers"].ToString();
+                                LabelGameMode.Text = reader["game_modes"].ToString();
+                                LabelPlayerPerspectives.Text = reader["player_perspectives"].ToString();
+                                LabelReleaseDate.Text = String.Format("{0:dd/MM/yyyy}", reader["release_dates"]);
                             }
                         }
                     }

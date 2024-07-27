@@ -102,7 +102,7 @@ namespace GameBill.pages.member.cart
 
         protected void LinkButtonCheckout_Click(object sender, EventArgs e)
         {
-            string date = string.Format("{0:dd.MM.yyyy.hh.mm.ss}", DateTime.Now);
+            string date = String.Format("{0:dd.MM.yyyy.hh.mm.ss}", DateTime.Now);
             List<string> id_games = new List<string>();
             long id = Convert.ToInt64(Session["id"]);
             string id_order = "GB/" + id + "/" + date;

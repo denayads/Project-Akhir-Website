@@ -51,22 +51,22 @@ namespace GameBill.pages.browse
         protected global::System.Web.UI.WebControls.Label LabelNamaGame;
 
         /// <summary>
-        /// LabelNamaGenre control.
+        /// ImageGame control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelNamaGenre;
+        protected global::System.Web.UI.WebControls.Image ImageGame;
 
         /// <summary>
-        /// ListViewGenre control.
+        /// ListViewDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListViewGenre;
+        protected global::System.Web.UI.WebControls.ListView ListViewDetail;
 
         /// <summary>
         /// LabelDeskripsi control.
@@ -78,6 +78,15 @@ namespace GameBill.pages.browse
         protected global::System.Web.UI.WebControls.Label LabelDeskripsi;
 
         /// <summary>
+        /// LabelHarga control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelHarga;
+
+        /// <summary>
         /// LinkButtonBuy control.
         /// </summary>
         /// <remarks>
@@ -85,5 +94,50 @@ namespace GameBill.pages.browse
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonBuy;
+
+        /// <summary>
+        /// LabelDevelopers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDevelopers;
+
+        /// <summary>
+        /// LabelPublishers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPublishers;
+
+        /// <summary>
+        /// LabelGameMode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelGameMode;
+
+        /// <summary>
+        /// LabelPlayerPerspectives control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPlayerPerspectives;
+
+        /// <summary>
+        /// LabelReleaseDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelReleaseDate;
     }
 }
