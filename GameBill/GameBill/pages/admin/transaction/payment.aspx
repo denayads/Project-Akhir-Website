@@ -24,6 +24,14 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="features" runat="server">
+    <div class="container-fluid game py-3">
+        <div class="container py-3">
+            <div class="input-group w-100 mx-auto d-flex mb-4">
+                <asp:TextBox ID="TextBoxSearch" runat="server" TextMode="Search" CssClass="form-control p-3" placeholder="Search order number here..."></asp:TextBox>
+                <asp:Button ID="ButtonSearch" runat="server" Text="Search" CssClass="btn btn-primary input-group-text p-3" OnClick="ButtonSearch_Click" />
+            </div>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="gamessection" runat="server">
 </asp:Content>
