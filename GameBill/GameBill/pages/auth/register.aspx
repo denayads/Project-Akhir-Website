@@ -38,10 +38,12 @@
                         <div class="form-floating col-5 mt-3 mb-3 mx-auto">
                             <asp:TextBox ID="TextBoxUserName" runat="server" CssClass="form-control" placeholder="User Name" required></asp:TextBox>
                             <label for="TextBoxUserName" runat="server">User Name</label>
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="Fill user name!" ControlToValidate="TextBoxUserName" CssClass="ms-3 invalid"></asp:RequiredFieldValidator>--%>
                         </div>
                         <div class="form-floating col-5 mt-3 mb-3 mx-auto">
                             <asp:TextBox ID="TextBoxEmail" runat="server" TextMode="Email" CssClass="form-control" placeholder="Email" required></asp:TextBox>
                             <label for="TextBoxEmail" runat="server">Email</label>
+                            <%--<asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Email wrong!" ControlToValidate="TextBoxEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" CssClass="mb-3 invalid"></asp:RegularExpressionValidator>--%>
                         </div>
                         <div class="form-floating col-5 mt-3 mb-3 mx-auto">
                             <asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password" required></asp:TextBox>
@@ -50,6 +52,7 @@
                         <div class="form-floating col-5 mt-3 mb-5 mx-auto">
                             <asp:TextBox ID="TextBoxConfirmPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Confirm Password" required></asp:TextBox>
                             <label for="TextBoxConfirmPassword" runat="server">Confirm Password</label>
+                            <%--<asp:CompareValidator ID="CompareValidatorPassword" runat="server" ErrorMessage="Password and confirm password not same!" ControlToCompare="TextBoxPassword" ControlToValidate="TextBoxConfirmPassword" Operator="Equal" Type="String" CssClass="ms-3 invalid"></asp:CompareValidator>--%>
                         </div>
                         <div class="col-3 mt-5 mb-3 mx-auto">
                             <div class="d-grid">

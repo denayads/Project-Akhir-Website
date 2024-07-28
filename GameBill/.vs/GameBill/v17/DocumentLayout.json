@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "G:\\Project-Akhir-Website\\GameBill\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|g:\\project-akhir-website\\gamebill\\gamebill\\pages\\admin\\transaction\\payment.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\pages\\admin\\transaction\\payment.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|g:\\project-akhir-website\\gamebill\\gamebill\\pages\\admin\\transaction\\payment.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{B9D8F9F6-6B70-4BD1-B2D4-5E89059289F4}|GameBill\\GameBill.csproj|solutionrelative:gamebill\\pages\\admin\\transaction\\payment.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,32 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "payment.aspx.cs",
-              "DocumentMoniker": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\admin\\transaction\\payment.aspx.cs",
-              "RelativeDocumentMoniker": "GameBill\\pages\\admin\\transaction\\payment.aspx.cs",
-              "ToolTip": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\admin\\transaction\\payment.aspx.cs",
-              "RelativeToolTip": "GameBill\\pages\\admin\\transaction\\payment.aspx.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwB0AAADQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T10:22:40.059Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "payment.aspx",
-              "DocumentMoniker": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\admin\\transaction\\payment.aspx",
-              "RelativeDocumentMoniker": "GameBill\\pages\\admin\\transaction\\payment.aspx",
-              "ToolTip": "G:\\Project-Akhir-Website\\GameBill\\GameBill\\pages\\admin\\transaction\\payment.aspx",
-              "RelativeToolTip": "GameBill\\pages\\admin\\transaction\\payment.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-28T10:22:38.234Z",
-              "EditorCaption": ""
             }
           ]
         }

@@ -23,11 +23,11 @@ namespace GameBill.pages.member.history
         protected void BindData(string searchText = "")
         {
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "select * from checkout join games on checkout.id_games=games.id join users on checkout.id_users=users.id where checkout.id_users=@id";
+            string querry = "select * from checkout join games on checkout.id_games=games.id join users on checkout.id_users=users.id where checkout.id_users=@id order by checkout.dates desc";
 
             if (!searchText.Equals(""))
             {
-                querry = "select * from checkout join games on checkout.id_games=games.id join users on checkout.id_users=users.id where checkout.id_users=@id like '%' + @search + '%'";
+                querry = "select * from checkout join games on checkout.id_games=games.id join users on checkout.id_users=users.id where checkout.id_users=@id and checkout.id_order like '%' + @search + '%' order by checkout.dates desc";
             }
             using (SqlConnection con = new SqlConnection(con_str))
             {
@@ -159,7 +159,7 @@ namespace GameBill.pages.member.history
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            //BindData(TextBoxSearch.Text.Trim());
+            BindData(TextBoxSearch.Text.Trim());
         }
     }
 }
