@@ -36,11 +36,11 @@
                     </div>
                     <div class="col-12">
                         <div class="form-floating col-5 mt-3 mb-3 mx-auto">
-                            <asp:TextBox ID="TextBoxUserName" runat="server" CssClass="form-control" placeholder="User Name" required=""></asp:TextBox>
+                            <asp:TextBox ID="TextBoxUserName" runat="server" CssClass="form-control" placeholder="User Name" required></asp:TextBox>
                             <label for="TextBoxUserName" runat="server">User Name</label>
                         </div>
                         <div class="form-floating col-5 mt-3 mb-5 mx-auto">
-                            <asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password" required=""></asp:TextBox>
+                            <asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password" required></asp:TextBox>
                             <label for="TextBoxPassword" runat="server">Password</label>
                         </div>
                         <div class="col-3 mt-5 mb-3 mx-auto">

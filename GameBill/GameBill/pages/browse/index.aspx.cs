@@ -23,23 +23,25 @@ namespace GameBill.pages.browse
         protected void BindData(string searchText = "")
         {
             string con_str = ConfigurationManager.ConnectionStrings["GameBillCS"].ConnectionString;
-            string querry = "select * from games";
+            string query = "select * from games";
+            string queryGenre = "select * from genre";
+            string queryPlatform = "select * from platforms";
 
             if (!searchText.Equals(""))
             {
-                querry = "select * from games where games.game_name like '%' + @search + '%'";
+                query = "select * from games where games.game_name like '%' + @search + '%'";
             }
             using (SqlConnection con = new SqlConnection(con_str))
             {
-                using (SqlCommand cmd = new SqlCommand(querry, con))
+                try
                 {
-                    if (!searchText.Equals(""))
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.Add("@search", SqlDbType.NVarChar).Value = searchText.Trim();
-                    }
-                    try
-                    {
-                        con.Open();
+                        if (!searchText.Equals(""))
+                        {
+                            cmd.Parameters.Add("@search", SqlDbType.NVarChar).Value = searchText.Trim();
+                        }
                         using (SqlDataAdapter sda = new SqlDataAdapter())
                         {
                             sda.SelectCommand = cmd;
@@ -51,10 +53,36 @@ namespace GameBill.pages.browse
                             }
                         }
                     }
-                    catch (Exception ex)
+                    using (SqlCommand cmd = new SqlCommand(queryGenre, con))
                     {
-                        Response.Write(ex.Message);
+                        RadioButtonListGenre.Items.Clear();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ListItem item = new ListItem(reader["genre_name"].ToString(), reader["id"].ToString());
+                                item.Selected = false;
+                                RadioButtonListGenre.Items.Add(item);
+                            }
+                        }
                     }
+                    using (SqlCommand cmd = new SqlCommand(queryPlatform, con))
+                    {
+                        RadioButtonListPlatform.Items.Clear();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ListItem item = new ListItem(reader["platforms_name"].ToString(), reader["id"].ToString());
+                                item.Selected = false;
+                                RadioButtonListPlatform.Items.Add(item);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
                 }
             }
         }
@@ -67,7 +95,12 @@ namespace GameBill.pages.browse
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            //BindData(TextBoxSearch.Text.Trim());
+            BindData(TextBoxSearch.Text.Trim());
+        }
+
+        protected void ButtonFilter_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
