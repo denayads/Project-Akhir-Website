@@ -69,11 +69,22 @@
   <ItemGroup>
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\style.css" />
-    <Content Include="assets\img\AlanWake2_1.jfif" />
-    <Content Include="assets\img\Cyberpunk2077_1.png" />
-    <Content Include="assets\img\MarvelsSpiderMan2_1.jfif" />
+    <Content Include="assets\img\AlanWake2_1.jpg" />
+    <Content Include="assets\img\Bukti1.jpg" />
+    <Content Include="assets\img\Cyberpunk2077_1.jpg" />
+    <Content Include="assets\img\DeadSpace_1.jpg" />
+    <Content Include="assets\img\FootballManager2024_1.jpg" />
+    <Content Include="assets\img\HogwartsLegacy_1.jpg" />
+    <Content Include="assets\img\JaggedAlliance3_1.jpg" />
+    <Content Include="assets\img\LikeaDragonGaiden_1.jpg" />
+    <Content Include="assets\img\LikeaDragonIshin_1.jpg" />
+    <Content Include="assets\img\MarvelsSpiderMan2_1.jpg" />
     <Content Include="assets\img\No_Image_Available.jpg" />
-    <Content Include="assets\img\ResidentEvil4_1.jfif" />
+    <Content Include="assets\img\OnePieceOdyssey_1.jpg" />
+    <Content Include="assets\img\ResidentEvil4_1.jpg" />
+    <Content Include="assets\img\StarWarsJediSurvivor_1.jpg" />
+    <Content Include="assets\img\StreetFighter6_1.jpg" />
+    <Content Include="assets\img\Wartales_1.jpg" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\lib\animate\animate.css" />
     <Content Include="assets\lib\animate\animate.min.css" />

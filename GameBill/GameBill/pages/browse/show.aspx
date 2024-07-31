@@ -47,10 +47,10 @@
                 <div class="col-2">
                     <div class="row mt-3 mb-3">
                         <div class="col-6">
-                            <h3>Price:</h3>
+                            <h5>Price:</h5>
                         </div>
                         <div class="col-6">
-                            <asp:Label ID="LabelHarga" runat="server" Text="" CssClass="fw-bolder"></asp:Label>
+                            <asp:Label ID="LabelHarga" runat="server" Text="" CssClass="fw-bolder h5"></asp:Label>
                         </div>
                     </div>
                     <asp:LinkButton ID="LinkButtonBuy" runat="server" CssClass="btn btn-primary w-100 py-3" OnClick="LinkButtonBuy_Click">Buy Now</asp:LinkButton>
